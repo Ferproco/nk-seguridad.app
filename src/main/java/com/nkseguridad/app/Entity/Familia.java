@@ -1,13 +1,16 @@
 package com.nkseguridad.app.Entity;
 
 import java.io.Serializable;
-import java.util.Arrays;
 
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -24,17 +27,36 @@ public class Familia implements Serializable{
 	@Column(name = "codfamilia")
 	private Long codfamilia;
 	
-	@Column(name = "nomfamilia")
+	@Column(name = "nomfamilia",length=120)
 	private String nomfamilia;
 	
 	@Column(name = "codnegocio")
-	private String negocioId;
+	private Long codnegocio;
 	
+	public Long getCodnegocio() {
+		return codnegocio;
+	}
+
+	public void setCodnegocio(Long codnegocio) {
+		this.codnegocio = codnegocio;
+	}
+
 	@Column(name = "imagen")
 	private Byte[] imagen;
 	@Column(name = "status")
 	private String status;
 	
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "codnegocio", insertable = false, updatable = false)
+	private Negocio negocio;
+	
+	public Negocio getNegocio() {
+		return negocio;
+	}
+
+	public void setNegocio(Negocio negocio) {
+		this.negocio = negocio;
+	}
 
 	public String getStatus() {
 		return status;
@@ -60,13 +82,6 @@ public class Familia implements Serializable{
 		this.nomfamilia = nomfamilia;
 	}
 
-	public String getNegocioId() {
-		return negocioId;
-	}
-
-	public void setNegocioId(String negocioId) {
-		this.negocioId = negocioId;
-	}
 
 	public Byte[] getImagen() {
 		return imagen;
@@ -76,23 +91,12 @@ public class Familia implements Serializable{
 		this.imagen = imagen;
 	}
 
-	public Familia(Long codfamilia, String nomfamilia, String negocioId, Byte[] imagen) {
-		super();
-		this.codfamilia = codfamilia;
-		this.nomfamilia = nomfamilia;
-		this.negocioId = negocioId;
-		this.imagen = imagen;
-	}
 	
 	public Familia() {
 		
 	}
 
-	@Override
-	public String toString() {
-		return "Familia [codfamilia=" + codfamilia + ", nomfamilia=" + nomfamilia + ", negocioId=" + negocioId
-				+ ", imagen=" + Arrays.toString(imagen) + "]";
-	}
+	
 	
 
 }
