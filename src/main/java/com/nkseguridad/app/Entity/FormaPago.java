@@ -2,9 +2,12 @@ package com.nkseguridad.app.Entity;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -17,19 +20,47 @@ public class FormaPago implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 	@Id
-	@Column(name = "codigoforma")
-	private String codigoforma;
+	@Column(name = "id")
+	private Long id;
+	@Column(name = "codnegocio")
+	private Long codnegocio;
+	@Column(name="nombre",length=120)
+    private String nombre;
+    private Long numero;
+    @Column(name="aplicara",length=120)
+    private String aplicara;
+    @Column(name="tipo",length=120)
+    private String tipo;    
+    private Double limitecredito;
+    private Double dias;
+    private Double porcinteres;
+    private Double numerogiros;
+    private Double diasxgiro;
+    @Column(name="status",length=10)
+    private String status;
 	
-	public String getCodigoforma() {
-		return codigoforma;
+
+
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "codnegocio", insertable = false, updatable = false)
+	private Negocio negocio;
+	
+	public Negocio getNegocio() {
+		return negocio;
 	}
-	public void setCodigoforma(String codigoforma) {
-		this.codigoforma = codigoforma;
+	public void setNegocio(Negocio negocio) {
+		this.negocio = negocio;
 	}
-	public String getCodnegocio() {
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
+	public Long getCodnegocio() {
 		return codnegocio;
 	}
-	public void setCodnegocio(String codnegocio) {
+	public void setCodnegocio(Long codnegocio) {
 		this.codnegocio = codnegocio;
 	}
 	public String getNombre() {
@@ -92,17 +123,7 @@ public class FormaPago implements Serializable {
 	public void setStatus(String status) {
 		this.status = status;
 	}
-	private String codnegocio;
-    private String nombre;
-    private Long numero;
-    private String aplicara;
-    private String tipo;
-    private Double limitecredito;
-    private Double dias;
-    private Double porcinteres;
-    private Double numerogiros;
-    private Double diasxgiro;
-    private String status;
+	
 
 	
 }

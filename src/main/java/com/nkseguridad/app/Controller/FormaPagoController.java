@@ -40,10 +40,10 @@ public class FormaPagoController {
 		}
 	}
 
-	@GetMapping("formapago/{codigoforma}")
-	public ResponseEntity<?> BuscarPorCodigo(@PathVariable(name = "codigoforma") String codigoforma) {
+	@GetMapping("formapago/{id}")
+	public ResponseEntity<?> BuscarPorCodigo(@PathVariable(name = "id") Long id) {
 
-		FormaPago formaPago = FormaPagoService.findByCodigo(codigoforma);
+		FormaPago formaPago = FormaPagoService.findByCodigo(id);
 		if (formaPago != null) {
 			return new ResponseEntity<>(formaPago, HttpStatus.OK);
 		} else {
@@ -54,7 +54,7 @@ public class FormaPagoController {
 	@PostMapping("formapago")
 	public ResponseEntity<?> GuardarFormaPago(@RequestBody FormaPago formaPago) {
 		try {
-			FormaPago formaPagoUpdate = FormaPagoService.findByCodigo(formaPago.getCodigoforma());
+			FormaPago formaPagoUpdate = FormaPagoService.findByCodigo(formaPago.getId()());
 			if (formaPagoUpdate!=null) {
 				return new ResponseEntity<Void>(HttpStatus.FOUND);
 			} 
@@ -79,9 +79,9 @@ public class FormaPagoController {
 	@PutMapping("formapago")
 	public ResponseEntity<?> ModificarFormaPago(@RequestBody FormaPago formaPago) {
 		try {
-			FormaPago formaPagoUpdate = FormaPagoService.findByCodigo(formaPago.getCodigoforma());
+			FormaPago formaPagoUpdate = FormaPagoService.findByCodigo(formaPago.getId());
 			if (formaPagoUpdate!=null) {
-				formaPagoUpdate.setCodnegocio(formaPago.getCodigoforma());
+				formaPagoUpdate.setCodnegocio(formaPago.getId());
 				formaPagoUpdate.setNombre(formaPago.getNombre());
 				formaPagoUpdate.setNumero(formaPago.getNumero());
 				formaPagoUpdate.setAplicara(formaPago.getAplicara());

@@ -21,13 +21,13 @@ public class FormaPagoService implements IFormaPagoService {
 	}
 
 	@Override
-	public FormaPago findByCodigo(String codigo) {
+	public FormaPago findByCodigo(Long codigo) {
 		// TODO Auto-generated method stub
 		return FormaPagoRepository.findById(codigo).orElse(null);
 	}
 
 	@Override
-	public boolean existebyCodigo(String codigo) {
+	public boolean existebyCodigo(Long codigo) {
 		// TODO Auto-generated method stub
 		return FormaPagoRepository.existsById(codigo);
 	}

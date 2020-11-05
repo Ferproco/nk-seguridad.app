@@ -7,6 +7,6 @@ import com.nkseguridad.app.Entity.FormaPago;
 
 
 @Repository
-public interface IFormaPagoRepository extends CrudRepository<FormaPago, String> {
+public interface IFormaPagoRepository extends CrudRepository<FormaPago, Long> {
 
 }
