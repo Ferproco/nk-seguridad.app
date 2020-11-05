@@ -26,8 +26,7 @@ public class Ruta implements Serializable {
 	private Long idruta;
 	
 	@Column(name = "nombre", nullable = false, length = 120)
-	private String nombre;
-	
+	private String nombre;	
 	private Long codigozona;
 	private Long codigovendedor;
 	private Long codnegocio;
