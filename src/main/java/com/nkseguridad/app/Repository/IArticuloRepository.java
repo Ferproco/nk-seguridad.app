@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.nkseguridad.app.Entity.Articulo;
 
 @Repository
-public interface IArticuloRepository extends CrudRepository<Articulo,String> {
+public interface IArticuloRepository extends CrudRepository<Articulo,Long> {
 
 }

@@ -21,24 +21,34 @@ public class Articulo implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "codigo")
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+	private Long id;
+    @Column(name = "codigo",length=30)
 	private String codigo;
+    @Column(name="codmarca")
 	private Long codmarca;
+    @Column(name="codfamilia")
 	private Long codfamilia;
-	private String pro_codigo;
-	private String abrevunidadmedida;
+    @Column(name="pro_codigo",length=10)
+    private String pro_codigo;
+    private Long idunidad;
 	private String codgrupoarticulo;
+	@Column(name="nomarticulo",length=120)
 	private String nomarticulo;
 	private Double preciosugerido;
 	private Double stockminimo;
 	private Double stockmaximo;
 	private Double puntoreorden;
+	@Column(name="codigobarraprincipal",length=50)
 	private String codigobarraprincipal;
+	@Column(name="origen",length=10)
 	private String origen;
 	private Byte imagen;
+	@Column(name="nombimagen",length=120)
 	private String nombimagen;
+	@Column(name="status",length=10)
     private String status;
     private Double alto;
     private Double ancho;
@@ -88,6 +98,9 @@ public class Articulo implements Serializable {
     private String nombregrupoarticulo;
     private String nombreunidadmedida;
     private String nombremarca;
+   
+   
+   
     
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "codfamilia",  insertable = false, updatable = false)
@@ -98,13 +111,28 @@ public class Articulo implements Serializable {
     private Marca marca;
     
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "abrevunidadmedida",  insertable = false, updatable = false)
+    @JoinColumn(name = "idunidad",  insertable = false, updatable = false)
     private Unidadmedida unidadmedida;
     
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "codgrupoarticulo",  insertable = false, updatable = false)
     private GrupoArticulo grupoarticulo;
     
+    public Long getIdunidad() {
+		return idunidad;
+	}
+	public void setIdunidad(Long idunidad) {
+		this.idunidad = idunidad;
+	}
+	
+    
+    
+    public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
 	public GrupoArticulo getGrupoarticulo() {
 		return grupoarticulo;
 	}
@@ -153,12 +181,7 @@ public class Articulo implements Serializable {
 	public void setPro_codigo(String pro_codigo) {
 		this.pro_codigo = pro_codigo;
 	}
-	public String getAbrevunidadmedida() {
-		return abrevunidadmedida;
-	}
-	public void setAbrevunidadmedida(String abrevunidadmedida) {
-		this.abrevunidadmedida = abrevunidadmedida;
-	}
+	
 	public String getCodgrupoarticulo() {
 		return codgrupoarticulo;
 	}

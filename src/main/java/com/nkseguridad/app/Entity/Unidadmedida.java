@@ -20,16 +20,32 @@ public class Unidadmedida implements Serializable{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="abrevunidadmedida")
+	@Column(name="id")	
+	private Long id;
 	private String abrevunidadmedida;
-	
 	private String nomunidadmedida;
 	private String codnegocio;
+	private String status;
 	
 	
 	
 	
 	
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
+	}
+	public void setCodnegocio(String codnegocio) {
+		this.codnegocio = codnegocio;
+	}
 	public String getAbrevunidadmedida() {
 		return abrevunidadmedida;
 	}

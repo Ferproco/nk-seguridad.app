@@ -28,10 +28,19 @@ public class GrupoArticulo implements Serializable {
     private Double comision;
     private String tipo;
 	private String codnegocio;
+	private String status;
 	
 	
 
-	 public GrupoArticulo() {
+	 public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+	public GrupoArticulo() {
 			
 		}
 		

@@ -18,19 +18,27 @@ public class Almacen implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	private String codalmacen;
-	private String codnegocio;
-	private String nombre;
-	private Boolean principal;
-	private String tipoalmacen;
-	private String direccion;
-	
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="idalmacen")
 	private Long idalmacen;
-	private String status;  
+	
+	@Column(name="codalmacen",length=3)
+	private String codalmacen;
+	@Column(name="codnegocio",length=15)
+	private String codnegocio;
+	@Column(name="nombre",length=120)
+	private String nombre;
+	private Boolean principal;
+	@Column(name="tipoalmacen",length=120)
+	private String tipoalmacen;
+	@Column(name="direccion",length=255)
+	private String direccion;
+	@Column(name="status",length=10)
+	private String status; 
+	
+	
+	 
 	
 	public String getStatus() {
 		return status;
