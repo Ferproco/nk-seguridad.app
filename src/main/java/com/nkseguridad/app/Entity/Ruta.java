@@ -12,8 +12,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-
-
 @Entity
 @Table(name = "rutas", schema = "public")
 public class Ruta implements Serializable {
@@ -25,15 +23,14 @@ public class Ruta implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "codigo")
-	private String codigo;
-	
+	private String codigo;	
 	private String nombre;
 	private Long codigozona;
 	private String desdeuno;
 	private String hastauno;
 	private String desdedos;
 	private String hastados;
-	private String codigovendedor;
+	private Long codigovendedor;
 	private String codnegocio;	
 	private String status;
 	
@@ -87,10 +84,10 @@ public class Ruta implements Serializable {
 	public void setHastados(String hastados) {
 		this.hastados = hastados;
 	}
-	public String getCodigovendedor() {
+	public Long getCodigovendedor() {
 		return codigovendedor;
 	}
-	public void setCodigovendedor(String codigovendedor) {
+	public void setCodigovendedor(Long codigovendedor) {
 		this.codigovendedor = codigovendedor;
 	}
 	public String getCodnegocio() {

@@ -26,6 +26,7 @@ public class Vendedor implements Serializable {
 	private static final long serialVersionUID = 5451031297828660307L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 	@Column(name = "codigo")
 	private String codigo;	
 	private String nombre;
@@ -66,6 +67,13 @@ public class Vendedor implements Serializable {
 	@JoinColumn(name = "codvendedor", referencedColumnName = "codigo")
 	private List<Comision> LstComisiones = new ArrayList<>();
 	
+	
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
 	public String getCodigo() {
 		return codigo;
 	}

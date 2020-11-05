@@ -12,24 +12,21 @@ import javax.persistence.Table;
 @Entity
 @Table(name="almacen",schema="public")
 public class Almacen implements Serializable {
-
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="idalmacen")
+	private Long idalmacen;
 	private String codalmacen;
 	private String codnegocio;
 	private String nombre;
 	private Boolean principal;
 	private String tipoalmacen;
 	private String direccion;
-	
-	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="idalmacen")
-	private Long idalmacen;
 	private String status;  
 	
 	public String getStatus() {
