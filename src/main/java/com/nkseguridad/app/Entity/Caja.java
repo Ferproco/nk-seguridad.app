@@ -15,6 +15,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.core.sym.Name;
+
 @Entity
 @Table(name="caja",schema ="public")
 public class Caja implements Serializable {	
@@ -24,10 +26,8 @@ public class Caja implements Serializable {
 	private static final long serialVersionUID = -1150861150732733713L;
 	@Id	
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id")
 	private Long id;
-	
-	@Column(name="codigocaja", length = 3, nullable = false)
-	private String codigocaja;
 	
 	@Column(name="codnegocio", length = 15)
 	private Long codnegocio;
@@ -52,7 +52,7 @@ public class Caja implements Serializable {
 	private Negocio negocio;
 
 	@OneToMany(cascade=CascadeType.ALL)
-	@JoinColumn(name="codigocaja",referencedColumnName ="codigocaja")
+	@JoinColumn(name="codigocaja",referencedColumnName ="id")
 	List<MovimientosCaja> lstmovimientoscaja=new ArrayList<MovimientosCaja>();
 	
 	public List<MovimientosCaja> getLstmovimientoscaja() {
@@ -69,14 +69,6 @@ public class Caja implements Serializable {
 
 	public void setId(Long id) {
 		this.id = id;
-	}
-
-	public String getCodigocaja() {
-		return codigocaja;
-	}
-
-	public void setCodigocaja(String codigocaja) {
-		this.codigocaja = codigocaja;
 	}
 
 	public Long getCodnegocio() {

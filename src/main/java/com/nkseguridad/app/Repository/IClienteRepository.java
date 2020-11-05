@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.nkseguridad.app.Entity.Cliente;
 
 @Repository
-public interface IClienteRepository extends CrudRepository<Cliente, String> {
+public interface IClienteRepository extends CrudRepository<Cliente, Long> {
 
 }

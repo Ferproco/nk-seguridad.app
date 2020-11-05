@@ -39,8 +39,8 @@ public class CajaController {
 	}
 
 	@GetMapping("caja/{codigocaja}")
-	public ResponseEntity<?> BuscarPorCodigo(@PathVariable(name = "codigocaja") String codigocaja) {
-		Caja caja = CajaService.findByCodigo(codigocaja);
+	public ResponseEntity<?> BuscarPorCodigo(@PathVariable(name = "codigocaja") Long codigocaja) {
+		Caja caja = CajaService.findById(codigocaja);
 		if (caja != null) {
 			return new ResponseEntity<>(caja, HttpStatus.OK);
 		} else {
@@ -49,10 +49,10 @@ public class CajaController {
 	}
 	
 	@GetMapping("caja/{codigocaja}/{Fechadesde}/{Fechahasta}")
-	public ResponseEntity<?> BuscarPorCodigoFecha(@PathVariable(name = "codigocaja") String codigocaja,
+	public ResponseEntity<?> BuscarPorCodigoFecha(@PathVariable(name = "codigocaja") Long codigocaja,
 												 @PathVariable(name = "Fechadesde") String Fechadesde,
 												 @PathVariable(name = "Fechahasta") String Fechahasta) {
-		Caja caja = CajaService.findByCodigo(codigocaja);
+		Caja caja = CajaService.findById(codigocaja);
 		if (caja != null) {
 			return new ResponseEntity<>(caja, HttpStatus.OK);
 		} else {
@@ -63,7 +63,7 @@ public class CajaController {
 
 	@PostMapping("caja")
 	public ResponseEntity<?> GuardarCaja(@RequestBody Caja caja) {
-		if (!CajaService.findByExisteCodigo(caja.getCodigocaja())) 
+		if (!CajaService.findByExisteId(caja.getId())) 
 		{
 			Caja CajaObj = CajaService.save(caja);
 			if (CajaObj != null)    {
@@ -82,7 +82,7 @@ public class CajaController {
 
 	@PutMapping("caja")
 	public ResponseEntity<?> ModificarCaja(@RequestBody Caja caja) {
-		Caja CajaUpdate = CajaService.findByCodigo(caja.getCodigocaja());
+		Caja CajaUpdate = CajaService.findById(caja.getId());
 		if (CajaUpdate != null) {
 			CajaUpdate.setNombrecaja(caja.getNombrecaja());
 			CajaUpdate.setCodnegocio(caja.getCodnegocio());

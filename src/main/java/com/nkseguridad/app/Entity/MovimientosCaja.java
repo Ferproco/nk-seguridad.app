@@ -29,8 +29,9 @@ public class MovimientosCaja  implements Serializable{
 	private Long numeromovimientocaja;
 	
 	@Column(name = "codigocaja")
-	private String codigocaja;
-	private String codnegocio;
+	private Long codigocaja;
+	
+	private Long codnegocio;
 	private String tipopago;
 	private String tipomovimiento;
 	private Date fecha;
@@ -58,16 +59,16 @@ public class MovimientosCaja  implements Serializable{
 		this.numeromovimientocaja = numeromovimientocaja;
 	}
 
-	public String getCodigocaja() {
+	public Long getCodigocaja() {
 		return codigocaja;
 	}
-	public void setCodigocaja(String codigocaja) {
+	public void setCodigocaja(Long codigocaja) {
 		this.codigocaja = codigocaja;
 	}
-	public String getCodnegocio() {
+	public Long getCodnegocio() {
 		return codnegocio;
 	}
-	public void setCodnegocio(String codnegocio) {
+	public void setCodnegocio(Long codnegocio) {
 		this.codnegocio = codnegocio;
 	}
 	public String getTipopago() {

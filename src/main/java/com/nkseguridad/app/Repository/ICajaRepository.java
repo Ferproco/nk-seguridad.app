@@ -8,6 +8,6 @@ import com.nkseguridad.app.Entity.Caja;
 
 
 @Repository
-public interface ICajaRepository  extends CrudRepository<Caja, String>{
+public interface ICajaRepository  extends CrudRepository<Caja, Long>{
 
 }

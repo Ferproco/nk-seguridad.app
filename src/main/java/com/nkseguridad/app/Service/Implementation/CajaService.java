@@ -22,7 +22,7 @@ public class CajaService implements ICajaService {
 	}
 
 	@Override
-	public Caja findByCodigo(String codigo) {
+	public Caja findById(Long codigo) {
 		// TODO Auto-generated method stub
 		return CajaRepository.findById(codigo).orElse(null);
 	}
@@ -40,7 +40,7 @@ public class CajaService implements ICajaService {
 	}
 
 	@Override
-	public boolean findByExisteCodigo(String codigo) {
+	public boolean findByExisteId(Long codigo) {
 		// TODO Auto-generated method stub
 		return CajaRepository.existsById(codigo);
 	}
