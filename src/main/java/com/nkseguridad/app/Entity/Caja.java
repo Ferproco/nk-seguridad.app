@@ -10,13 +10,14 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="caja",schema ="public")
-public class Caja implements Serializable {
-	
+public class Caja implements Serializable {	
 	/**
 	 * 
 	 */
@@ -29,7 +30,7 @@ public class Caja implements Serializable {
 	private String codigocaja;
 	
 	@Column(name="codnegocio", length = 15)
-	private String codnegocio;
+	private Long codnegocio;
 	
 	@Column(name="nombrecaja", nullable = false, length = 120)
 	private String nombrecaja;
@@ -45,6 +46,10 @@ public class Caja implements Serializable {
 	
 	@Column(name="facturable", nullable = false, length = 2)
 	private String facturable;
+	
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "codnegocio", insertable = false, updatable = false)
+	private Negocio negocio;
 
 	@OneToMany(cascade=CascadeType.ALL)
 	@JoinColumn(name="codigocaja",referencedColumnName ="codigocaja")
@@ -74,11 +79,11 @@ public class Caja implements Serializable {
 		this.codigocaja = codigocaja;
 	}
 
-	public String getCodnegocio() {
+	public Long getCodnegocio() {
 		return codnegocio;
 	}
 
-	public void setCodnegocio(String codnegocio) {
+	public void setCodnegocio(Long codnegocio) {
 		this.codnegocio = codnegocio;
 	}
 
@@ -122,5 +127,14 @@ public class Caja implements Serializable {
 		this.facturable = facturable;
 	}
 
+	public Negocio getNegocio() {
+		return negocio;
+	}
+
+	public void setNegocio(Negocio negocio) {
+		this.negocio = negocio;
+	}
+
+	
 	
 }

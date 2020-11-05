@@ -2,17 +2,19 @@ package com.nkseguridad.app.Entity;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="almacen",schema="public")
 public class Almacen implements Serializable {
-
 	/**
 	 * 
 	 */
@@ -42,6 +44,10 @@ public class Almacen implements Serializable {
 	
 	@Column(name="status",length=10)
 	private String status; 	 
+	
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "codnegocio", insertable = false, updatable = false)
+	private Negocio negocio;
 	
 	public String getStatus() {
 		return status;
@@ -91,4 +97,11 @@ public class Almacen implements Serializable {
 	public void setTipoalmacen(String tipoalmacen) {
 		this.tipoalmacen = tipoalmacen;
 	}
+	public Negocio getNegocio() {
+		return negocio;
+	}
+	public void setNegocio(Negocio negocio) {
+		this.negocio = negocio;
+	}
+	
 }
