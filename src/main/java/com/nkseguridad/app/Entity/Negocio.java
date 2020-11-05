@@ -17,29 +17,40 @@ public class Negocio implements Serializable{
 	 */
 	private static final long serialVersionUID = 28965007218210964L;
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)	
+	private Long idnegocio;
+	
+	@Column(name = "codnegocio", nullable = false, length = 15)
 	private String codnegocio;
 	
+	@Column(name = "nombre", nullable = false, length = 120)
 	private String nombre;
 	
+	@Column(name = "direccion", nullable = false, length = 255)
 	private String direccion;
 	
+	@Column(name = "telefono", nullable = true, length = 20)
 	private String telefono;
 	
+	@Column(name = "email", nullable = true, length = 120)
 	private String email;
 	
-	@Column(name = "telefono2")
+	@Column(name = "telefono2" ,nullable = true, length = 20)
 	private String telefonomovil;
 	
+	@Column(name = "web", nullable = true, length = 120)
 	private String web;
 	
 	private Byte[] imagen;
 	
+	@Column(name = "mascaracontable", nullable = true, length = 25)
 	private String mascaracontable;
 	
+	@Column(name = "contribuyente", nullable = false, length = 2)
 	private String contribuyente;
 	
-	private String activa;
+	@Column(name = "status", nullable = false, length = 10)
+	private String status;
 
 	public String getCodnegocio() {
 		return codnegocio;
@@ -122,11 +133,11 @@ public class Negocio implements Serializable{
 	}
 
 	public String getActiva() {
-		return activa;
+		return status;
 	}
 
 	public void setActiva(String activa) {
-		this.activa = activa;
+		this.status = activa;
 	}
 	
 	

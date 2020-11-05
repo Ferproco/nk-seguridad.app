@@ -25,20 +25,23 @@ public class Almacen implements Serializable {
 	
 	@Column(name="codalmacen",length=3)
 	private String codalmacen;
+	
 	@Column(name="codnegocio",length=15)
-	private String codnegocio;
+	private Long codnegocio;
+	
 	@Column(name="nombre",length=120)
 	private String nombre;
+	
 	private Boolean principal;
+	
 	@Column(name="tipoalmacen",length=120)
 	private String tipoalmacen;
+	
 	@Column(name="direccion",length=255)
 	private String direccion;
+	
 	@Column(name="status",length=10)
-	private String status; 
-	
-	
-	 
+	private String status; 	 
 	
 	public String getStatus() {
 		return status;
@@ -64,10 +67,10 @@ public class Almacen implements Serializable {
 	public void setCodalmacen(String codalmacen) {
 		this.codalmacen = codalmacen;
 	}
-	public String getCodnegocio() {
+	public Long getCodnegocio() {
 		return codnegocio;
 	}
-	public void setCodnegocio(String codnegocio) {
+	public void setCodnegocio(Long codnegocio) {
 		this.codnegocio = codnegocio;
 	}
 	public String getNombre() {
