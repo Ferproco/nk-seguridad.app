@@ -15,7 +15,6 @@ import javax.persistence.Table;
 @Entity
 @Table(name="articulo",schema="public")
 public class Articulo implements Serializable {
-
 	/**
 	 * 
 	 */
