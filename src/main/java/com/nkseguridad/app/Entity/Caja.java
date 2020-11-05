@@ -7,6 +7,7 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
@@ -20,27 +21,29 @@ public class Caja implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = -1150861150732733713L;
-	@Id
-	@Column(name="codigocaja")
-	@GeneratedValue
+	@Id	
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	
+	@Column(name="codigocaja", length = 3, nullable = false)
 	private String codigocaja;
 	
-	@Column(name="codnegocio")
+	@Column(name="codnegocio", length = 15)
 	private String codnegocio;
 	
-	@Column(name="nombrecaja")
+	@Column(name="nombrecaja", nullable = false, length = 120)
 	private String nombrecaja;
 	
-	@Column(name="tipocaja")
+	@Column(name="tipocaja", nullable = false, length = 30)
 	private String tipocaja;
 	
-	@Column(name="status")
+	@Column(name="status", nullable = false, length = 10)
 	private String status; 
 	
-	@Column(name="codigocontable")
+	@Column(name="codigocontable", nullable = true, length = 15)
 	private String codigocontable;
 	
-	@Column(name="facturable")
+	@Column(name="facturable", nullable = false, length = 2)
 	private String facturable;
 
 	@OneToMany(cascade=CascadeType.ALL)
@@ -53,6 +56,14 @@ public class Caja implements Serializable {
 
 	public void setLstmovimientoscaja(List<MovimientosCaja> lstmovimientoscaja) {
 		this.lstmovimientoscaja = lstmovimientoscaja;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public String getCodigocaja() {
