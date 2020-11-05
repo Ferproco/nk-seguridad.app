@@ -102,5 +102,6 @@ public class Impuesto implements Serializable {
 	public void setCodnegocio(String codnegocio) {
 		this.codnegocio = codnegocio;
 	}
+	
 
 }
