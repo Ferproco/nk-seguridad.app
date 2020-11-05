@@ -2,11 +2,14 @@ package com.nkseguridad.app.Entity;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -19,10 +22,19 @@ public class Zona implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long codzona;
+	
+	@Column(name = "nomzona", nullable = false, length = 120)
 	private String nomzona;
 	
-	@Column(name = "codnegocio")
-	private String negocioId;
+	@Column(name = "codnegocio", nullable = false, length = 15)
+	private Long codnegocio;
+	
+	private String status;
+	
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "codnegocio", insertable = false, updatable = false)
+	private Negocio negocio;
+	
 	
 	public Long getCodzona() {
 		return codzona;
@@ -36,11 +48,24 @@ public class Zona implements Serializable{
 	public void setNomzona(String nomzona) {
 		this.nomzona = nomzona;
 	}
-	public String getNegocioId() {
-		return negocioId;
+	public Long getCodnegocio() {
+		return codnegocio;
 	}
-	public void setEmpresaId(String negocioId) {
-		this.negocioId = negocioId;
+	public void setCodnegocio(Long codnegocio) {
+		this.codnegocio = codnegocio;
 	}
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
+	}
+	public Negocio getNegocio() {
+		return negocio;
+	}
+	public void setNegocio(Negocio negocio) {
+		this.negocio = negocio;
+	}
+
 
 }
