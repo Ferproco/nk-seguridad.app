@@ -52,6 +52,15 @@ public class Negocio implements Serializable{
 	@Column(name = "status", nullable = false, length = 10)
 	private String status;
 
+	
+	public Long getIdnegocio() {
+		return idnegocio;
+	}
+
+	public void setIdnegocio(Long idnegocio) {
+		this.idnegocio = idnegocio;
+	}
+
 	public String getCodnegocio() {
 		return codnegocio;
 	}
@@ -132,14 +141,12 @@ public class Negocio implements Serializable{
 		this.contribuyente = contribuyente;
 	}
 
-	public String getActiva() {
+	public String getStatus() {
 		return status;
 	}
 
-	public void setActiva(String activa) {
-		this.status = activa;
+	public void setStatus(String status) {
+		this.status = status;
 	}
-	
-	
 
 }
