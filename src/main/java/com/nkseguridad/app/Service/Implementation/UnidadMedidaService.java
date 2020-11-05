@@ -23,9 +23,9 @@ public class UnidadMedidaService implements IUnidadMedidaService {
 	}
 
 	@Override
-	public Unidadmedida findByCodigo(Long id) {
+	public Unidadmedida findByCodigo(String abrevunidadmedida) {
 		// TODO Auto-generated method stub
-		return UnidadMedidaRepository.findById(id).orElse(null);
+		return UnidadMedidaRepository.findById(abrevunidadmedida).orElse(null);
 	}
 
 	@Override
@@ -41,7 +41,7 @@ public class UnidadMedidaService implements IUnidadMedidaService {
 	}
 
 	@Override
-	public boolean findByExisteCodigo(Long codigo) {
+	public boolean findByExisteCodigo(String abrevunidadmedida) {
 		// TODO Auto-generated method stub
 		return false;
 	}

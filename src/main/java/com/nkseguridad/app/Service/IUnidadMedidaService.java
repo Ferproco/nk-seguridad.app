@@ -6,8 +6,8 @@ import com.nkseguridad.app.Entity.Unidadmedida;
 
 public interface IUnidadMedidaService {
 	public List<Unidadmedida> findAll();
-	public Unidadmedida findByCodigo(Long id);
+	public Unidadmedida findByCodigo(String abrevunidadmedida);
 	public Unidadmedida save(Unidadmedida unidadmedida);
 	public Unidadmedida Update(Unidadmedida unidadmedida);
-	public boolean findByExisteCodigo(Long codigo);
+	public boolean findByExisteCodigo(String abrevunidadmedida);
 }

@@ -42,10 +42,10 @@ public class UnidadMedidaController {
 		}
 	}
 	
-	@GetMapping("unidadmedida/{id}")
-	public ResponseEntity<?> BuscarPorCodigo(@PathVariable(name = "id") Long id) {
+	@GetMapping("unidadmedida/{abrevunidadmedida}")
+	public ResponseEntity<?> BuscarPorCodigo(@PathVariable(name = "abrevunidadmedida") String abrevunidadmedida) {
 
-		Unidadmedida Unidad = UnidadMedidaService.findByCodigo(id);
+		Unidadmedida Unidad = UnidadMedidaService.findByCodigo(abrevunidadmedida);
 		if (Unidad != null) {
 			return new ResponseEntity<>(Unidad, HttpStatus.OK);
 		} else {
@@ -55,7 +55,7 @@ public class UnidadMedidaController {
 	
 	@PostMapping("unidadmedida")
 	public ResponseEntity<?> GuardarUnidades(@RequestBody Unidadmedida unidad) {
-		if (!UnidadMedidaService.findByExisteCodigo(unidad.getId())) {
+		if (!UnidadMedidaService.findByExisteCodigo(unidad.getAbrevunidadmedida())) {
 			Unidadmedida UnidadObj = UnidadMedidaService.save(unidad);
 			return new ResponseEntity<>(UnidadObj, HttpStatus.CREATED);
 		} else {
