@@ -22,16 +22,19 @@ public class Ruta implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "codigo")
-	private String codigo;	
-	private String nombre;
+	@Column(name = "idruta")
+	private Long idruta;
+	
+	@Column(name = "nombre", nullable = false, length = 120)
+	private String nombre;	
 	private Long codigozona;
+	private Long codigovendedor;
+	private Long codnegocio;
+	
 	private String desdeuno;
 	private String hastauno;
 	private String desdedos;
-	private String hastados;
-	private Long codigovendedor;
-	private String codnegocio;	
+	private String hastados;		
 	private String status;
 	
 	@ManyToOne(cascade = CascadeType.ALL)
@@ -42,78 +45,114 @@ public class Ruta implements Serializable {
 	@JoinColumn(name = "codigovendedor", insertable = false, updatable = false)
 	private Vendedor vendedor;
 	
-	public String getCodigo() {
-		return codigo;
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "codnegocio", insertable = false, updatable = false)
+	private Negocio negocio;
+
+	public Long getIdruta() {
+		return idruta;
 	}
-	public void setCodigo(String codigo) {
-		this.codigo = codigo;
+
+	public void setIdruta(Long idruta) {
+		this.idruta = idruta;
 	}
+
 	public String getNombre() {
 		return nombre;
 	}
+
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
+
 	public Long getCodigozona() {
 		return codigozona;
 	}
+
 	public void setCodigozona(Long codigozona) {
 		this.codigozona = codigozona;
 	}
-	public String getDesdeuno() {
-		return desdeuno;
-	}
-	public void setDesdeuno(String desdeuno) {
-		this.desdeuno = desdeuno;
-	}
-	public String getHastauno() {
-		return hastauno;
-	}
-	public void setHastauno(String hastauno) {
-		this.hastauno = hastauno;
-	}
-	public String getDesdedos() {
-		return desdedos;
-	}
-	public void setDesdedos(String desdedos) {
-		this.desdedos = desdedos;
-	}
-	public String getHastados() {
-		return hastados;
-	}
-	public void setHastados(String hastados) {
-		this.hastados = hastados;
-	}
+
 	public Long getCodigovendedor() {
 		return codigovendedor;
 	}
+
 	public void setCodigovendedor(Long codigovendedor) {
 		this.codigovendedor = codigovendedor;
 	}
-	public String getCodnegocio() {
+
+	public Long getCodnegocio() {
 		return codnegocio;
 	}
-	public void setCodnegocio(String codnegocio) {
+
+	public void setCodnegocio(Long codnegocio) {
 		this.codnegocio = codnegocio;
 	}
-	public Zona getZona() {
-		return zona;
+
+	public String getDesdeuno() {
+		return desdeuno;
 	}
-	public void setZona(Zona zona) {
-		this.zona = zona;
+
+	public void setDesdeuno(String desdeuno) {
+		this.desdeuno = desdeuno;
 	}
-	public Vendedor getVendedor() {
-		return vendedor;
+
+	public String getHastauno() {
+		return hastauno;
 	}
-	public void setVendedor(Vendedor vendedor) {
-		this.vendedor = vendedor;
+
+	public void setHastauno(String hastauno) {
+		this.hastauno = hastauno;
 	}
+
+	public String getDesdedos() {
+		return desdedos;
+	}
+
+	public void setDesdedos(String desdedos) {
+		this.desdedos = desdedos;
+	}
+
+	public String getHastados() {
+		return hastados;
+	}
+
+	public void setHastados(String hastados) {
+		this.hastados = hastados;
+	}
+
 	public String getStatus() {
 		return status;
 	}
+
 	public void setStatus(String status) {
 		this.status = status;
 	}
+
+	public Zona getZona() {
+		return zona;
+	}
+
+	public void setZona(Zona zona) {
+		this.zona = zona;
+	}
+
+	public Vendedor getVendedor() {
+		return vendedor;
+	}
+
+	public void setVendedor(Vendedor vendedor) {
+		this.vendedor = vendedor;
+	}
+
+	public Negocio getNegocio() {
+		return negocio;
+	}
+
+	public void setNegocio(Negocio negocio) {
+		this.negocio = negocio;
+	}		
 	
+
 
 }
