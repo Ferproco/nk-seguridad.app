@@ -54,7 +54,7 @@ public class FormaPagoController {
 	@PostMapping("formapago")
 	public ResponseEntity<?> GuardarFormaPago(@RequestBody FormaPago formaPago) {
 		try {
-			FormaPago formaPagoUpdate = FormaPagoService.findByCodigo(formaPago.getId()());
+			FormaPago formaPagoUpdate = FormaPagoService.findByCodigo(formaPago.getId());
 			if (formaPagoUpdate!=null) {
 				return new ResponseEntity<Void>(HttpStatus.FOUND);
 			} 

@@ -68,7 +68,7 @@ public class FamiliaController {
 		Familia FamiliaUpdate = FamiliaService.findByCodigo(Familia.getCodfamilia());
 		if (FamiliaUpdate != null) {
 			FamiliaUpdate.setNomfamilia(Familia.getNomfamilia());
-			FamiliaUpdate.setNegocioId(Familia.getCodnegocio()());
+			FamiliaUpdate.setCodnegocio(Familia.getCodnegocio());
 			
 			Familia FamiliaResult = FamiliaService.updateFamilia(FamiliaUpdate);
 			if (FamiliaResult != null) {
