@@ -8,6 +8,6 @@ import com.nkseguridad.app.Entity.GrupoArticulo;
 
 
 @Repository
-public interface IGrupoArticuloRepository extends CrudRepository<GrupoArticulo, String>{
+public interface IGrupoArticuloRepository extends CrudRepository<GrupoArticulo, Long>{
 
 }

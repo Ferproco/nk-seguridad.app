@@ -19,20 +19,22 @@ public class RutaService implements IRutaService {
 		// TODO Auto-generated method stub
 		return (List<Ruta>)RutaRepository.findAll();
 	}
-	@Override
-	public Ruta findByCodigo(String codigo) {
-		// TODO Auto-generated method stub
-		return RutaRepository.findById(codigo).orElse(null);
-	}
-	@Override
-	public boolean existebyCodigo(String codigo) {
-		// TODO Auto-generated method stub
-		return RutaRepository.existsById(codigo);
-	}
+	
+	
 	@Override
 	public Ruta save(Ruta ruta) {
 		// TODO Auto-generated method stub
 		return RutaRepository.save(ruta);
+	}
+	@Override
+	public Ruta findByIdRuta(Long codigo) {
+		// TODO Auto-generated method stub
+		return RutaRepository.findById(codigo).orElse(null);
+	}
+	@Override
+	public boolean existebyIdRuta(Long codigo) {
+		// TODO Auto-generated method stub
+		return RutaRepository.existsById(codigo);
 	}
 
 }

@@ -2,11 +2,14 @@ package com.nkseguridad.app.Entity;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -21,10 +24,27 @@ public class Marca implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "codmarca")
 	private Long codmarca;
-	
+	@Column(name = "nommarca",length=120)
 	private String nommarca;
-	private String codnegocio;
+	private Long codnegocio;
+	@Column(name = "status",length=10)
+	private String status;
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "codnegocio", insertable = false, updatable = false)
+	private Negocio negocio;
 	
+	public Negocio getNegocio() {
+		return negocio;
+	}
+	public void setNegocio(Negocio negocio) {
+		this.negocio = negocio;
+	}
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
+	}
 	public Long getCodmarca() {
 		return codmarca;
 	}
@@ -37,28 +57,19 @@ public class Marca implements Serializable{
 	public void setNommarca(String nommarca) {
 		this.nommarca = nommarca;
 	}
-	public String getCodnegocio() {
+	public Long getCodnegocio() {
 		return codnegocio;
 	}
-	public void setCodnegocio(String codnegocio) {
+	public void setCodnegocio(Long codnegocio) {
 		this.codnegocio = codnegocio;
 	}
 	
-	public Marca(Long codmarca, String nommarca, String codnegocio) {
-		super();
-		this.codmarca = codmarca;
-		this.nommarca = nommarca;
-		this.codnegocio = codnegocio;
-	}
+	
 	
     public Marca() {
 		
 	}
 
-	@Override
-	public String toString() {
-		return "Marca [codmarca=" + codmarca + ", nommarca=" + nommarca + ", codnegocio=" + codnegocio + "]";
-	}
 	
 
 }

@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.nkseguridad.app.Entity.Factura;
 
 @Repository
-public interface IFacturaRepository extends CrudRepository<Factura, String> {
+public interface IFacturaRepository extends CrudRepository<Factura, Long> {
 
 }

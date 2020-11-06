@@ -44,9 +44,9 @@ public class RutaController {
 	}
 
 	@GetMapping("ruta/{codigo}")
-	public ResponseEntity<?> BuscarPorCodigo(@PathVariable(name = "codigo") String codigo) {
+	public ResponseEntity<?> BuscarPorCodigo(@PathVariable(name = "codigo") Long codigo) {
 
-		Ruta Ruta = RutaService.findByCodigo(codigo);
+		Ruta Ruta = RutaService.findByIdRuta(codigo);
 		if (Ruta != null) {
 			return new ResponseEntity<>(Ruta, HttpStatus.OK);
 		} else {
@@ -57,7 +57,7 @@ public class RutaController {
 	@PostMapping("ruta")
 	public ResponseEntity<?> GuardarRuta(@RequestBody Ruta Ruta) {
 		try {
-			Ruta RutaUpdate = RutaService.findByCodigo(Ruta.getCodigo());
+			Ruta RutaUpdate = RutaService.findByIdRuta(Ruta.getIdruta());
 			if (RutaUpdate!=null) {
 				return new ResponseEntity<Void>(HttpStatus.FOUND);
 			} 
@@ -82,7 +82,7 @@ public class RutaController {
 	@PutMapping("ruta")
 	public ResponseEntity<?> ModificarRuta(@RequestBody Ruta Ruta) {
 		try {
-			Ruta RutaUpdate = RutaService.findByCodigo(Ruta.getCodigo());
+			Ruta RutaUpdate = RutaService.findByIdRuta(Ruta.getIdruta());
 			if (RutaUpdate!=null) {
 				RutaUpdate.setCodigovendedor(Ruta.getCodigovendedor());
 				RutaUpdate.setCodigozona(Ruta.getCodigozona());

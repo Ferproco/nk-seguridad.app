@@ -31,16 +31,36 @@ public class Impuesto implements Serializable {
     private Double recargo;
     private Date fechaini;
     private Date fechafin;
+    @Column(name="status",length=10)
     private String status;
-    private String codnegocio;
+    private Long codnegocio;
+    @Column(name="nombreimpuesto",length=120)
     private String nombreimpuesto;
     private Long idtipoimpuesto;
     
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "idtipoimpuesto",  insertable = false, updatable = false)
     private TipoImpuesto tipoimpuestos;
-  
-     public Long getIdimpuesto() {
+    
+   
+	
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "codnegocio", insertable = false, updatable = false)
+	private Negocio negocio;
+
+	 public Negocio getNegocio() {
+			return negocio;
+		}
+		public void setNegocio(Negocio negocio) {
+			this.negocio = negocio;
+		}
+     public Long getCodnegocio() {
+			return codnegocio;
+		}
+		public void setCodnegocio(Long codnegocio) {
+			this.codnegocio = codnegocio;
+		}
+	public Long getIdimpuesto() {
 		return idimpuesto;
 	}
      public void setIdimpuesto(Long idimpuesto) {
@@ -96,12 +116,7 @@ public class Impuesto implements Serializable {
 	public void setStatus(String status) {
 		this.status = status;
 	}
-	public String getCodnegocio() {
-		return codnegocio;
-	}
-	public void setCodnegocio(String codnegocio) {
-		this.codnegocio = codnegocio;
-	}
+	
 	
 
 }

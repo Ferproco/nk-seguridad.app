@@ -33,7 +33,7 @@ public class Articulo implements Serializable {
     @Column(name="pro_codigo",length=10)
     private String pro_codigo;
     private Long idunidad;
-	private String codgrupoarticulo;
+	private Long codgrupoarticulo;
 	@Column(name="nomarticulo",length=120)
 	private String nomarticulo;
 	private Double preciosugerido;
@@ -83,8 +83,8 @@ public class Articulo implements Serializable {
     private Long codpresentacion;
     private Long codtipo;
     private Long codsabor;
-    private String codnegocio;
-    private String codvendedor;
+    private Long codnegocio;
+    private Long codvendedor;
     private Long codlinea;
     private Boolean aplicalista;
     private Double merma;
@@ -181,10 +181,10 @@ public class Articulo implements Serializable {
 		this.pro_codigo = pro_codigo;
 	}
 	
-	public String getCodgrupoarticulo() {
+	public Long getCodgrupoarticulo() {
 		return codgrupoarticulo;
 	}
-	public void setCodgrupoarticulo(String codgrupoarticulo) {
+	public void setCodgrupoarticulo(Long codgrupoarticulo) {
 		this.codgrupoarticulo = codgrupoarticulo;
 	}
 	public String getNomarticulo() {
@@ -451,16 +451,16 @@ public class Articulo implements Serializable {
 	public void setCodsabor(Long codsabor) {
 		this.codsabor = codsabor;
 	}
-	public String getCodnegocio() {
+	public Long getCodnegocio() {
 		return codnegocio;
 	}
-	public void setCodnegocio(String codnegocio) {
+	public void setCodnegocio(Long codnegocio) {
 		this.codnegocio = codnegocio;
 	}
-	public String getCodvendedor() {
+	public Long getCodvendedor() {
 		return codvendedor;
 	}
-	public void setCodvendedor(String codvendedor) {
+	public void setCodvendedor(Long codvendedor) {
 		this.codvendedor = codvendedor;
 	}
 	public Long getCodlinea() {

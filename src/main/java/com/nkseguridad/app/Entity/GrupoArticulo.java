@@ -2,11 +2,14 @@ package com.nkseguridad.app.Entity;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -21,18 +24,31 @@ public class GrupoArticulo implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="codgrupoarticulo")
-	private String codgrupoarticulo;
-	
+	private Long codgrupoarticulo;
+	@Column(name="nomgrupoarticulo",length=120)
     private String  nomgrupoarticulo;
-    private String tipocosto;
+	@Column(name="tipocosto",length=120)
+	private String tipocosto;
     private Double comision;
+    @Column(name="tipo",length=120)
     private String tipo;
-	private String codnegocio;
+    @Column(name="codnegocio")
+    private Long codnegocio;
 	private String status;
 	
-	
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "codnegocio", insertable = false, updatable = false)
+	private Negocio negocio;
 
-	 public String getStatus() {
+	 public Negocio getNegocio() {
+		return negocio;
+	}
+
+	public void setNegocio(Negocio negocio) {
+		this.negocio = negocio;
+	}
+
+	public String getStatus() {
 		return status;
 	}
 
@@ -44,20 +60,12 @@ public class GrupoArticulo implements Serializable {
 			
 		}
 		
-		public GrupoArticulo(String codgrupoarticulo, String nomgrupoarticulo,String tipocosto,Double comision,String tipo, String codnegocio) {
-			super();
-			this.codgrupoarticulo = codgrupoarticulo;
-			this.nomgrupoarticulo = nomgrupoarticulo;
-			this.tipocosto=tipocosto;
-			this.comision=comision;
-			this.tipo=tipo;
-			this.codnegocio = codnegocio;
-		}
-		public String getCodgrupoarticulo() {
+	
+		public Long getCodgrupoarticulo() {
 			return codgrupoarticulo;
 		}
 
-		public void setCodgrupoarticulo(String codgrupoarticulo) {
+		public void setCodgrupoarticulo(Long codgrupoarticulo) {
 			this.codgrupoarticulo = codgrupoarticulo;
 		}
 
@@ -93,19 +101,14 @@ public class GrupoArticulo implements Serializable {
 			this.tipo = tipo;
 		}
 
-		public String getCodnegocio() {
+		public Long getCodnegocio() {
 			return codnegocio;
 		}
 
-		public void setCodnegocio(String codnegocio) {
+		public void setCodnegocio(Long codnegocio) {
 			this.codnegocio = codnegocio;
 		}
 
-		@Override
-		public String toString() {
-			return "GrupoArticulo [codgrupoarticulo=" + codgrupoarticulo + ", nomgrupoarticulo=" + nomgrupoarticulo
-					+ ", tipocosto=" + tipocosto + ", comision=" + comision + ", tipo=" + tipo + ", codnegocio="
-					+ codnegocio + "]";
-		}
+		
 
 }

@@ -6,7 +6,7 @@ import java.util.Date;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
+
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -25,17 +25,19 @@ public class Factura implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "numerofactura")
+	@Column(name = "id")
+	private Long id;
+	@Column(name = "numerofactura",length=10)
 	private String numerofactura; 
 	
-	private String codnegocio;
+	private Long codnegocio;
     private Date fechaemision;
     private Date fechavencimiento;
     private String tipoiva;
-    private String codigoforma;
+    private Long codigoforma;
     private String codcliente;
     private String referencia;
-    private String codvendedor;
+    private Long codvendedor;
     private String tarifa;
     private String destino;
     private String  mn;
@@ -66,11 +68,31 @@ public class Factura implements Serializable {
     private String status_impresion;
     private String codigoruta;
    
-    
+    public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
+	public Negocio getNegocio() {
+		return negocio;
+	}
+	public void setNegocio(Negocio negocio) {
+		this.negocio = negocio;
+	}
+	public FormaPago getFormapago() {
+		return formapago;
+	}
+	public void setFormapago(FormaPago formapago) {
+		this.formapago = formapago;
+	}
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "codnegocio", insertable = false, updatable = false)
+	private Negocio negocio;
     
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "codigoforma", insertable = false, updatable = false)
-    private FormaPago formapagp;
+    private FormaPago formapago;
     
     
 	
@@ -78,10 +100,10 @@ public class Factura implements Serializable {
 	
 	
 	public FormaPago getFormapagp() {
-		return formapagp;
+		return formapago;
 	}
-	public void setFormapagp(FormaPago formapagp) {
-		this.formapagp = formapagp;
+	public void setFormapagp(FormaPago formapago) {
+		this.formapago = formapago;
 	}
 	public String getNumerofactura() {
 		return numerofactura;
@@ -89,17 +111,17 @@ public class Factura implements Serializable {
 	public void setNumerofactura(String numerofactura) {
 		this.numerofactura = numerofactura;
 	}
-	public String getCodvendedor() {
+	public Long getCodvendedor() {
 		return codvendedor;
 	}
-	public void setCodvendedor(String codvendedor) {
+	public void setCodvendedor(Long codvendedor) {
 		this.codvendedor = codvendedor;
 	}
 
-	public String getCodnegocio() {
+	public Long getCodnegocio() {
 		return codnegocio;
 	}
-	public void setCodnegocio(String codnegocio) {
+	public void setCodnegocio(Long codnegocio) {
 		this.codnegocio = codnegocio;
 	}
 	public Date getFechaemision() {
@@ -120,10 +142,10 @@ public class Factura implements Serializable {
 	public void setTipoiva(String tipoiva) {
 		this.tipoiva = tipoiva;
 	}
-	public String getCodigoforma() {
+	public Long getCodigoforma() {
 		return codigoforma;
 	}
-	public void setCodigoforma(String codigoforma) {
+	public void setCodigoforma(Long codigoforma) {
 		this.codigoforma = codigoforma;
 	}
 	public String getCodcliente() {

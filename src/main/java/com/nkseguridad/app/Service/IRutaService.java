@@ -6,7 +6,7 @@ import com.nkseguridad.app.Entity.Ruta;
 public interface IRutaService {
 
 	public List<Ruta> findAll();
-	public Ruta findByCodigo(String codigo);
-	public boolean existebyCodigo(String codigo);
+	public Ruta findByIdRuta(Long codigo);
+	public boolean existebyIdRuta(Long codigo);
 	public Ruta save(Ruta ruta);
 }

@@ -2,11 +2,14 @@ package com.nkseguridad.app.Entity;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -21,8 +24,13 @@ public class TipoImpuesto implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id")
 	private Long id;
+	@Column(name="nombretipoimpuesto",length=120)
 	private String nombretipoimpuesto;
-	private String codnegocio;
+	private Long codnegocio;
+	
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "codnegocio", insertable = false, updatable = false)
+	private Negocio negocio;
 	
 	public Long getId() {
 		return id;
@@ -36,12 +44,19 @@ public class TipoImpuesto implements Serializable {
 	public void setNombretipoimpuesto(String nombretipoimpuesto) {
 		this.nombretipoimpuesto = nombretipoimpuesto;
 	}
-	public String getCodnegocio() {
+	public Long getCodnegocio() {
 		return codnegocio;
 	}
-	public void setCodnegocio(String codnegocio) {
+	public void setCodnegocio(Long codnegocio) {
 		this.codnegocio = codnegocio;
 	}
+	public Negocio getNegocio() {
+		return negocio;
+	}
+	public void setNegocio(Negocio negocio) {
+		this.negocio = negocio;
+	}
+	
 	
 
 }

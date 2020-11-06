@@ -6,6 +6,8 @@ import org.springframework.stereotype.Repository;
 import com.nkseguridad.app.Entity.Ruta;
 
 @Repository
-public interface IRutaRepository extends CrudRepository<Ruta, String> {
+public interface IRutaRepository extends CrudRepository<Ruta, Long> {
+
+
 
 }
