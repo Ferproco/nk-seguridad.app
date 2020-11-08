@@ -22,4 +22,25 @@ public class TipoImpuestoService implements ITipoImpuestoService {
 		return (List<TipoImpuesto>)tipoimpuestoRepository.findAll();
 	}
 
+
+	@Override
+	public TipoImpuesto save(TipoImpuesto tipoimpuesto) {
+		// TODO Auto-generated method stub
+		return tipoimpuestoRepository.save(tipoimpuesto);
+	}
+
+
+	@Override
+	public TipoImpuesto findByIdTipoImppuesto(Long codigo) {
+		// TODO Auto-generated method stub
+		return tipoimpuestoRepository.findById(codigo).orElse(null);
+	}
+
+
+	@Override
+	public boolean existebyIdTipoImpuesto(Long codigo) {
+		// TODO Auto-generated method stub
+		return tipoimpuestoRepository.existsById(codigo);
+	}
+
 }

@@ -7,10 +7,14 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.nkseguridad.app.Entity.Ruta;
 import com.nkseguridad.app.Entity.TipoImpuesto;
 import com.nkseguridad.app.Service.ITipoImpuestoService;
 
@@ -40,5 +44,40 @@ public class TipoImpuestoController {
 		}
 		
 	}
+	@PostMapping("tipoimpuesto")
+	public ResponseEntity<?> GuardarTipoImpuesto(@RequestBody TipoImpuesto tipoimpuesto) {
+		try {
+			TipoImpuesto TipoImpuestoUpdate = tipoimpuestoServicio.findByIdTipoImppuesto(tipoimpuesto.getId());
+			if (TipoImpuestoUpdate!=null) {
+				return new ResponseEntity<Void>(HttpStatus.FOUND);
+			} 
+			else {				
+				TipoImpuesto TipoImpuestoOut= tipoimpuestoServicio.save(tipoimpuesto);
+				if (TipoImpuestoOut!=null) {
+					return new ResponseEntity<>(TipoImpuestoOut, HttpStatus.OK);
+				}
+				else {
+					return new ResponseEntity<Void>(HttpStatus.CONFLICT);
+				}
+				
+			}
+		} 
+		catch (Exception m) {
+			System.out.print("Error guardando "+m);
+			return new ResponseEntity<Void>(HttpStatus.CONFLICT);
+		}
+	}
+	@GetMapping("tipoimpuesto/{id}")
+	public ResponseEntity<?> BuscarPorCodigo(@PathVariable(name = "codigo") Long codigo) {
+
+		TipoImpuesto tipoimpuesto =tipoimpuestoServicio.findByIdTipoImppuesto(codigo);
+		if (tipoimpuesto != null) {
+			return new ResponseEntity<>(tipoimpuesto, HttpStatus.OK);
+		} else {
+			return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
+		}
+	}
+
+
 
 }

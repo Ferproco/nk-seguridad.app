@@ -7,5 +7,8 @@ import com.nkseguridad.app.Entity.TipoImpuesto;
 public interface ITipoImpuestoService {
 
 	public List<TipoImpuesto> findAll();
+	public TipoImpuesto save(TipoImpuesto tipoimpuesto);
+	public TipoImpuesto findByIdTipoImppuesto(Long codigo);
+	public boolean existebyIdTipoImpuesto(Long codigo);
 	
 }

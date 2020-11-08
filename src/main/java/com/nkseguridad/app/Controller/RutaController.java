@@ -42,7 +42,7 @@ public class RutaController {
 			return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
 		}
 	}
-
+  
 	@GetMapping("ruta/{codigo}")
 	public ResponseEntity<?> BuscarPorCodigo(@PathVariable(name = "codigo") Long codigo) {
 

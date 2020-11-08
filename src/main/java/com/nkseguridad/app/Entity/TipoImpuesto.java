@@ -27,6 +27,8 @@ public class TipoImpuesto implements Serializable {
 	@Column(name="nombretipoimpuesto",length=120)
 	private String nombretipoimpuesto;
 	private Long codnegocio;
+	@Column(name="status",length=10)
+	private String status;
 	
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "codnegocio", insertable = false, updatable = false)
