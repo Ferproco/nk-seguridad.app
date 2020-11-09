@@ -39,8 +39,8 @@ public class TipoImpuesto implements Serializable {
 	@JoinColumn(name = "codnegocio", insertable = false, updatable = false)
 	private Negocio negocio;
 	
-	@OneToMany(mappedBy = "tipoimpuestos")
-	private List<Impuesto> LstImpuestos;
+	/*@OneToMany(mappedBy = "tipoimpuestos")
+	private List<Impuesto> LstImpuestos;*/
 	
 	public Long getId() {
 		return id;
@@ -72,12 +72,12 @@ public class TipoImpuesto implements Serializable {
 	public void setStatus(String status) {
 		this.status = status;
 	}
-	public List<Impuesto> getLstImpuestos() {
+	/*public List<Impuesto> getLstImpuestos() {
 		return LstImpuestos;
 	}
 	public void setLstImpuestos(List<Impuesto> lstImpuestos) {
 		LstImpuestos = lstImpuestos;
-	}
+	}*/
 	
 	
 

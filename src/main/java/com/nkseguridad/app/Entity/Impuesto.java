@@ -39,7 +39,7 @@ public class Impuesto implements Serializable {
     @Column(name="nombreimpuesto",length=120)
     private String nombreimpuesto;
     
-    /*private Long idtipoimpuesto;*/
+    private Long idtipoimpuesto;
     
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "idtipoimpuesto",  insertable = false, updatable = false)
@@ -79,12 +79,12 @@ public class Impuesto implements Serializable {
 	public void setNombreimpuesto(String nombreimpuesto) {
 		this.nombreimpuesto = nombreimpuesto;
 	}
-	/*public Long getIdtipoimpuesto() {
+	public Long getIdtipoimpuesto() {
 		return idtipoimpuesto;
 	}
 	public void setIdtipoimpuesto(Long idtipoimpuesto) {
 		this.idtipoimpuesto = idtipoimpuesto;
-	}*/
+	}
 	
 	
 	public Double getNormal() {
