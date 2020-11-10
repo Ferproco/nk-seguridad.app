@@ -24,7 +24,6 @@ import com.nkseguridad.app.Service.IFamiliaService;
 @RequestMapping("api")
 
 public class FamiliaController {
-
 	@Autowired
 	private IFamiliaService FamiliaService;
 

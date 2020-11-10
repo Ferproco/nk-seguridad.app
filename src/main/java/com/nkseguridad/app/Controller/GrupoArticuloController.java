@@ -36,7 +36,6 @@ public class GrupoArticuloController {
 		}
 		else {
 			return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
-		}
-		
+		}		
 	}
 }

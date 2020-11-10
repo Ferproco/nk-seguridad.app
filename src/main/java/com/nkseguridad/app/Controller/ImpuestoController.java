@@ -47,7 +47,8 @@ public class ImpuestoController {
 		if (!impuestoServicio.findByExisteCodigo(impuesto.getIdimpuesto())) {
 			Impuesto ImpuestoObj = impuestoServicio.save(impuesto);
 			return new ResponseEntity<>(ImpuestoObj, HttpStatus.CREATED);
-		} else {
+		} 
+		else {
 			return new ResponseEntity<Void>(HttpStatus.CONFLICT);
 		}
 

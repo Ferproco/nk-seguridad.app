@@ -19,8 +19,6 @@ import com.nkseguridad.app.Entity.Ruta;
 import com.nkseguridad.app.Entity.TipoImpuesto;
 import com.nkseguridad.app.Service.ITipoImpuestoService;
 
-
-
 @RestController
 @CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST})
 @RequestMapping("api")

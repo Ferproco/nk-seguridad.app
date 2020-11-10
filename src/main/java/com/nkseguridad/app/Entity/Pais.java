@@ -12,7 +12,6 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "pais", schema = "public")
 public class Pais implements Serializable {
-
 	/**
 	 * 
 	 */
@@ -21,14 +20,14 @@ public class Pais implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long Id;
 	
-	@Column(name = "codigo",unique = true, length = 4, insertable = false, updatable = false)
+	@Column(name = "codigo", length = 4, insertable = false, updatable = false)
 	private String codigo;
 	
 	@Column(name = "nombre", length = 120, insertable = false, updatable = false)
 	private String nombre;
 	
-	@Column(name = "satus", length = 10, insertable = false, updatable = false)
-	private String Status;
+	@Column(name = "status", length = 10, insertable = false, updatable = false)
+	private String status;
 
 	
 	public String getCodigo() {
@@ -56,11 +55,11 @@ public class Pais implements Serializable {
 	}
 
 	public String getStatus() {
-		return Status;
+		return status;
 	}
 
 	public void setStatus(String status) {
-		Status = status;
+		this.status = status;
 	}
 	
 
