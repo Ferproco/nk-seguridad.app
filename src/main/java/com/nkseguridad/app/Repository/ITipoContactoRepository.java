@@ -3,10 +3,9 @@ package com.nkseguridad.app.Repository;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import com.nkseguridad.app.Entity.Almacen;
+import com.nkseguridad.app.Entity.TipoContacto;
 
 @Repository
-public interface IAlmacenRepository extends CrudRepository<Almacen,Long>{
+public interface ITipoContactoRepository extends CrudRepository<TipoContacto,Long> {
 
-	
 }

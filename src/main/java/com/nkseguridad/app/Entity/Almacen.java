@@ -28,7 +28,7 @@ public class Almacen implements Serializable {
 	@Column(name="codalmacen",length=3)
 	private String codalmacen;
 	
-	@Column(name="codnegocio",length=15)
+	@Column(name="codnegocio")
 	private Long codnegocio;
 	
 	@Column(name="nombre",length=120)
