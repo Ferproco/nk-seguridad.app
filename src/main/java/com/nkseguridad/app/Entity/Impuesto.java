@@ -24,25 +24,26 @@ public class Impuesto implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="idimpuesto")
-	private Long idimpuesto;
-   
+	private Long idimpuesto;  
 	
     private Double normal;
     private Double recargo;
     private Date fechaini;
     private Date fechafin;
+    
     @Column(name="status",length=10)
     private String status;
+    
     private Long codnegocio;
+    
     @Column(name="nombreimpuesto",length=120)
     private String nombreimpuesto;
+    
     private Long idtipoimpuesto;
     
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "idtipoimpuesto",  insertable = false, updatable = false)
-    private TipoImpuesto tipoimpuestos;
-    
-   
+    private TipoImpuesto tipoimpuestos;     
 	
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "codnegocio", insertable = false, updatable = false)

@@ -1,5 +1,6 @@
 package com.nkseguridad.app.Controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,11 +37,11 @@ public class TipoImpuestoController {
 				return new ResponseEntity<>(LstTipoImpuesto,HttpStatus.OK);
 			}
 			else {
-				return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
+				return new ResponseEntity<>(new ArrayList<TipoImpuesto>(),HttpStatus.NOT_FOUND);
 			}
 		}
 		else {
-			return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
+			return new ResponseEntity<>(new ArrayList<TipoImpuesto>(), HttpStatus.NOT_FOUND);
 		}
 		
 	}
