@@ -1,4 +1,18 @@
 INSERT INTO public.negocio(codnegocio, contribuyente, direccion, email, imagen, mascaracontable, nombre, status, telefono, telefono2, web) VALUES ('406080195', 'Si', 'Carrera 58B # 58 P-22', '', '', '', 'Nk-System Consultores', 'ACTIVO', '', '', '');
+insert into tipocontacto(nombre) values('Cliente');
+insert into tipocontacto(nombre) values('Proveedor');
+insert into tipocontribuyente(nombre) values('REGIMEN SIMPLE');
+insert into tipocontribuyente(nombre) values('GRAN CONTRIBUYENTE');
+insert into tipocontribuyente(nombre) values('RESPONSABLE DE IVA');
+insert into tipocontribuyente(nombre) values('NO RESPONSABLE DE IVA');
+insert into tipoidentificacion(nombre) values('Registro Civil de Nacimiento');
+insert into tipoidentificacion(nombre) values('Tarjeta de Identidad');
+insert into tipoidentificacion(nombre) values('Cédula de Ciudadanía');
+insert into tipoidentificacion(nombre) values('Tarjeta de Extranjeria');
+insert into tipoidentificacion(nombre) values('Cedula de Extranjeria');
+insert into tipoidentificacion(nombre) values('NIT');
+insert into tipoidentificacion(nombre) values('Pasaporte');
+insert into tipoidentificacion(nombre) values('Tipo de Documento Extranjero');
 insert into pais(codigo, nombre, status) values('013','Afganistan', 'ACTIVO');
 insert into pais(codigo, nombre, status) values('017','Albania', 'ACTIVO');
 insert into pais(codigo, nombre, status) values('023','Alemania', 'ACTIVO');
