@@ -36,7 +36,11 @@ public class Contacto  implements Serializable {
     @Column(name="codnegocio")
     private Long codnegocio;   
    
-    @Column(name="codtipoidentificacion")
+
+    @Column(name="numeroidentificacion")
+    private String numeroidentificacion; 
+    
+	@Column(name="codtipoidentificacion")
     private Long codtipoidentificacion; 
    
     @Column(name = "nombre", nullable = false, length = 120)
@@ -81,8 +85,7 @@ public class Contacto  implements Serializable {
     private String regimeniva;
    
     private Date fecharegistro;
-    private String tarifa;   
-    private String contribuyente;
+    
     private Long codcontable;
     
     @ManyToOne(cascade = CascadeType.ALL)
@@ -162,6 +165,15 @@ public class Contacto  implements Serializable {
 		this.codnegocio = codnegocio;
 	}
 
+	public String getNumeroidentificacion() {
+		return numeroidentificacion;
+	}
+
+
+
+	public void setNumeroidentificacion(String numeroidentificacion) {
+		this.numeroidentificacion = numeroidentificacion;
+	}
 
 
 	public Long getCodtipoidentificacion() {
@@ -344,29 +356,12 @@ public class Contacto  implements Serializable {
 
 
 
-	public String getTarifa() {
-		return tarifa;
-	}
+
+	
 
 
 
-	public void setTarifa(String tarifa) {
-		this.tarifa = tarifa;
-	}
-
-
-
-	public String getContribuyente() {
-		return contribuyente;
-	}
-
-
-
-	public void setContribuyente(String contribuyente) {
-		this.contribuyente = contribuyente;
-	}
-
-
+	
 
 	public Long getCodcontable() {
 		return codcontable;
