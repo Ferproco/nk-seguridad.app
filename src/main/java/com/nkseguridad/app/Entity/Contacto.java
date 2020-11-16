@@ -93,9 +93,9 @@ public class Contacto  implements Serializable {
   	@JoinColumn(name = "codformapago", insertable = false, updatable = false)
   	private FormaPago formapago;   
     
-    @ManyToOne(cascade = CascadeType.ALL)
+   /* @ManyToOne(cascade = CascadeType.ALL)
   	@JoinColumn(name = "codtipocontacto", insertable = false, updatable = false)
-  	private TipoContacto tipocontacto;    
+  	private TipoContacto tipocontacto;  */  
 
     @ManyToOne(cascade = CascadeType.ALL)
   	@JoinColumn(name = "codtipocontibuyente", insertable = false, updatable = false)
@@ -285,13 +285,13 @@ public class Contacto  implements Serializable {
 		this.formapago = formapago;
 	}
 
-	public TipoContacto getTipocontacto() {
+	/*public TipoContacto getTipocontacto() {
 		return tipocontacto;
 	}
 
 	public void setTipocontacto(TipoContacto tipocontacto) {
 		this.tipocontacto = tipocontacto;
-	}
+	}*/
 
 	public TipoContribuyente getTipocontribuyente() {
 		return tipocontribuyente;

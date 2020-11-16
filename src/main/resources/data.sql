@@ -3,13 +3,16 @@ insert into tipoimpuesto(nombretipoimpuesto,codnegocio,status) values('IVA',1,'A
 insert into tipoimpuesto(nombretipoimpuesto,codnegocio,status) values('RTICA',1,'ACTIVO');
 insert into tipocontacto(nombre) values('Cliente');
 insert into tipocontacto(nombre) values('Proveedor');
+INSERT INTO formapago(codnegocio, dias, nombre, status) VALUES (1, 0, 'Contado', 'ACTIVO');
+INSERT INTO vendedor(cobrador, codigo, codnegocio, codusuario, codzona, correoe, direccionfiscal, interno, montometa, nombre, porcfclexp, porcfclimp, porclclimp, status) VALUES ('', '0', 1, '01', 1, '', '', '', 0, 'NINGUNO', 0, 0, 0, 'ACTIVO');
+INSERT INTO zonas(codnegocio, nomzona, status) VALUES (1, 'NINGUNA', 'ACTIVO');
 insert into tipocontribuyente(nombre) values('REGIMEN SIMPLE');
 insert into tipocontribuyente(nombre) values('GRAN CONTRIBUYENTE');
 insert into tipocontribuyente(nombre) values('RESPONSABLE DE IVA');
 insert into tipocontribuyente(nombre) values('NO RESPONSABLE DE IVA');
 insert into tipoidentificacion(codigo,nombre) values('11','Registro Civil de Nacimiento');
 insert into tipoidentificacion(codigo,nombre) values('12','Tarjeta de Identidad');
-insert into tipoidentificacion(codigo,nombre) values('13','Cedula de Ciudadania');
+insert into tipoidentificacion(codigo,nombre) values('13','Cedula de Ciudadania'); 
 insert into tipoidentificacion(codigo,nombre) values('21','Tarjeta de Extranjeria');
 insert into tipoidentificacion(codigo,nombre) values('22','Cedula de Extranjeria');
 insert into tipoidentificacion(codigo,nombre) values('31','NIT');
