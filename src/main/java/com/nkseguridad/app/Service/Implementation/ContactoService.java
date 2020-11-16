@@ -23,4 +23,17 @@ public class ContactoService implements IContactoService {
 		return (List<Contacto>)contactoRepository.findAll();
 	}
 
+	@Override
+	public Contacto findByNumeroIdentificacion(String numero) {
+		// TODO Auto-generated method stub
+		return contactoRepository.findByNumeroidentificacion(numero);
+	}
+
+	@Override
+	public Contacto save(Contacto contacto) {
+		// TODO Auto-generated method stub
+		return contactoRepository.save(contacto);
+	}
+	
+
 }
