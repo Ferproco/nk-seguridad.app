@@ -29,16 +29,8 @@ public class FormaPago implements Serializable {
 	private Long codnegocio;
 	@Column(name="nombre",length=120)
     private String nombre;
-    private Long numero;
-    @Column(name="aplicara",length=120)
-    private String aplicara;
-    @Column(name="tipo",length=120)
-    private String tipo;    
-    private Double limitecredito;
+   
     private Double dias;
-    private Double porcinteres;
-    private Double numerogiros;
-    private Double diasxgiro;
     @Column(name="status",length=10)
     private String status;
 	
@@ -72,54 +64,17 @@ public class FormaPago implements Serializable {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-	public Long getNumero() {
-		return numero;
-	}
-	public void setNumero(Long numero) {
-		this.numero = numero;
-	}
-	public String getAplicara() {
-		return aplicara;
-	}
-	public void setAplicara(String aplicara) {
-		this.aplicara = aplicara;
-	}
-	public String getTipo() {
-		return tipo;
-	}
-	public void setTipo(String tipo) {
-		this.tipo = tipo;
-	}
-	public Double getLimitecredito() {
-		return limitecredito;
-	}
-	public void setLimitecredito(Double limitecredito) {
-		this.limitecredito = limitecredito;
-	}
+	
+	
 	public Double getDias() {
 		return dias;
 	}
 	public void setDias(Double dias) {
 		this.dias = dias;
 	}
-	public Double getPorcinteres() {
-		return porcinteres;
-	}
-	public void setPorcinteres(Double porcinteres) {
-		this.porcinteres = porcinteres;
-	}
-	public Double getNumerogiros() {
-		return numerogiros;
-	}
-	public void setNumerogiros(Double numerogiros) {
-		this.numerogiros = numerogiros;
-	}
-	public Double getDiasxgiro() {
-		return diasxgiro;
-	}
-	public void setDiasxgiro(Double diasxgiro) {
-		this.diasxgiro = diasxgiro;
-	}
+	
+	
+
 	public String getStatus() {
 		return status;
 	}
