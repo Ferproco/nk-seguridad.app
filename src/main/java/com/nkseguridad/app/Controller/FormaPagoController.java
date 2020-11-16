@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.nkseguridad.app.Entity.FormaPago;
+import com.nkseguridad.app.Entity.Impuesto;
 import com.nkseguridad.app.Service.IFormaPagoService;
 
 
@@ -53,24 +54,11 @@ public class FormaPagoController {
 	
 	@PostMapping("formapago")
 	public ResponseEntity<?> GuardarFormaPago(@RequestBody FormaPago formaPago) {
-		try {
-			FormaPago formaPagoUpdate = FormaPagoService.findByCodigo(formaPago.getId() );
-			if (formaPagoUpdate!=null) {
-				return new ResponseEntity<Void>(HttpStatus.FOUND);
-			} 
-			else {				
-				FormaPago formaPagoOut= FormaPagoService.save(formaPago);
-				if (formaPagoOut!=null) {
-					return new ResponseEntity<>(formaPagoOut, HttpStatus.OK);
-				}
-				else {
-					return new ResponseEntity<Void>(HttpStatus.CONFLICT);
-				}
-				
-			}
+		if (!FormaPagoService.existebyCodigo(formaPago.getId())) {
+			FormaPago formapagoObj = FormaPagoService.save(formaPago);
+			return new ResponseEntity<>(formapagoObj, HttpStatus.CREATED);
 		} 
-		catch (Exception m) {
-			System.out.print("Error guardando "+m);
+		else {
 			return new ResponseEntity<Void>(HttpStatus.CONFLICT);
 		}
 	}
@@ -83,14 +71,9 @@ public class FormaPagoController {
 			if (formaPagoUpdate!=null) {
 				formaPagoUpdate.setCodnegocio(formaPago.getId());
 				formaPagoUpdate.setNombre(formaPago.getNombre());
-				formaPagoUpdate.setNumero(formaPago.getNumero());
-				formaPagoUpdate.setAplicara(formaPago.getAplicara());
-				formaPagoUpdate.setTipo(formaPago.getTipo());
-				formaPagoUpdate.setLimitecredito(formaPago.getLimitecredito());
+				
 				formaPagoUpdate.setDias(formaPago.getDias());
-				formaPagoUpdate.setPorcinteres(formaPago.getPorcinteres());
-				formaPagoUpdate.setNumerogiros(formaPago.getNumerogiros());
-				formaPagoUpdate.setDiasxgiro(formaPago.getDiasxgiro());
+				
 				formaPagoUpdate.setStatus(formaPago.getStatus());
 				FormaPago formaPagoOut= FormaPagoService.save(formaPagoUpdate);
 				if (formaPagoOut!=null) {
