@@ -7,6 +7,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -27,17 +29,23 @@ public class ContactoController {
 	public ResponseEntity<?> ListarContactos(){
 		List<Contacto> LstContactos = contactoServicio.findAll();
 		if (LstContactos!=null) {
-			if (LstContactos.size()!=0) {
-				return new ResponseEntity<>(LstContactos,HttpStatus.OK);
-			}
-			else {
-				return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
-			}
+			if (LstContactos.size()!=0) 
+				return new ResponseEntity<>(LstContactos,HttpStatus.OK);			
+			else 
+				return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);		
 		}
-		else {
-			return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
+		else 
+			return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);	
+	}
+	
+	@PostMapping("contacto")
+	public ResponseEntity<?> GuardarContacto(@RequestBody Contacto contacto){
+		if (contactoServicio.findByNumeroIdentificacion(contacto.getNumeroidentificacion())==null) {
+			Contacto ContactoObj = contactoServicio.save(contacto);
+			return new ResponseEntity<>(ContactoObj, HttpStatus.CREATED);
 		}
-		
+		else
+			return new ResponseEntity<Void>(HttpStatus.CONFLICT);
 	}
 
 }
