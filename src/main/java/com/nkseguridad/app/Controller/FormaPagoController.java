@@ -1,5 +1,6 @@
 package com.nkseguridad.app.Controller;
 
+import java.io.Console;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,6 +52,8 @@ public class FormaPagoController {
 			return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
 		}
 	}
+	
+
 	
 	@PostMapping("formapago")
 	public ResponseEntity<?> GuardarFormaPago(@RequestBody FormaPago formaPago) {
