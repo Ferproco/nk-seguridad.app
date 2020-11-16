@@ -34,8 +34,6 @@ public class FormaPago implements Serializable {
     @Column(name="status",length=10)
     private String status;
 	
-
-
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "codnegocio", insertable = false, updatable = false)
 	private Negocio negocio;

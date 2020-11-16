@@ -29,8 +29,7 @@ public class Vendedor implements Serializable {
 	private Long id;
 	@Column(name = "codigo")
 	private String codigo;	
-	private String nombre;
-	
+	private String nombre;	
 
 	@Column(name = "porcfclimp")
 	private Double porcfclimp;

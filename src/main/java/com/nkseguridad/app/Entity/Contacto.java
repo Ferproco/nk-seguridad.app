@@ -25,7 +25,7 @@ public class Contacto  implements Serializable {
 	@Column(name="id")
 	private Long id;	
 	
-    private Long codgrupo;
+    //private Long codgrupo;
     
     @Column(name="codvendedor")
     private Long codvendedor;
@@ -74,13 +74,9 @@ public class Contacto  implements Serializable {
    
     @Column(name = "status", nullable = true, length = 10)
     private String status;    
-    
-    private String regimeniva;
-   
+       
     private Date fecharegistro;
-    
-    private Long codcontable;
-    
+        
     @ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "codnegocio", insertable = false, updatable = false)
 	private Negocio negocio;    
@@ -97,9 +93,9 @@ public class Contacto  implements Serializable {
   	@JoinColumn(name = "codformapago", insertable = false, updatable = false)
   	private FormaPago formapago;   
     
-    @ManyToOne(cascade = CascadeType.ALL)
+   /* @ManyToOne(cascade = CascadeType.ALL)
   	@JoinColumn(name = "codtipocontacto", insertable = false, updatable = false)
-  	private TipoContacto tipocontacto;    
+  	private TipoContacto tipocontacto;  */  
 
     @ManyToOne(cascade = CascadeType.ALL)
   	@JoinColumn(name = "codtipocontibuyente", insertable = false, updatable = false)
@@ -113,13 +109,13 @@ public class Contacto  implements Serializable {
 		this.id = id;
 	}
 
-	public Long getCodgrupo() {
+	/*public Long getCodgrupo() {
 		return codgrupo;
 	}
 
 	public void setCodgrupo(Long codgrupo) {
 		this.codgrupo = codgrupo;
-	}
+	}*/
 
 	public Long getCodvendedor() {
 		return codvendedor;
@@ -249,14 +245,6 @@ public class Contacto  implements Serializable {
 		this.status = status;
 	}
 
-	public String getRegimeniva() {
-		return regimeniva;
-	}
-
-	public void setRegimeniva(String regimeniva) {
-		this.regimeniva = regimeniva;
-	}
-
 	public Date getFecharegistro() {
 		return fecharegistro;
 	}
@@ -264,14 +252,6 @@ public class Contacto  implements Serializable {
 	public void setFecharegistro(Date fecharegistro) {
 		this.fecharegistro = fecharegistro;
 	}	
-
-	public Long getCodcontable() {
-		return codcontable;
-	}
-
-	public void setCodcontable(Long codcontable) {
-		this.codcontable = codcontable;
-	}
 
 	public Negocio getNegocio() {
 		return negocio;
@@ -305,13 +285,13 @@ public class Contacto  implements Serializable {
 		this.formapago = formapago;
 	}
 
-	public TipoContacto getTipocontacto() {
+	/*public TipoContacto getTipocontacto() {
 		return tipocontacto;
 	}
 
 	public void setTipocontacto(TipoContacto tipocontacto) {
 		this.tipocontacto = tipocontacto;
-	}
+	}*/
 
 	public TipoContribuyente getTipocontribuyente() {
 		return tipocontribuyente;
