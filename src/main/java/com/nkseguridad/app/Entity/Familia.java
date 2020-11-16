@@ -33,14 +33,7 @@ public class Familia implements Serializable{
 	@Column(name = "codnegocio")
 	private Long codnegocio;
 	
-	public Long getCodnegocio() {
-		return codnegocio;
-	}
-
-	public void setCodnegocio(Long codnegocio) {
-		this.codnegocio = codnegocio;
-	}
-
+	
 	@Column(name = "imagen")
 	private Byte[] imagen;
 	@Column(name = "status")
@@ -50,6 +43,14 @@ public class Familia implements Serializable{
 	@JoinColumn(name = "codnegocio", insertable = false, updatable = false)
 	private Negocio negocio;
 	
+	public Long getCodnegocio() {
+		return codnegocio;
+	}
+
+	public void setCodnegocio(Long codnegocio) {
+		this.codnegocio = codnegocio;
+	}
+
 	public Negocio getNegocio() {
 		return negocio;
 	}
