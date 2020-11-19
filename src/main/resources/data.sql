@@ -264,3 +264,98 @@ insert into pais(codigo, nombre, status) values('890','Zambia', 'ACTIVO');
 insert into pais(codigo, nombre, status) values('665','Zimbabwe', 'ACTIVO');
 insert into pais(codigo, nombre, status) values('895','Zona Canal De Panama', 'ACTIVO');
 insert into pais(codigo, nombre, status) values('897','Zona Neutral(Palesta', 'ACTIVO');
+insert into departamento(codigo,codpais,nombre, status) values('05',48,'Antioquia', 'ACTIVO');
+insert into departamento(codigo,codpais,nombre, status) values('08',48,'Atlantico', 'ACTIVO');
+insert into departamento(codigo,codpais,nombre, status) values('11',48,'Bogota D.C', 'ACTIVO');
+insert into departamento(codigo,codpais,nombre, status) values('13',48,'Bolivar', 'ACTIVO');
+insert into departamento(codigo,codpais,nombre, status) values('15',48,'Boyaca', 'ACTIVO');
+insert into departamento(codigo,codpais,nombre, status) values('17',48,'Caldas', 'ACTIVO');
+insert into departamento(codigo,codpais,nombre, status) values('18',48,'Caqueta', 'ACTIVO');
+insert into departamento(codigo,codpais,nombre, status) values('19',48,'Cauca', 'ACTIVO');
+insert into departamento(codigo,codpais,nombre, status) values('20',48,'Cesar', 'ACTIVO');
+insert into departamento(codigo,codpais,nombre, status) values('23',48,'Cordoba', 'ACTIVO');
+insert into departamento(codigo,codpais,nombre, status) values('25',48,'Cundinamarca', 'ACTIVO');
+insert into departamento(codigo,codpais,nombre, status) values('27',48,'Choco', 'ACTIVO');
+insert into departamento(codigo,codpais,nombre, status) values('41',48,'Huila', 'ACTIVO');
+insert into departamento(codigo,codpais,nombre, status) values('44',48,'La Guajira', 'ACTIVO');
+insert into departamento(codigo,codpais,nombre, status) values('47',48,'Magdalena', 'ACTIVO');
+insert into departamento(codigo,codpais,nombre, status) values('50',48,'Meta', 'ACTIVO');
+insert into departamento(codigo,codpais,nombre, status) values('52',48,'Narino', 'ACTIVO');
+insert into departamento(codigo,codpais,nombre, status) values('54',48,'Norte de Santander', 'ACTIVO');
+insert into departamento(codigo,codpais,nombre, status) values('63',48,'Quindio', 'ACTIVO');
+insert into departamento(codigo,codpais,nombre, status) values('66',48,'Risaralda', 'ACTIVO');
+insert into departamento(codigo,codpais,nombre, status) values('68',48,'Santander', 'ACTIVO');
+insert into departamento(codigo,codpais,nombre, status) values('70',48,'Sucre', 'ACTIVO');
+insert into departamento(codigo,codpais,nombre, status) values('73',48,'Tolima', 'ACTIVO');
+insert into departamento(codigo,codpais,nombre, status) values('76',48,'Valle del Cauca', 'ACTIVO');
+insert into departamento(codigo,codpais,nombre, status) values('81',48,'Arauca', 'ACTIVO');
+insert into departamento(codigo,codpais,nombre, status) values('85',48,'Casanare', 'ACTIVO');
+insert into departamento(codigo,codpais,nombre, status) values('86',48,'PutuMayo', 'ACTIVO');
+insert into departamento(codigo,codpais,nombre, status) values('88',48,'San Andres', 'ACTIVO');
+insert into departamento(codigo,codpais,nombre, status) values('91',48,'Amazonas', 'ACTIVO');
+insert into departamento(codigo,codpais,nombre, status) values('94',48,'Guainia', 'ACTIVO');
+insert into departamento(codigo,codpais,nombre, status) values('95',48,'Guaviare', 'ACTIVO');
+insert into departamento(codigo,codpais,nombre, status) values('97',48,'Vaupes', 'ACTIVO');
+insert into departamento(codigo,codpais,nombre, status) values('99',48,'Vichada', 'ACTIVO');
+insert into municipio(codigo,codciudad,coddepartamento,nombre, status) values('001','050001',1,'Medellin', 'ACTIVO')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

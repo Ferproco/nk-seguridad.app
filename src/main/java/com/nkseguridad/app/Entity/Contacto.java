@@ -39,10 +39,20 @@ public class Contacto  implements Serializable {
 	@Column(name="codtipoidentificacion")
     private Long codtipoidentificacion; 
    
-    @Column(name = "nombre", nullable = false, length = 120)
-    private String nombre;
+    @Column(name = "nombreprimero", nullable = false, length = 120)
+    private String nombreprimero;
     
-    @Column(name = "razonsocial", nullable = true, length = 120)
+    @Column(name = "nombresegundo", nullable = false, length = 120)
+    private String nombresegundo;
+    
+    @Column(name = "apellidoprimero", nullable = false, length = 120)
+    private String apellidoprimero;
+    
+    @Column(name = "apellidosegundo", nullable = false, length = 120)
+    private String apellidosegundo;
+    
+    
+	@Column(name = "razonsocial", nullable = true, length = 120)
     private String razonsocial;
     
     @Column(name = "telefonomovil", nullable = true, length = 15)
@@ -72,7 +82,19 @@ public class Contacto  implements Serializable {
     @Column(name="codtipocontibuyente")
     private Long codtipocontibuyente;
    
-    @Column(name = "status", nullable = true, length = 10)
+    @Column(name="codtipopersona")
+    private Long codtipopersona;
+    
+    @Column(name="codpais")
+    private Long codpais;
+    
+    @Column(name="coddepartamento")
+    private Long coddepartamento;
+    
+    @Column(name="codmunicipio")
+    private Long codmunicipio;
+    
+   	@Column(name = "status", nullable = true, length = 10)
     private String status;    
        
     private Date fecharegistro;
@@ -91,7 +113,19 @@ public class Contacto  implements Serializable {
     
     @ManyToOne(cascade = CascadeType.ALL)
   	@JoinColumn(name = "codformapago", insertable = false, updatable = false)
-  	private FormaPago formapago;   
+  	private FormaPago formapago;  
+    
+    @ManyToOne(cascade = CascadeType.ALL)
+  	@JoinColumn(name = "codpais", insertable = false, updatable = false)
+  	private Pais pais; 
+    
+    @ManyToOne(cascade = CascadeType.ALL)
+  	@JoinColumn(name = "coddepartamento", insertable = false, updatable = false)
+  	private Departamento departamento; 
+    
+    @ManyToOne(cascade = CascadeType.ALL)
+  	@JoinColumn(name = "codmunicipio", insertable = false, updatable = false)
+  	private Municipio municipio;
     
    /* @ManyToOne(cascade = CascadeType.ALL)
   	@JoinColumn(name = "codtipocontacto", insertable = false, updatable = false)
@@ -101,6 +135,40 @@ public class Contacto  implements Serializable {
   	@JoinColumn(name = "codtipocontibuyente", insertable = false, updatable = false)
   	private TipoContribuyente tipocontribuyente;
 
+
+	public Long getCoddepartamento() {
+		return coddepartamento;
+	}
+
+	public void setCoddepartamento(Long coddepartamento) {
+		this.coddepartamento = coddepartamento;
+	}
+
+	public Long getCodmunicipio() {
+		return codmunicipio;
+	}
+
+	public void setCodmunicipio(Long codmunicipio) {
+		this.codmunicipio = codmunicipio;
+	}
+
+	public Departamento getDepartamento() {
+		return departamento;
+	}
+
+	public void setDepartamento(Departamento departamento) {
+		this.departamento = departamento;
+	}
+
+	public Municipio getMunicipio() {
+		return municipio;
+	}
+
+	public void setMunicipio(Municipio municipio) {
+		this.municipio = municipio;
+	}
+
+	
 	public Long getId() {
 		return id;
 	}
@@ -148,14 +216,22 @@ public class Contacto  implements Serializable {
 	public void setCodtipoidentificacion(Long codtipoidentificacion) {
 		this.codtipoidentificacion = codtipoidentificacion;
 	}
-
-	public String getNombre() {
-		return nombre;
+	public Long getCodtipopersona() {
+		return codtipopersona;
 	}
 
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
+	public void setCodtipopersona(Long codtipopersona) {
+		this.codtipopersona = codtipopersona;
 	}
+
+	public Long getCodpais() {
+		return codpais;
+	}
+
+	public void setCodpais(Long codpais) {
+		this.codpais = codpais;
+	}
+	
 
 	public String getRazonsocial() {
 		return razonsocial;
@@ -285,6 +361,13 @@ public class Contacto  implements Serializable {
 		this.formapago = formapago;
 	}
 
+	public Pais getPais() {
+		return pais;
+	}
+
+	public void setPais(Pais pais) {
+		this.pais = pais;
+	}
 	/*public TipoContacto getTipocontacto() {
 		return tipocontacto;
 	}
@@ -300,4 +383,38 @@ public class Contacto  implements Serializable {
 	public void setTipocontribuyente(TipoContribuyente tipocontribuyente) {
 		this.tipocontribuyente = tipocontribuyente;
 	}
+
+	public String getNombreprimero() {
+		return nombreprimero;
+	}
+
+	public void setNombreprimero(String nombreprimero) {
+		this.nombreprimero = nombreprimero;
+	}
+
+	public String getNombresegundo() {
+		return nombresegundo;
+	}
+
+	public void setNombresegundo(String nombresegundo) {
+		this.nombresegundo = nombresegundo;
+	}
+
+	public String getApellidoprimero() {
+		return apellidoprimero;
+	}
+
+	public void setApellidoprimero(String apellidoprimero) {
+		this.apellidoprimero = apellidoprimero;
+	}
+
+	public String getApellidosegundo() {
+		return apellidosegundo;
+	}
+
+	public void setApellidosegundo(String apellidosegundo) {
+		this.apellidosegundo = apellidosegundo;
+	}
+	
+
 }
