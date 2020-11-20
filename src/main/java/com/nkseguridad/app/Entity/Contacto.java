@@ -98,8 +98,19 @@ public class Contacto  implements Serializable {
     private String status;    
        
     private Date fecharegistro;
-        
+    
+    private String lugarenvio;
+    private String cupo;
+    private Long codlistaprecio;
+    private String direccionexogena;
+    
     @ManyToOne(cascade = CascadeType.ALL)
+   	@JoinColumn(name = "codlistaprecio", insertable = false, updatable = false)
+   	private ListaPrecio listaprecio;  
+        
+  
+
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "codnegocio", insertable = false, updatable = false)
 	private Negocio negocio;    
     
@@ -127,15 +138,51 @@ public class Contacto  implements Serializable {
   	@JoinColumn(name = "codmunicipio", insertable = false, updatable = false)
   	private Municipio municipio;
     
-   /* @ManyToOne(cascade = CascadeType.ALL)
-  	@JoinColumn(name = "codtipocontacto", insertable = false, updatable = false)
-  	private TipoContacto tipocontacto;  */  
-
+  
     @ManyToOne(cascade = CascadeType.ALL)
   	@JoinColumn(name = "codtipocontibuyente", insertable = false, updatable = false)
   	private TipoContribuyente tipocontribuyente;
 
 
+    public String getLugarenvio() {
+  		return lugarenvio;
+  	}
+
+  	public void setLugarenvio(String lugarenvio) {
+  		this.lugarenvio = lugarenvio;
+  	}
+
+  	public String getCupo() {
+  		return cupo;
+  	}
+
+  	public void setCupo(String cupo) {
+  		this.cupo = cupo;
+  	}
+
+  	public Long getCodlistaprecio() {
+  		return codlistaprecio;
+  	}
+
+  	public void setCodlistaprecio(Long codlistaprecio) {
+  		this.codlistaprecio = codlistaprecio;
+  	}
+
+  	public String getDireccionexogena() {
+  		return direccionexogena;
+  	}
+
+  	public void setDireccionexogena(String direccionexogena) {
+  		this.direccionexogena = direccionexogena;
+  	}
+
+  	public ListaPrecio getListaprecio() {
+  		return listaprecio;
+  	}
+
+  	public void setListaprecio(ListaPrecio listaprecio) {
+  		this.listaprecio = listaprecio;
+  	}
 	public Long getCoddepartamento() {
 		return coddepartamento;
 	}

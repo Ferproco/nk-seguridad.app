@@ -297,7 +297,49 @@ insert into departamento(codigo,codpais,nombre, status) values('94',48,'Guainia'
 insert into departamento(codigo,codpais,nombre, status) values('95',48,'Guaviare', 'ACTIVO');
 insert into departamento(codigo,codpais,nombre, status) values('97',48,'Vaupes', 'ACTIVO');
 insert into departamento(codigo,codpais,nombre, status) values('99',48,'Vichada', 'ACTIVO');
-insert into municipio(codigo,codciudad,coddepartamento,nombre, status) values('001','050001',1,'Medellin', 'ACTIVO')
+insert into municipio(codigo,codciudad,coddepartamento,nombre, status) values('001','05001',1,'Medellin', 'ACTIVO');
+insert into municipio(codigo,codciudad,coddepartamento,nombre, status) values('002','05002',1,'Abejorral', 'ACTIVO');
+insert into municipio(codigo,codciudad,coddepartamento,nombre, status) values('004','05004',1,'Abriaqui', 'ACTIVO');
+insert into municipio(codigo,codciudad,coddepartamento,nombre, status) values('021','05021',1,'Alejandria', 'ACTIVO');
+
+insert into municipio(codigo,codciudad,coddepartamento,nombre, status) values('030','05030',1,'Amaga', 'ACTIVO');
+insert into municipio(codigo,codciudad,coddepartamento,nombre, status) values('031','05031',1,'Amalfi', 'ACTIVO');
+insert into municipio(codigo,codciudad,coddepartamento,nombre, status) values('034','05034',1,'Andes', 'ACTIVO');
+insert into municipio(codigo,codciudad,coddepartamento,nombre, status) values('036','05036',1,'Angelopolis', 'ACTIVO');
+insert into municipio(codigo,codciudad,coddepartamento,nombre, status) values('038','05038',1,'Angostura', 'ACTIVO');
+insert into municipio(codigo,codciudad,coddepartamento,nombre, status) values('040','05040',1,'Anori', 'ACTIVO');
+insert into municipio(codigo,codciudad,coddepartamento,nombre, status) values('040','05040',1,'Anori', 'ACTIVO');
+insert into municipio(codigo,codciudad,coddepartamento,nombre, status) values('042','05042',1,'Santafe de Antioquia', 'ACTIVO');
+insert into municipio(codigo,codciudad,coddepartamento,nombre, status) values('044','05044',1,'Anza', 'ACTIVO');
+insert into municipio(codigo,codciudad,coddepartamento,nombre, status) values('045','05045',1,'Apartado', 'ACTIVO');
+insert into municipio(codigo,codciudad,coddepartamento,nombre, status) values('051','05051',1,'Arboletes', 'ACTIVO');
+insert into municipio(codigo,codciudad,coddepartamento,nombre, status) values('055','05055',1,'Argelia', 'ACTIVO');
+insert into municipio(codigo,codciudad,coddepartamento,nombre, status) values('059','05059',1,'Armenia', 'ACTIVO');
+insert into municipio(codigo,codciudad,coddepartamento,nombre, status) values('079','05079',1,'Barbosa', 'ACTIVO');
+insert into municipio(codigo,codciudad,coddepartamento,nombre, status) values('086','05086',1,'Belmira', 'ACTIVO');
+insert into municipio(codigo,codciudad,coddepartamento,nombre, status) values('088','05088',1,'Bello', 'ACTIVO');
+insert into municipio(codigo,codciudad,coddepartamento,nombre, status) values('091','05091',1,'Betania', 'ACTIVO');
+insert into municipio(codigo,codciudad,coddepartamento,nombre, status) values('093','05093',1,'Betulia', 'ACTIVO');
+insert into municipio(codigo,codciudad,coddepartamento,nombre, status) values('101','05101',1,'Ciudad Bolivar', 'ACTIVO');
+insert into municipio(codigo,codciudad,coddepartamento,nombre, status) values('107','05107',1,'Briceno', 'ACTIVO');
+insert into municipio(codigo,codciudad,coddepartamento,nombre, status) values('113','05113',1,'Buritica', 'ACTIVO');
+insert into municipio(codigo,codciudad,coddepartamento,nombre, status) values('120','05120',1,'Caceres', 'ACTIVO');
+insert into municipio(codigo,codciudad,coddepartamento,nombre, status) values('125','05125',1,'Caicedo', 'ACTIVO');
+insert into municipio(codigo,codciudad,coddepartamento,nombre, status) values('129','05129',1,'Caldas', 'ACTIVO');
+insert into municipio(codigo,codciudad,coddepartamento,nombre, status) values('134','05134',1,'Campamento', 'ACTIVO');
+insert into municipio(codigo,codciudad,coddepartamento,nombre, status) values('138','05138',1,'Canasgordas', 'ACTIVO');
+insert into municipio(codigo,codciudad,coddepartamento,nombre, status) values('142','05142',1,'Caracoli', 'ACTIVO');
+insert into listaprecio(numerolista,vigentedesde,tarifa,fechasistem,status, vigente,codnegocio,codmoneda,simbolo) values('Ninguna','2020-11-19','','2020-11-19','','',1,'','')
+
+
+
+
+
+
+
+
+
+
 
 
 
