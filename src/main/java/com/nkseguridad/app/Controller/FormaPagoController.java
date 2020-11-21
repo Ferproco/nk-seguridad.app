@@ -52,31 +52,45 @@ public class FormaPagoController {
 			return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
 		}
 	}
-	
 
-	
+
 	@PostMapping("formapago")
 	public ResponseEntity<?> GuardarFormaPago(@RequestBody FormaPago formaPago) {
-		if (!FormaPagoService.existebyCodigo(formaPago.getId())) {
-			FormaPago formapagoObj = FormaPagoService.save(formaPago);
-			return new ResponseEntity<>(formapagoObj, HttpStatus.CREATED);
+		FormaPago formaPagoOut;
+		try {
+			FormaPago formaPagoUpdate = FormaPagoService.findByCodigo(formaPago.getId());
+			if (formaPagoUpdate!=null) {
+				formaPagoUpdate.setCodnegocio(formaPago.getCodnegocio());
+				formaPagoUpdate.setNombre(formaPago.getNombre());				
+				formaPagoUpdate.setDias(formaPago.getDias());				
+				formaPagoUpdate.setStatus(formaPago.getStatus());	
+				formaPagoOut= FormaPagoService.save(formaPagoUpdate);
+			} 
+			else {
+				formaPagoOut= FormaPagoService.save(formaPago);				
+			}
+			if (formaPagoOut!=null) {
+				return new ResponseEntity<>(formaPagoOut, HttpStatus.OK);
+			}
+			else {
+				return new ResponseEntity<Void>(HttpStatus.CONFLICT);
+			}
 		} 
-		else {
+		catch (Exception m) {
+			System.out.print("Error guardando "+m);
+			
 			return new ResponseEntity<Void>(HttpStatus.CONFLICT);
 		}
 	}
-
 
 	@PutMapping("formapago")
 	public ResponseEntity<?> ModificarFormaPago(@RequestBody FormaPago formaPago) {
 		try {
 			FormaPago formaPagoUpdate = FormaPagoService.findByCodigo(formaPago.getId());
 			if (formaPagoUpdate!=null) {
-				formaPagoUpdate.setCodnegocio(formaPago.getId());
-				formaPagoUpdate.setNombre(formaPago.getNombre());
-				
-				formaPagoUpdate.setDias(formaPago.getDias());
-				
+				formaPagoUpdate.setCodnegocio(formaPago.getCodnegocio());
+				formaPagoUpdate.setNombre(formaPago.getNombre());				
+				formaPagoUpdate.setDias(formaPago.getDias());				
 				formaPagoUpdate.setStatus(formaPago.getStatus());
 				FormaPago formaPagoOut= FormaPagoService.save(formaPagoUpdate);
 				if (formaPagoOut!=null) {
@@ -92,6 +106,7 @@ public class FormaPagoController {
 		} 
 		catch (Exception m) {
 			System.out.print("Error guardando "+m);
+			
 			return new ResponseEntity<Void>(HttpStatus.CONFLICT);
 		}
 	}

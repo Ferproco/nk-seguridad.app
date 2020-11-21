@@ -16,7 +16,6 @@ import javax.persistence.Table;
 @Table(name = "formapago", schema = "public")
 
 public class FormaPago implements Serializable {
-
 	/**
 	 * 
 	 */
@@ -28,12 +27,11 @@ public class FormaPago implements Serializable {
 	@Column(name = "codnegocio")
 	private Long codnegocio;
 	@Column(name="nombre",length=120)
-    private String nombre;
-   
+    private String nombre;   
     private Double dias;
     @Column(name="status",length=10)
     private String status;
-	
+    
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "codnegocio", insertable = false, updatable = false)
 	private Negocio negocio;
@@ -61,17 +59,15 @@ public class FormaPago implements Serializable {
 	}
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
-	}
-	
+	}	
 	
 	public Double getDias() {
 		return dias;
 	}
+	
 	public void setDias(Double dias) {
 		this.dias = dias;
-	}
-	
-	
+	}	
 
 	public String getStatus() {
 		return status;
@@ -79,7 +75,5 @@ public class FormaPago implements Serializable {
 	public void setStatus(String status) {
 		this.status = status;
 	}
-	
-
 	
 }
