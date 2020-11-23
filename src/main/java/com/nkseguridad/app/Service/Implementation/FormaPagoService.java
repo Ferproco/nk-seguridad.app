@@ -35,6 +35,7 @@ public class FormaPagoService implements IFormaPagoService {
 	@Override
 	public FormaPago save(FormaPago formapago) {
 		// TODO Auto-generated method stub
+		
 		return FormaPagoRepository.save(formapago);
 	}
 
