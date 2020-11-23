@@ -39,16 +39,16 @@ public class Contacto  implements Serializable {
 	@Column(name="codtipoidentificacion")
     private Long codtipoidentificacion; 
    
-    @Column(name = "nombreprimero", nullable = false, length = 120)
+    @Column(name = "nombreprimero", nullable = true, length = 120)
     private String nombreprimero;
     
-    @Column(name = "nombresegundo", nullable = false, length = 120)
+    @Column(name = "nombresegundo", nullable = true, length = 120)
     private String nombresegundo;
     
-    @Column(name = "apellidoprimero", nullable = false, length = 120)
+    @Column(name = "apellidoprimero", nullable = true, length = 120)
     private String apellidoprimero;
     
-    @Column(name = "apellidosegundo", nullable = false, length = 120)
+    @Column(name = "apellidosegundo", nullable = true, length = 120)
     private String apellidosegundo;
     
     
@@ -102,9 +102,23 @@ public class Contacto  implements Serializable {
     private String lugarenvio;
     private String cupo;
     private Long codlistaprecio;
+   
+    @Column(name = "direccionexogena", nullable = true, length = 120)
     private String direccionexogena;
     
-    @ManyToOne(cascade = CascadeType.ALL)
+	@Column(name = "paginaweb", nullable = true, length = 120)
+    private String paginaweb;
+	
+    private Double limitecreditohasta;
+    private Date fechacreditodesde;
+    private Date fechacreditohasta;
+    private String observaciones;
+    private String descuentocondicionado;
+    private Long codigodv;
+    private String responsableiva;
+    
+   
+	@ManyToOne(cascade = CascadeType.ALL)
    	@JoinColumn(name = "codlistaprecio", insertable = false, updatable = false)
    	private ListaPrecio listaprecio;  
         
@@ -415,13 +429,7 @@ public class Contacto  implements Serializable {
 	public void setPais(Pais pais) {
 		this.pais = pais;
 	}
-	/*public TipoContacto getTipocontacto() {
-		return tipocontacto;
-	}
-
-	public void setTipocontacto(TipoContacto tipocontacto) {
-		this.tipocontacto = tipocontacto;
-	}*/
+	
 
 	public TipoContribuyente getTipocontribuyente() {
 		return tipocontribuyente;
@@ -462,6 +470,71 @@ public class Contacto  implements Serializable {
 	public void setApellidosegundo(String apellidosegundo) {
 		this.apellidosegundo = apellidosegundo;
 	}
+	 public String getPaginaweb() {
+			return paginaweb;
+		}
+
+		public void setPaginaweb(String paginaweb) {
+			this.paginaweb = paginaweb;
+		}
+
+	
+		public Double getLimitecreditohasta() {
+			return limitecreditohasta;
+		}
+
+		public void setLimitecreditohasta(Double limitecreditohasta) {
+			this.limitecreditohasta = limitecreditohasta;
+		}
+
+		public Date getFechacreditodesde() {
+			return fechacreditodesde;
+		}
+
+		public void setFechacreditodesde(Date fechacreditodesde) {
+			this.fechacreditodesde = fechacreditodesde;
+		}
+
+		public Date getFechacreditohasta() {
+			return fechacreditohasta;
+		}
+
+		public void setFechacreditohasta(Date fechacreditohasta) {
+			this.fechacreditohasta = fechacreditohasta;
+		}
+
+		public String getObservaciones() {
+			return observaciones;
+		}
+
+		public void setObservaciones(String observaciones) {
+			this.observaciones = observaciones;
+		}
+
+		public String getDescuentocondicionado() {
+			return descuentocondicionado;
+		}
+
+		public void setDescuentocondicionado(String descuentocondicionado) {
+			this.descuentocondicionado = descuentocondicionado;
+		}
+
+		public Long getCodigodv() {
+			return codigodv;
+		}
+
+		public void setCodigodv(Long codigodv) {
+			this.codigodv = codigodv;
+		}
+
+		public String getResponsableiva() {
+			return responsableiva;
+		}
+
+		public void setResponsableiva(String responsableiva) {
+			this.responsableiva = responsableiva;
+		}
+
 	
 
 }

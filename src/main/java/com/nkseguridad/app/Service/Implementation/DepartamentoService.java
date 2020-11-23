@@ -22,4 +22,10 @@ public class DepartamentoService implements IDepartamentoService{
 		return (List<Departamento>)departamentoRepository.findAll();
 	}
 
+	@Override
+	public List<Departamento> findByPais(Long codpais) {
+		// TODO Auto-generated method stub
+		return (List<Departamento>)departamentoRepository.findByCodpais(codpais);
+	}
+
 }

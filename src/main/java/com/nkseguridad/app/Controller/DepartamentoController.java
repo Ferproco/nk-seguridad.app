@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -38,5 +39,22 @@ public class DepartamentoController {
 		}
 		
 	}
+	@GetMapping("departamento/{idpais}")
+		public ResponseEntity<?> ListarDepartamentoxpais(@PathVariable(name = "idpais") Long idpais){
+			List<Departamento> LstDepartamentos= departamentoServicio.findByPais(idpais);
+			if (LstDepartamentos!=null) {
+				if (LstDepartamentos.size()!=0) {
+					return new ResponseEntity<>(LstDepartamentos,HttpStatus.OK);
+				}
+				else {
+					return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
+				}
+			}
+			else {
+				return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
+			}
+			
+		}
+	}
 
-}
+
