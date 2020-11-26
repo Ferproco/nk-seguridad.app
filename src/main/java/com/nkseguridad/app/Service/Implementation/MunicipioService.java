@@ -21,4 +21,10 @@ public class MunicipioService implements IMunicipioService {
 		return (List<Municipio>)municipioRepository.findAll();
 	}
 
+	@Override
+	public List<Municipio> findByCoddepartamento(Long coddepartamento) {
+		// TODO Auto-generated method stub
+		return municipioRepository.findByCoddepartamento(coddepartamento);
+	}
+
 }

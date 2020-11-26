@@ -18,6 +18,21 @@ insert into tipoidentificacion(codigo,nombre) values('22','CE - Cedula de Extran
 insert into tipoidentificacion(codigo,nombre) values('31','NIT - Numero de Identificacion');
 insert into tipoidentificacion(codigo,nombre) values('41','PP - Pasaporte');
 insert into tipoidentificacion(codigo,nombre) values('42','DIE - Documentode identificacion Extranjero');
+insert into unidadmedida(abrevunidadmedida,codnegocio,nomunidadmedida,status) values ('NOA',1,'NO APLICA','ACTIVO');
+insert into unidadmedida(abrevunidadmedida,codnegocio,nomunidadmedida,status) values ('UND',1,'UNIDAD','ACTIVO');
+insert into unidadmedida(abrevunidadmedida,codnegocio,nomunidadmedida,status) values ('SER',1,'SERVICIO','ACTIVO');
+insert into unidadmedida(abrevunidadmedida,codnegocio,nomunidadmedida,status) values ('PZA',1,'PIEZA','ACTIVO');
+insert into unidadmedida(abrevunidadmedida,codnegocio,nomunidadmedida,status) values ('CAJ',1,'CAJA','ACTIVO');
+insert into unidadmedida(abrevunidadmedida,codnegocio,nomunidadmedida,status) values ('PAQ',1,'PAQUETE','ACTIVO');
+
+insert into unidadmedida(abrevunidadmedida,codnegocio,nomunidadmedida,status) values ('CMT',1,'CENTIMETRO','ACTIVO');
+insert into unidadmedida(abrevunidadmedida,codnegocio,nomunidadmedida,status) values ('MTR',1,'METRO','ACTIVO');
+insert into unidadmedida(abrevunidadmedida,codnegocio,nomunidadmedida,status) values ('GAL',1,'GALON','ACTIVO');
+insert into unidadmedida(abrevunidadmedida,codnegocio,nomunidadmedida,status) values ('LTR',1,'LITRO','ACTIVO');
+insert into unidadmedida(abrevunidadmedida,codnegocio,nomunidadmedida,status) values ('HRA',1,'HORA','ACTIVO');
+insert into unidadmedida(abrevunidadmedida,codnegocio,nomunidadmedida,status) values ('MIN',1,'MINUTO','ACTIVO');
+insert into unidadmedida(abrevunidadmedida,codnegocio,nomunidadmedida,status) values ('DIA',1,'DIA','ACTIVO');
+
 insert into pais(codigo, nombre, status) values('013','Afganistan', 'ACTIVO');
 insert into pais(codigo, nombre, status) values('017','Albania', 'ACTIVO');
 insert into pais(codigo, nombre, status) values('023','Alemania', 'ACTIVO');
@@ -264,8 +279,7 @@ insert into pais(codigo, nombre, status) values('890','Zambia', 'ACTIVO');
 insert into pais(codigo, nombre, status) values('665','Zimbabwe', 'ACTIVO');
 insert into pais(codigo, nombre, status) values('895','Zona Canal De Panama', 'ACTIVO');
 insert into pais(codigo, nombre, status) values('897','Zona Neutral(Palesta', 'ACTIVO');
-insert into departamento(codigo,codpais,nombre, status) values('05',236,'Barquisimeto', 'ACTIVO');
-insert into departamento(codigo,codpais,nombre, status) values('05',236,'Guanare', 'ACTIVO');
+
 insert into departamento(codigo,codpais,nombre, status) values('05',48,'Antioquia', 'ACTIVO');
 insert into departamento(codigo,codpais,nombre, status) values('08',48,'Atlantico', 'ACTIVO');
 insert into departamento(codigo,codpais,nombre, status) values('11',48,'Bogota D.C', 'ACTIVO');
@@ -299,6 +313,8 @@ insert into departamento(codigo,codpais,nombre, status) values('94',48,'Guainia'
 insert into departamento(codigo,codpais,nombre, status) values('95',48,'Guaviare', 'ACTIVO');
 insert into departamento(codigo,codpais,nombre, status) values('97',48,'Vaupes', 'ACTIVO');
 insert into departamento(codigo,codpais,nombre, status) values('99',48,'Vichada', 'ACTIVO');
+insert into departamento(codigo,codpais,nombre, status) values('05',236,'Barquisimeto', 'ACTIVO');
+insert into departamento(codigo,codpais,nombre, status) values('05',236,'Guanare', 'ACTIVO');
 insert into municipio(codigo,codciudad,coddepartamento,nombre, status) values('001','05001',1,'Medellin', 'ACTIVO');
 insert into municipio(codigo,codciudad,coddepartamento,nombre, status) values('002','05002',1,'Abejorral', 'ACTIVO');
 insert into municipio(codigo,codciudad,coddepartamento,nombre, status) values('004','05004',1,'Abriaqui', 'ACTIVO');
@@ -331,6 +347,17 @@ insert into municipio(codigo,codciudad,coddepartamento,nombre, status) values('1
 insert into municipio(codigo,codciudad,coddepartamento,nombre, status) values('134','05134',1,'Campamento', 'ACTIVO');
 insert into municipio(codigo,codciudad,coddepartamento,nombre, status) values('138','05138',1,'Canasgordas', 'ACTIVO');
 insert into municipio(codigo,codciudad,coddepartamento,nombre, status) values('142','05142',1,'Caracoli', 'ACTIVO');
+
+insert into municipio(codigo,codciudad,coddepartamento,nombre, status) values('145','05145',1,'Caramanta', 'ACTIVO');
+insert into municipio(codigo,codciudad,coddepartamento,nombre, status) values('147','05147',1,'Carepa', 'ACTIVO');
+insert into municipio(codigo,codciudad,coddepartamento,nombre, status) values('148','05148',1,'El Carmen de Viboral', 'ACTIVO');
+insert into municipio(codigo,codciudad,coddepartamento,nombre, status) values('150','05150',1,'Carolina', 'ACTIVO');
+insert into municipio(codigo,codciudad,coddepartamento,nombre, status) values('154','05154',1,'Caucasia', 'ACTIVO');
+insert into municipio(codigo,codciudad,coddepartamento,nombre, status) values('172','05172',1,'Chigorodo', 'ACTIVO');
+insert into municipio(codigo,codciudad,coddepartamento,nombre, status) values('190','05190',1,'Cisneros', 'ACTIVO');
+insert into municipio(codigo,codciudad,coddepartamento,nombre, status) values('197','05197',1,'Cocorna', 'ACTIVO');
+insert into municipio(codigo,codciudad,coddepartamento,nombre, status) values('206','05206',1,'Concepcion', 'ACTIVO');
+insert into municipio(codigo,codciudad,coddepartamento,nombre, status) values('209','05209',1,'Concordia', 'ACTIVO');
 insert into listaprecio(numerolista,vigentedesde,tarifa,fechasistem,status, vigente,codnegocio,codmoneda,simbolo) values('Ninguna','2020-11-19','','2020-11-19','','',1,'','')
 
 

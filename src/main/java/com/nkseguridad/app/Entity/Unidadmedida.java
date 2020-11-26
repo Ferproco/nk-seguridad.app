@@ -2,11 +2,14 @@ package com.nkseguridad.app.Entity;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -24,12 +27,12 @@ public class Unidadmedida implements Serializable{
 	private Long id;
 	private String abrevunidadmedida;
 	private String nomunidadmedida;
-	private String codnegocio;
+	private Long codnegocio;
 	private String status;
 	
-	
-	
-	
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "codnegocio", insertable = false, updatable = false)
+	private Negocio negocio;	
 	
 	public Long getId() {
 		return id;
@@ -43,9 +46,12 @@ public class Unidadmedida implements Serializable{
 	public void setStatus(String status) {
 		this.status = status;
 	}
-	public void setCodnegocio(String codnegocio) {
+	public void setCodnegocio(Long codnegocio) {
 		this.codnegocio = codnegocio;
 	}
+	public Long getCodnegocio() {
+		return codnegocio;
+	} 
 	public String getAbrevunidadmedida() {
 		return abrevunidadmedida;
 	}
@@ -58,23 +64,19 @@ public class Unidadmedida implements Serializable{
 	public void setNomunidadmedida(String nomunidadmedida) {
 		this.nomunidadmedida = nomunidadmedida;
 	}
-	public String getCodnegocio() {
-		return codnegocio;
-	} 
-	public void setCodnegoco(String codnegocio) {
-		this.codnegocio=codnegocio;
-		
-	}
+	
+	
 	
    public Unidadmedida() {
 		
 	}
 	
-	public Unidadmedida(String abrevunidadmedida, String nomunidadmedida, String codnegocio) {
+	public Unidadmedida(String abrevunidadmedida, String nomunidadmedida, Long codnegocio,String status) {
 		super();
 		this.abrevunidadmedida = abrevunidadmedida;
 		this.nomunidadmedida = nomunidadmedida;
 		this.codnegocio = codnegocio;
+		this.status=status;
 	}
 	@Override
 	public String toString() {
