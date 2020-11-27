@@ -83,32 +83,6 @@ public class FormaPagoController {
 		}
 	}
 
-	@PutMapping("formapago")
-	public ResponseEntity<?> ModificarFormaPago(@RequestBody FormaPago formaPago) {
-		try {
-			FormaPago formaPagoUpdate = FormaPagoService.findByCodigo(formaPago.getId());
-			if (formaPagoUpdate!=null) {
-				formaPagoUpdate.setCodnegocio(formaPago.getCodnegocio());
-				formaPagoUpdate.setNombre(formaPago.getNombre());				
-				formaPagoUpdate.setDias(formaPago.getDias());				
-				formaPagoUpdate.setStatus(formaPago.getStatus());
-				FormaPago formaPagoOut= FormaPagoService.save(formaPagoUpdate);
-				if (formaPagoOut!=null) {
-					return new ResponseEntity<>(formaPagoOut, HttpStatus.OK);
-				}
-				else {
-					return new ResponseEntity<Void>(HttpStatus.CONFLICT);
-				}
-			} 
-			else {
-				return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
-			}
-		} 
-		catch (Exception m) {
-			System.out.print("Error guardando "+m);
-			
-			return new ResponseEntity<Void>(HttpStatus.CONFLICT);
-		}
-	}
+
 
 }
