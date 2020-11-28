@@ -22,4 +22,16 @@ public class ArticuloService implements IArticuloService {
 		return (List<Articulo>)articuloRepository.findAll();
 	}
 
+	@Override
+	public Articulo save(Articulo articulo) {
+		// TODO Auto-generated method stub
+		return articuloRepository.save(articulo);
+	}
+
+	@Override
+	public boolean findByExisteCodigo(Long codigo) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 }

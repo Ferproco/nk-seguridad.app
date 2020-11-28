@@ -7,11 +7,14 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.nkseguridad.app.Entity.Articulo;
+import com.nkseguridad.app.Entity.Impuesto;
 import com.nkseguridad.app.Entity.Marca;
 import com.nkseguridad.app.Service.IArticuloService;
 import com.nkseguridad.app.Service.IMarcaService;
@@ -40,4 +43,17 @@ public class MarcaController {
 		}
 		
 	}
+	
+	@PostMapping("marca")
+	public ResponseEntity<?> GuardarMarcas(@RequestBody Marca marca) {
+		if (!marcaServicio.findByExisteCodigo(marca.getCodmarca())) {
+			Marca marcaObj = marcaServicio.save(marca);
+			return new ResponseEntity<>(marcaObj, HttpStatus.CREATED);
+		} 
+		else {
+			return new ResponseEntity<Void>(HttpStatus.CONFLICT);
+		}
+
+	}
+
 }

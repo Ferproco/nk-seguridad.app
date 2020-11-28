@@ -21,4 +21,17 @@ public class MarcaService implements IMarcaService {
 		return (List<Marca>)marcaRepository.findAll();
 	}
 
+	@Override
+	public Marca save(Marca marca) {
+		// TODO Auto-generated method stub
+		return marcaRepository.save(marca);
+		
+	}
+
+	@Override
+	public boolean findByExisteCodigo(Long codigo) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 }
