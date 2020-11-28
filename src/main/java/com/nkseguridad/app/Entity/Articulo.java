@@ -96,9 +96,7 @@ public class Articulo implements Serializable {
     private String nombrefamilia;
     private String nombregrupoarticulo;
     private String nombreunidadmedida;
-    private String nombremarca;
-   
-   
+    private String nombremarca;   
    
     
     @ManyToOne(cascade = CascadeType.ALL)

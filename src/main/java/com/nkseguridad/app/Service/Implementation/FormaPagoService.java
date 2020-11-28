@@ -39,4 +39,10 @@ public class FormaPagoService implements IFormaPagoService {
 		return FormaPagoRepository.save(formapago);
 	}
 
+	@Override
+	public void eliminar(FormaPago formapago) {
+		// TODO Auto-generated method stub
+	   FormaPagoRepository.delete(formapago);
+	}
+
 }
