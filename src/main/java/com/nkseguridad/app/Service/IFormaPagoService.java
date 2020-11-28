@@ -10,5 +10,6 @@ public interface IFormaPagoService {
 	public FormaPago findByCodigo(Long codigo);
 	public boolean existebyCodigo(Long codigo);
 	public FormaPago save(FormaPago formapago);
+	public void eliminar(FormaPago formapago);
 
 }

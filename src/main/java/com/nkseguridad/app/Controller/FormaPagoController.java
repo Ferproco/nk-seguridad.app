@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -22,7 +23,7 @@ import com.nkseguridad.app.Service.IFormaPagoService;
 
 
 @RestController
-@CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST})
+@CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST, RequestMethod.DELETE})
 @RequestMapping("api")
 public class FormaPagoController {
 	@Autowired
@@ -83,30 +84,21 @@ public class FormaPagoController {
 		}
 	}
 
-	@PutMapping("formapago")
-	public ResponseEntity<?> ModificarFormaPago(@RequestBody FormaPago formaPago) {
+	@DeleteMapping("formapago/{id}")
+	public ResponseEntity<Void> BorrarFormPago(@PathVariable(name = "id") Long id){
+
 		try {
-			FormaPago formaPagoUpdate = FormaPagoService.findByCodigo(formaPago.getId());
+			FormaPago formaPagoUpdate = FormaPagoService.findByCodigo(id);
 			if (formaPagoUpdate!=null) {
-				formaPagoUpdate.setCodnegocio(formaPago.getCodnegocio());
-				formaPagoUpdate.setNombre(formaPago.getNombre());				
-				formaPagoUpdate.setDias(formaPago.getDias());				
-				formaPagoUpdate.setStatus(formaPago.getStatus());
-				FormaPago formaPagoOut= FormaPagoService.save(formaPagoUpdate);
-				if (formaPagoOut!=null) {
-					return new ResponseEntity<>(formaPagoOut, HttpStatus.OK);
-				}
-				else {
-					return new ResponseEntity<Void>(HttpStatus.CONFLICT);
-				}
-			} 
+				FormaPagoService.eliminar(formaPagoUpdate);
+				return new ResponseEntity<Void>(HttpStatus.OK);
+			}
 			else {
 				return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
 			}
-		} 
-		catch (Exception m) {
-			System.out.print("Error guardando "+m);
 			
+		}
+		catch(Exception m) {
 			return new ResponseEntity<Void>(HttpStatus.CONFLICT);
 		}
 	}
