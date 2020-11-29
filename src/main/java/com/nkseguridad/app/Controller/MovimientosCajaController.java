@@ -17,7 +17,7 @@ import com.nkseguridad.app.Entity.MovimientosCaja;
 import com.nkseguridad.app.Service.IMovimientosCajaService;
 
 @RestController
-@CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST})
+@CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE})
 @RequestMapping("api")
 public class MovimientosCajaController {
 	

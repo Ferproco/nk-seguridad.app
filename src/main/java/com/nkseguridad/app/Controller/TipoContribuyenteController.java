@@ -16,7 +16,7 @@ import com.nkseguridad.app.Entity.TipoContribuyente;
 import com.nkseguridad.app.Service.ITipoContribuyenteService;
 
 @RestController
-@CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST})
+@CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE})
 @RequestMapping("api")
 public class TipoContribuyenteController {
 	

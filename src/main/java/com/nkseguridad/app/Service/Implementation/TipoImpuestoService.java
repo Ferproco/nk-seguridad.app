@@ -31,16 +31,23 @@ public class TipoImpuestoService implements ITipoImpuestoService {
 
 
 	@Override
-	public TipoImpuesto findByIdTipoImppuesto(Long codigo) {
+	public TipoImpuesto findByIdTipoImppuesto(Long id) {
 		// TODO Auto-generated method stub
-		return tipoimpuestoRepository.findById(codigo).orElse(null);
+		return tipoimpuestoRepository.findById(id).orElse(null);
 	}
 
 
 	@Override
-	public boolean existebyIdTipoImpuesto(Long codigo) {
+	public boolean existebyIdTipoImpuesto(Long id) {
 		// TODO Auto-generated method stub
-		return tipoimpuestoRepository.existsById(codigo);
+		return tipoimpuestoRepository.existsById(id);
+	}
+
+
+	@Override
+	public void eliminar(TipoImpuesto tipoimpuesto) {
+		// TODO Auto-generated method stub
+		tipoimpuestoRepository.delete(tipoimpuesto);
 	}
 
 }

@@ -16,7 +16,7 @@ import com.nkseguridad.app.Entity.Proveedor;
 import com.nkseguridad.app.Service.IProveedorService;
 
 @RestController
-@CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST})
+@CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE})
 @RequestMapping("api")
 public class ProveedorController {
 	

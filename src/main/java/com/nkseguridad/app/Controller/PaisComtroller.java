@@ -15,7 +15,7 @@ import com.nkseguridad.app.Entity.Pais;
 import com.nkseguridad.app.Service.IPaisService;
 
 @RestController
-@CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST})
+@CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE})
 @RequestMapping("api")
 public class PaisComtroller {
 	

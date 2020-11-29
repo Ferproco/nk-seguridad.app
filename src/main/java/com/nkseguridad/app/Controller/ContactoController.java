@@ -19,7 +19,7 @@ import com.nkseguridad.app.Entity.Contacto;
 import com.nkseguridad.app.Service.IContactoService;
 
 @RestController
-@CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST})
+@CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE})
 @RequestMapping("api")
 public class ContactoController {
 	@Autowired

@@ -22,7 +22,7 @@ import com.nkseguridad.app.Service.IUnidadMedidaService;
 
 @RestController
 @RequestMapping("api")
-@CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST})
+@CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE})
 public class UnidadMedidaController {
 
 	@Autowired

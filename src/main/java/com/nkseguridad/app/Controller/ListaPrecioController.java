@@ -14,7 +14,7 @@ import com.nkseguridad.app.Entity.ListaPrecio;
 import com.nkseguridad.app.Service.IListaPrecioService;
 
 @RestController
-@CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST})
+@CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE})
 @RequestMapping("api")
 public class ListaPrecioController {
 	
