@@ -100,7 +100,6 @@ public class Contacto  implements Serializable {
     private Date fecharegistro;
     
     private String lugarenvio;
-    private String cupo;
     private Long codlistaprecio;
    
     @Column(name = "direccionexogena", nullable = true, length = 120)
@@ -164,14 +163,6 @@ public class Contacto  implements Serializable {
 
   	public void setLugarenvio(String lugarenvio) {
   		this.lugarenvio = lugarenvio;
-  	}
-
-  	public String getCupo() {
-  		return cupo;
-  	}
-
-  	public void setCupo(String cupo) {
-  		this.cupo = cupo;
   	}
 
   	public Long getCodlistaprecio() {

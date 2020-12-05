@@ -11,5 +11,5 @@ public interface IContactoService {
 	public Contacto findByCodigo(Long codigo);
 	public Contacto findByNumeroIdentificacion(String numero);
 	public Contacto save(Contacto contacto);
-
+	public void eliminar(Contacto contacto);
 }
