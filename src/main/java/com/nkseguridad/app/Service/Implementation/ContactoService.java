@@ -34,6 +34,12 @@ public class ContactoService implements IContactoService {
 		// TODO Auto-generated method stub
 		return contactoRepository.save(contacto);
 	}
+
+	@Override
+	public Contacto findByCodigo(Long id) {
+		// TODO Auto-generated method stub
+		return contactoRepository.findById(id).orElse(null);
+	}
 	
 
 }
