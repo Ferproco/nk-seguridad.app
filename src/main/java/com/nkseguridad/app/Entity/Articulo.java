@@ -36,7 +36,7 @@ public class Articulo implements Serializable {
     private Long codunidadmedida;
     @Column(name="codimpuesto")
     private Long codimpuesto;
-    private long tipoproducto;
+    private long codtipoproducto;
     @Column(name="codigobarraprincipal",length=50)
 	private String codigobarraprincipal;
     @Column(name="serial",length=50)
@@ -46,9 +46,7 @@ public class Articulo implements Serializable {
     @Column(name="status",length=10)
     private String status;
 	private Double preciosugerido;
-	
-	
-    private Long codnegocio;
+	private Long codnegocio;
     
    
    
@@ -57,19 +55,19 @@ public class Articulo implements Serializable {
     @JoinColumn(name = "codfamilia",  insertable = false, updatable = false)
     private Familia familia;
     
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "codmarca",  insertable = false, updatable = false)
+    @ManyToOne()
+    @JoinColumn(name = "codmarca",  insertable = false, updatable = false, nullable = true)
     private Marca marca;
     
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne()
     @JoinColumn(name = "codunidadmedida",  insertable = false, updatable = false)
     private Unidadmedida unidadmedida;
     
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne()
     @JoinColumn(name = "codimpuesto",  insertable = false, updatable = false)
     private Impuesto impuesto;
     
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne()
 	@JoinColumn(name = "codnegocio", insertable = false, updatable = false)
 	private Negocio negocio;
     
@@ -86,12 +84,7 @@ public class Articulo implements Serializable {
 	public void setCodimpuesto(Long codimpuesto) {
 		this.codimpuesto = codimpuesto;
 	}
-	public long getTipoproducto() {
-		return tipoproducto;
-	}
-	public void setTipoproducto(long tipoproducto) {
-		this.tipoproducto = tipoproducto;
-	}
+	
 	public String getReferencia() {
 		return referencia;
 	}
@@ -196,6 +189,12 @@ public class Articulo implements Serializable {
 	}
 	public void setSerial(String serial) {
 		this.serial = serial;
+	}
+	public long getCodtipoproducto() {
+		return codtipoproducto;
+	}
+	public void setCodtipoproducto(long codtipoproducto) {
+		this.codtipoproducto = codtipoproducto;
 	}
 	
 	
