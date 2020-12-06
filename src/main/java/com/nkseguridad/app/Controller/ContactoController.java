@@ -51,15 +51,105 @@ public class ContactoController {
 		}
 	}
 	
+	@GetMapping("contacto/tipo/{tipo}")
+	public ResponseEntity<?> ListarContactosPorTipo(@PathVariable(name = "tipo") Long tipo){
+		List<Contacto> LstContactos = ContactoServicio.findAllTipoContacto(tipo);
+		if (LstContactos!=null) {
+			if (LstContactos.size()!=0) 
+				return new ResponseEntity<>(LstContactos,HttpStatus.OK);			
+			else 
+				return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);		
+		}
+		else 
+			return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);	
+	}
+	
 	@PostMapping("contacto")
 	public ResponseEntity<?> GuardarContacto(@RequestBody Contacto contacto){
-		if (ContactoServicio.findByNumeroIdentificacion(contacto.getNumeroidentificacion())==null) {
-			Contacto ContactoObj = ContactoServicio.save(contacto);
-			return new ResponseEntity<>(ContactoObj, HttpStatus.CREATED);
+		Contacto contactoOut;
+		try {
+			Contacto contactoUpdate = ContactoServicio.findByNumeroIdentificacion(contacto.getNumeroidentificacion());
+			if (contactoUpdate != null) {
+				contactoUpdate.setLugarenvio(contacto.getLugarenvio());
+				contactoUpdate.setCodlistaprecio(contacto.getCodlistaprecio());
+				contactoUpdate.setDireccionexogena(contacto.getDireccionexogena());
+				contactoUpdate.setCoddepartamento(contacto.getCoddepartamento());
+				contactoUpdate.setCodmunicipio(contacto.getCodmunicipio());
+				contactoUpdate.setId(contacto.getId());
+				contactoUpdate.setCodvendedor(contacto.getCodvendedor());
+				contactoUpdate.setCodnegocio(contacto.getCodnegocio());
+				contactoUpdate.setNumeroidentificacion(contacto.getNumeroidentificacion());
+				contactoUpdate.setCodtipoidentificacion(contacto.getCodtipoidentificacion());
+				contactoUpdate.setCodtipopersona(contacto.getCodtipopersona());
+				contactoUpdate.setCodpais(contacto.getCodpais());
+				contactoUpdate.setRazonsocial(contacto.getRazonsocial());
+				contactoUpdate.setTelefonomovil(contacto.getTelefonomovil());
+				contactoUpdate.setTelefonofijo1(contacto.getTelefonofijo1());
+				contactoUpdate.setTelefonofijo2(contacto.getTelefonofijo2());
+				contactoUpdate.setTelefonofax(contacto.getTelefonofax());
+				contactoUpdate.setDireccionfiscal(contacto.getDireccionfiscal());
+				contactoUpdate.setCorreoe(contacto.getCorreoe());
+				contactoUpdate.setCodtipocontacto(contacto.getCodtipocontacto());
+				contactoUpdate.setCodformapago(contacto.getCodformapago());
+				contactoUpdate.setCodtipocontibuyente(contacto.getCodtipocontibuyente());
+				contactoUpdate.setStatus(contacto.getStatus());
+				contactoUpdate.setNombreprimero(contacto.getNombreprimero());
+				contactoUpdate.setNombresegundo(contacto.getNombresegundo());
+				contactoUpdate.setApellidoprimero(contacto.getApellidoprimero());
+				contactoUpdate.setApellidosegundo(contacto.getApellidosegundo());
+				contactoUpdate.setPaginaweb(contacto.getPaginaweb());
+				contactoUpdate.setLimitecreditohasta(contacto.getLimitecreditohasta());
+				contactoUpdate.setFechacreditodesde(contacto.getFechacreditodesde());
+				contactoUpdate.setFechacreditohasta(contacto.getFechacreditohasta());
+				contactoUpdate.setObservaciones(contacto.getObservaciones());
+				contactoUpdate.setDescuentocondicionado(contacto.getDescuentocondicionado());
+				contactoUpdate.setCodigodv(contacto.getCodigodv());
+				contactoUpdate.setResponsableiva(contacto.getResponsableiva());
+				contactoOut = ContactoServicio.save(contactoUpdate);
+			}
+			else {
+				contactoOut = ContactoServicio.save(contacto);
+			}
+			if (contactoOut!=null) {
+				return new ResponseEntity<>(contactoOut, HttpStatus.OK);
+			}
+			else {
+				return new ResponseEntity<Void>(HttpStatus.CONFLICT);
+			}
 		}
-		else
+		catch(Exception m) {
 			return new ResponseEntity<Void>(HttpStatus.CONFLICT);
+		}	
 	}
+	
+	/*
+	 * 
+	 * public ResponseEntity<?> GuardarFormaPago(@RequestBody FormaPago formaPago) {
+		FormaPago formaPagoOut;
+		try {
+			FormaPago formaPagoUpdate = FormaPagoService.findByCodigo(formaPago.getId());
+			if (formaPagoUpdate!=null) {
+				formaPagoUpdate.setCodnegocio(formaPago.getCodnegocio());
+				formaPagoUpdate.setNombre(formaPago.getNombre());				
+				formaPagoUpdate.setDias(formaPago.getDias());				
+				formaPagoUpdate.setStatus(formaPago.getStatus());	
+				formaPagoOut= FormaPagoService.save(formaPagoUpdate);
+			} 
+			else {
+				formaPagoOut= FormaPagoService.save(formaPago);				
+			}
+			if (formaPagoOut!=null) {
+				return new ResponseEntity<>(formaPagoOut, HttpStatus.OK);
+			}
+			else {
+				return new ResponseEntity<Void>(HttpStatus.CONFLICT);
+			}
+		} 
+		catch (Exception m) {
+			System.out.print("Error guardando "+m);
+			
+			return new ResponseEntity<Void>(HttpStatus.CONFLICT);
+		}*/
 	
 	@DeleteMapping("contacto/{id}")
 	public ResponseEntity<Void> BorrarContacto(@PathVariable(name = "id") Long id){
