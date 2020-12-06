@@ -50,8 +50,7 @@ public class Contacto  implements Serializable {
     
     @Column(name = "apellidosegundo", nullable = true, length = 120)
     private String apellidosegundo;
-    
-    
+        
 	@Column(name = "razonsocial", nullable = true, length = 120)
     private String razonsocial;
     
@@ -100,7 +99,6 @@ public class Contacto  implements Serializable {
     private Date fecharegistro;
     
     private String lugarenvio;
-    private String cupo;
     private Long codlistaprecio;
    
     @Column(name = "direccionexogena", nullable = true, length = 120)
@@ -118,45 +116,41 @@ public class Contacto  implements Serializable {
     private String responsableiva;
     
    
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne
    	@JoinColumn(name = "codlistaprecio", insertable = false, updatable = false)
-   	private ListaPrecio listaprecio;  
-        
-  
+   	private ListaPrecio listaprecio;   
 
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne
 	@JoinColumn(name = "codnegocio", insertable = false, updatable = false)
 	private Negocio negocio;    
     
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
 	@JoinColumn(name = "codtipoidentificacion", insertable = false, updatable = false)
 	private TipoIdentificacion tipoidentificacion;
     
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
    	@JoinColumn(name = "codvendedor", insertable = false, updatable = false)
    	private Vendedor vendedor;    
     
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
   	@JoinColumn(name = "codformapago", insertable = false, updatable = false)
   	private FormaPago formapago;  
     
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
   	@JoinColumn(name = "codpais", insertable = false, updatable = false)
   	private Pais pais; 
     
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
   	@JoinColumn(name = "coddepartamento", insertable = false, updatable = false)
   	private Departamento departamento; 
     
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
   	@JoinColumn(name = "codmunicipio", insertable = false, updatable = false)
-  	private Municipio municipio;
-    
+  	private Municipio municipio;    
   
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
   	@JoinColumn(name = "codtipocontibuyente", insertable = false, updatable = false)
   	private TipoContribuyente tipocontribuyente;
-
 
     public String getLugarenvio() {
   		return lugarenvio;
@@ -164,14 +158,6 @@ public class Contacto  implements Serializable {
 
   	public void setLugarenvio(String lugarenvio) {
   		this.lugarenvio = lugarenvio;
-  	}
-
-  	public String getCupo() {
-  		return cupo;
-  	}
-
-  	public void setCupo(String cupo) {
-  		this.cupo = cupo;
   	}
 
   	public Long getCodlistaprecio() {
