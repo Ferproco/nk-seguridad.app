@@ -6,13 +6,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.nkseguridad.app.Entity.Almacen;
 import com.nkseguridad.app.Entity.Articulo;
 import com.nkseguridad.app.Entity.Cliente;
 import com.nkseguridad.app.Entity.Impuesto;
@@ -54,5 +57,34 @@ import com.nkseguridad.app.Service.IArticuloService;
 			return new ResponseEntity<Void>(HttpStatus.CONFLICT);
 		}
 
+	}
+	@GetMapping("articulo/{id}")
+	public ResponseEntity<?> BuscarPorCodigo(@PathVariable(name = "id") Long id) {
+
+		Articulo articulo = articuloServicio.findByCodigo(id);
+		if (articulo != null) {
+			return new ResponseEntity<>(articulo, HttpStatus.OK);
+		} else {
+			return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
+		}
+	}
+
+	@DeleteMapping("articulo/{id}")
+	public ResponseEntity<Void> BorrarArticuloo(@PathVariable(name = "id") Long id){
+
+		try {
+			Articulo articuloUpdate = articuloServicio.findByCodigo(id);
+			if (articuloUpdate!=null) {
+				articuloServicio.eliminar(articuloUpdate);
+				return new ResponseEntity<Void>(HttpStatus.OK);
+			}
+			else {
+				return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
+			}
+			
+		}
+		catch(Exception m) {
+			return new ResponseEntity<Void>(HttpStatus.CONFLICT);
+		}
 	}
 }

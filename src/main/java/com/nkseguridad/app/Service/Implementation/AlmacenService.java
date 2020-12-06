@@ -35,5 +35,17 @@ public class AlmacenService implements IAlmacenService {
 		return false;
 	}
 
+	@Override
+	public Almacen findByCodigo(Long id) {
+		// TODO Auto-generated method stub
+		return almacenRepository.findById(id).orElse(null);
+	}
+
+	@Override
+	public void eliminar(Almacen almacen) {
+		// TODO Auto-generated method stub
+		almacenRepository.delete(almacen);
+	}
+
 
 }

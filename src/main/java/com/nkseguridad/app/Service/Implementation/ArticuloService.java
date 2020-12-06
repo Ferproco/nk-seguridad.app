@@ -34,4 +34,17 @@ public class ArticuloService implements IArticuloService {
 		return false;
 	}
 
+	@Override
+	public Articulo findByCodigo(Long id) {
+		// TODO Auto-generated method stub
+		return articuloRepository.findById(id).orElse(null);
+	}
+
+	@Override
+	public void eliminar(Articulo articulo) {
+		// TODO Auto-generated method stub
+		articuloRepository.delete(articulo);
+		
+	}
+
 }
