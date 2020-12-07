@@ -22,6 +22,14 @@ public class ContactoService implements IContactoService {
 		// TODO Auto-generated method stub
 		return (List<Contacto>)contactoRepository.findAll();
 	}
+	@Override
+	public List<Contacto> findAllTipoContacto(Long Tipo) {
+		// TODO Auto-generated method stub
+		if (Tipo == 3)
+			return (List<Contacto>)contactoRepository.findAll();
+		else
+			return (List<Contacto>)contactoRepository.findByCodtipocontacto(Tipo);
+	}
 
 	@Override
 	public Contacto findByNumeroIdentificacion(String numero) {
