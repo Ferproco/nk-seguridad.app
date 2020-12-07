@@ -22,8 +22,8 @@ public class Marca implements Serializable{
 	private static final long serialVersionUID = -5233708009259466908L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "codmarca")
-	private Long codmarca;
+	@Column(name = "id")
+	private Long id;
 	@Column(name = "nommarca",length=120)
 	private String nommarca;
 	private Long codnegocio;
@@ -45,11 +45,12 @@ public class Marca implements Serializable{
 	public void setStatus(String status) {
 		this.status = status;
 	}
-	public Long getCodmarca() {
-		return codmarca;
+	
+	public Long getId() {
+		return id;
 	}
-	public void setCodmarca(Long codmarca) {
-		this.codmarca = codmarca;
+	public void setId(Long id) {
+		this.id = id;
 	}
 	public String getNommarca() {
 		return nommarca;

@@ -46,7 +46,7 @@ public class MarcaController {
 	
 	@PostMapping("marca")
 	public ResponseEntity<?> GuardarMarcas(@RequestBody Marca marca) {
-		if (!marcaServicio.findByExisteCodigo(marca.getCodmarca())) {
+		if (!marcaServicio.findByExisteCodigo(marca.getId())) {
 			Marca marcaObj = marcaServicio.save(marca);
 			return new ResponseEntity<>(marcaObj, HttpStatus.CREATED);
 		} 

@@ -1,6 +1,9 @@
 package com.nkseguridad.app.Entity;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -10,6 +13,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -47,10 +51,26 @@ public class Articulo implements Serializable {
     private String status;
 	private Double preciosugerido;
 	private Long codnegocio;
-    
-   
-   
-   
+	@Column(name="descripcionlarga",length=200)
+	private String descripcionlarga;
+	private Double stockminimo;
+	private Double stockmaximo;
+	private Double cantidadreorden;
+	private String clasificacioniva;
+	private String esimpoconsumo;
+	private Double valorimpoconsumo;
+	private Double porcentajeimpoconsumo;
+	private Double peso;
+	private Double talla;
+	private String color;
+	private Double ancho;
+	private Double alto;
+	private Double profundidad;
+	private Long facturarsinexistencia;
+	private Long ivaincluido;
+	private Long aplicaimpuestoconsumo;
+	private Date fechacreacion;
+       
 	@ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "codfamilia",  insertable = false, updatable = false)
     private Familia familia;
@@ -71,6 +91,135 @@ public class Articulo implements Serializable {
 	@JoinColumn(name = "codnegocio", insertable = false, updatable = false)
 	private Negocio negocio;
     
+    @OneToMany(cascade = CascadeType.ALL)
+	@JoinColumn(name = "codarticulo", referencedColumnName = "id")
+	private List<Kardex> LstKardex = new ArrayList<>();
+    
+    @OneToMany(cascade = CascadeType.ALL)
+   	@JoinColumn(name = "id", referencedColumnName = "id")
+   	private List<UnidadMedidaAlterna> LstUnidadesAlternas = new ArrayList<>();
+    
+	public List<Kardex> getLstKardex() {
+		return LstKardex;
+	}
+	public List<UnidadMedidaAlterna> getLstUnidadesAlternas() {
+		return LstUnidadesAlternas;
+	}
+	public void setLstUnidadesAlternas(List<UnidadMedidaAlterna> lstUnidadesAlternas) {
+		LstUnidadesAlternas = lstUnidadesAlternas;
+	}
+	public void setLstKardex(List<Kardex> lstKardex) {
+		LstKardex = lstKardex;
+	}
+	public String getDescripcionlarga() {
+		return descripcionlarga;
+	}
+	public void setDescripcionlarga(String descripcionlarga) {
+		this.descripcionlarga = descripcionlarga;
+	}
+	public Double getStockminimo() {
+		return stockminimo;
+	}
+	public void setStockminimo(Double stockminimo) {
+		this.stockminimo = stockminimo;
+	}
+	public Double getStockmaximo() {
+		return stockmaximo;
+	}
+	public void setStockmaximo(Double stockmaximo) {
+		this.stockmaximo = stockmaximo;
+	}
+	public Double getCantidadreorden() {
+		return cantidadreorden;
+	}
+	public void setCantidadreorden(Double cantidadreorden) {
+		this.cantidadreorden = cantidadreorden;
+	}
+	public String getClasificacioniva() {
+		return clasificacioniva;
+	}
+	public void setClasificacioniva(String clasificacioniva) {
+		this.clasificacioniva = clasificacioniva;
+	}
+	public String getEsimpoconsumo() {
+		return esimpoconsumo;
+	}
+	public void setEsimpoconsumo(String esimpoconsumo) {
+		this.esimpoconsumo = esimpoconsumo;
+	}
+	public Double getValorimpoconsumo() {
+		return valorimpoconsumo;
+	}
+	public void setValorimpoconsumo(Double valorimpoconsumo) {
+		this.valorimpoconsumo = valorimpoconsumo;
+	}
+	public Double getPorcentajeimpoconsumo() {
+		return porcentajeimpoconsumo;
+	}
+	public void setPorcentajeimpoconsumo(Double porcentajeimpoconsumo) {
+		this.porcentajeimpoconsumo = porcentajeimpoconsumo;
+	}
+	public Double getPeso() {
+		return peso;
+	}
+	public void setPeso(Double peso) {
+		this.peso = peso;
+	}
+	public Double getTalla() {
+		return talla;
+	}
+	public void setTalla(Double talla) {
+		this.talla = talla;
+	}
+	public String getColor() {
+		return color;
+	}
+	public void setColor(String color) {
+		this.color = color;
+	}
+	public Double getAncho() {
+		return ancho;
+	}
+	public void setAncho(Double ancho) {
+		this.ancho = ancho;
+	}
+	public Double getAlto() {
+		return alto;
+	}
+	public void setAlto(Double alto) {
+		this.alto = alto;
+	}
+	public Double getProfundidad() {
+		return profundidad;
+	}
+	public void setProfundidad(Double profundidad) {
+		this.profundidad = profundidad;
+	}
+	public Long getFacturarsinexistencia() {
+		return facturarsinexistencia;
+	}
+	public void setFacturarsinexistencia(Long facturarsinexistencia) {
+		this.facturarsinexistencia = facturarsinexistencia;
+	}
+	public Long getIvaincluido() {
+		return ivaincluido;
+	}
+	public void setIvaincluido(Long ivaincluido) {
+		this.ivaincluido = ivaincluido;
+	}
+	public Long getAplicaimpuestoconsumo() {
+		return aplicaimpuestoconsumo;
+	}
+	public void setAplicaimpuestoconsumo(Long aplicaimpuestoconsumo) {
+		this.aplicaimpuestoconsumo = aplicaimpuestoconsumo;
+	}
+	public Date getFechacreacion() {
+		return fechacreacion;
+	}
+	public void setFechacreacion(Date fechacreacion) {
+		this.fechacreacion = fechacreacion;
+	}
+
     
     public Long getCodunidadmedida() {
 		return codunidadmedida;
