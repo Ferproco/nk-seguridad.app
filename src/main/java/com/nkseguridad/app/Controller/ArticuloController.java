@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.nkseguridad.app.Entity.Almacen;
 import com.nkseguridad.app.Entity.Articulo;
 import com.nkseguridad.app.Entity.Cliente;
+import com.nkseguridad.app.Entity.Contacto;
 import com.nkseguridad.app.Entity.Impuesto;
 import com.nkseguridad.app.Service.IArticuloService;
 
@@ -47,17 +48,65 @@ import com.nkseguridad.app.Service.IArticuloService;
 		
 	}
 	
+	@GetMapping("articulo/tipo/{tipo}")
+	public ResponseEntity<?> ListarArticulosPorTipo(@PathVariable(name = "tipo") Long tipo){
+		List<Articulo> LstArticulos = articuloServicio.findAllTipoProducto(tipo);
+		if (LstArticulos!=null) {
+			if (LstArticulos.size()!=0) 
+				return new ResponseEntity<>(LstArticulos,HttpStatus.OK);			
+			else 
+				return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);		
+		}
+		else 
+			return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);	
+	}
+	
+	
 	@PostMapping("articulo")
 	public ResponseEntity<?> GuardarArticulos(@RequestBody Articulo articulo) {
-		if (!articuloServicio.findByExisteCodigo(articulo.getId())) {
-			Articulo ArticuloObj = articuloServicio.save(articulo);
-			return new ResponseEntity<>(ArticuloObj, HttpStatus.CREATED);
-		} 
-		else {
+		Articulo articuloOut;
+		try {
+			Articulo articuloUpdate = articuloServicio.findByCodigo(articulo.getId());
+			
+			if (articuloUpdate != null) {
+				
+				articuloUpdate.setNomarticulo(articulo.getNomarticulo());
+				articuloUpdate.setPreciosugerido(articulo.getPreciosugerido());
+				articuloUpdate.setCodfamilia(articulo.getCodfamilia());
+				articuloUpdate.setCodimpuesto(articulo.getCodimpuesto());
+				articuloUpdate.setCodmarca(articulo.getCodmarca());
+				articuloUpdate.setCodnegocio(articulo.getCodnegocio());
+				articuloUpdate.setCodigo(articulo.getCodigo());
+				articuloUpdate.setAlto(articulo.getAlto());
+				articuloUpdate.setAncho(articulo.getAncho());
+				articuloUpdate.setCodigobarraprincipal(articulo.getCodigobarraprincipal());
+				articuloUpdate.setCodtipoproducto(articulo.getCodtipoproducto());
+				articuloUpdate.setCodunidadmedida(articulo.getCodunidadmedida());
+				articuloUpdate.setColor(articulo.getColor());
+				articuloUpdate.setDescripcionlarga(articulo.getDescripcionlarga());
+				articuloUpdate.setReferencia(articulo.getReferencia());
+				articuloUpdate.setSerial(articulo.getSerial());
+				articuloOut=articuloServicio.save(articuloUpdate);
+				
+				
+				
+			}
+			else {
+				articuloOut = articuloServicio.save(articulo);
+			}
+			if (articuloOut!=null) {
+				return new ResponseEntity<>(articuloOut, HttpStatus.OK);
+			}
+			else {
+				return new ResponseEntity<Void>(HttpStatus.CONFLICT);
+			}
+			
+		}catch (Exception e) {
 			return new ResponseEntity<Void>(HttpStatus.CONFLICT);
 		}
-
+		
 	}
+	
 	@GetMapping("articulo/{id}")
 	public ResponseEntity<?> BuscarPorCodigo(@PathVariable(name = "id") Long id) {
 

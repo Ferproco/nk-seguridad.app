@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.nkseguridad.app.Entity.Articulo;
 import com.nkseguridad.app.Entity.Cliente;
+import com.nkseguridad.app.Entity.Contacto;
 import com.nkseguridad.app.Repository.IArticuloRepository;
 import com.nkseguridad.app.Service.IArticuloService;
 
@@ -45,6 +46,15 @@ public class ArticuloService implements IArticuloService {
 		// TODO Auto-generated method stub
 		articuloRepository.delete(articulo);
 		
+	}
+
+	@Override
+	public List<Articulo> findAllTipoProducto(Long Tipo) {
+		// TODO Auto-generated method stub
+		if (Tipo == 5)
+			return (List<Articulo>)articuloRepository.findAll();
+		else
+			return (List<Articulo>)articuloRepository.findByCodtipoproducto(Tipo);
 	}
 
 }
