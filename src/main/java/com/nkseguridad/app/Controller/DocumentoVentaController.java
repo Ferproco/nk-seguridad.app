@@ -77,13 +77,7 @@ public class DocumentoVentaController {
 			DocumentoVenta documentoUpdate =  documentoventaService.findByNumerodocumento(documento.getNumerodocumento());
 			if (documentoUpdate != null) {
 				documentoUpdate.setBaseimp(documento.getBaseimp());
-				documentoUpdate.setBaseimp_a(documento.getBaseimp_a());;
-				documentoUpdate.setBaseimp_b(documento.getBaseimp_b());
-				documentoUpdate.setBaseimp_c(documento.getBaseimp_c());
-				documentoUpdate.setBaseimp_d(documento.getBaseimp_d());
-				documentoUpdate.setBaseimp_x(documento.getBaseimp_x());
-				documentoUpdate.setBaseimp_y(documento.getBaseimp_y());
-				documentoUpdate.setCodcliente(documento.getCodcliente());
+			    documentoUpdate.setCodcliente(documento.getCodcliente());
 				documentoUpdate.setCodformapago(documento.getCodformapago());
 				documentoUpdate.setCodnegocio(documento.getCodnegocio());
 				documentoUpdate.setCodruta(documento.getCodruta());
@@ -101,8 +95,6 @@ public class DocumentoVentaController {
 				documentoUpdate.setObservacion(documento.getObservacion());
 				documentoUpdate.setPctiva_a(documento.getPctiva_a());
 				documentoUpdate.setPctiva_b(documento.getPctiva_b());
-				documentoUpdate.setPctiva_c(documento.getPctiva_c());
-				documentoUpdate.setPctiva_d(documento.getPctiva_d());
 				documentoUpdate.setReferencia(documento.getReferencia());
 				documentoUpdate.setStatus(documento.getStatus());
 				documentoUpdate.setStatus_cobro(documento.getStatus_cobro());
