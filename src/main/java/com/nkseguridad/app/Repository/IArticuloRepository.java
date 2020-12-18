@@ -12,5 +12,6 @@ import com.nkseguridad.app.Entity.Contacto;
 public interface IArticuloRepository extends CrudRepository<Articulo,Long> {
 	
 	List<Articulo> findByCodtipoproducto(Long Tipo);
-
+	Articulo findByCodigo(String codigo);
+	
 }

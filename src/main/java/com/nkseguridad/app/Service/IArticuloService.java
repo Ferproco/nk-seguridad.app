@@ -15,6 +15,7 @@ public interface IArticuloService {
 	public List<Articulo> findAllTipoProducto(Long Tipo);
 	public Articulo save(Articulo articulo);
 	public boolean findByExisteCodigo(Long codigo);
-	public Articulo findByCodigo(Long id);
+	public Articulo findByCodigo(String codigo);
 	public void eliminar(Articulo articulo);
+	public Articulo findById(Long id);
 }

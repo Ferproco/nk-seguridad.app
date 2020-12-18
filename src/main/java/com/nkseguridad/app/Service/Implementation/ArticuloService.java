@@ -1,6 +1,7 @@
 package com.nkseguridad.app.Service.Implementation;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -36,9 +37,9 @@ public class ArticuloService implements IArticuloService {
 	}
 
 	@Override
-	public Articulo findByCodigo(Long id) {
+	public Articulo findByCodigo(String codigo) {
 		// TODO Auto-generated method stub
-		return articuloRepository.findById(id).orElse(null);
+		return articuloRepository.findByCodigo(codigo);
 	}
 
 	@Override
@@ -57,4 +58,11 @@ public class ArticuloService implements IArticuloService {
 			return (List<Articulo>)articuloRepository.findByCodtipoproducto(Tipo);
 	}
 
+	@Override
+	public Articulo findById(Long id) {
+		// TODO Auto-generated method stub
+		return articuloRepository.findById(id).orElse(null);
+	}
+
+		
 }

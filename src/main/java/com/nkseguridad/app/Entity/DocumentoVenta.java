@@ -15,8 +15,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "factura", schema = "public")
-public class Factura implements Serializable {
+@Table(name = "documentoventa", schema = "public")
+public class DocumentoVenta implements Serializable {
 
 	/**
 	 * 
@@ -27,24 +27,19 @@ public class Factura implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
 	private Long id;
-	@Column(name = "numerofactura",length=10)
-	private String numerofactura; 
+	@Column(name = "numerodocumento",length=10)
+	private String numerodocumento; 
 	
 	private Long codnegocio;
     private Date fechaemision;
     private Date fechavencimiento;
     private String tipoiva;
-    private Long codigoforma;
+    private Long codformapago;
     private String codcliente;
     private String referencia;
     private Long codvendedor;
     private String tarifa;
-    private String destino;
-    private String  mn;
-    private String viaje;
     private Date fecha;
-    private String shipper;
-    private String consignee;
     private String status;
     private Double baseimp;
     private Double baseimp_a;
@@ -66,9 +61,21 @@ public class Factura implements Serializable {
     private String contable;
     private String numeroz;
     private String status_impresion;
-    private String codigoruta;
+    private String codruta;
    
-    public Long getId() {
+    public Long getCodformapago() {
+		return codformapago;
+	}
+	public void setCodformapago(Long codformapago) {
+		this.codformapago = codformapago;
+	}
+	public String getCodruta() {
+		return codruta;
+	}
+	public void setCodruta(String codruta) {
+		this.codruta = codruta;
+	}
+	public Long getId() {
 		return id;
 	}
 	public void setId(Long id) {
@@ -95,21 +102,11 @@ public class Factura implements Serializable {
     private FormaPago formapago;
     
     
-	
-	
-	
-	
-	public FormaPago getFormapagp() {
-		return formapago;
+	public String getNumerodocumento() {
+		return numerodocumento;
 	}
-	public void setFormapagp(FormaPago formapago) {
-		this.formapago = formapago;
-	}
-	public String getNumerofactura() {
-		return numerofactura;
-	}
-	public void setNumerofactura(String numerofactura) {
-		this.numerofactura = numerofactura;
+	public void setNumerodocumento(String numerodocumento) {
+		this.numerodocumento = numerodocumento;
 	}
 	public Long getCodvendedor() {
 		return codvendedor;
@@ -142,12 +139,7 @@ public class Factura implements Serializable {
 	public void setTipoiva(String tipoiva) {
 		this.tipoiva = tipoiva;
 	}
-	public Long getCodigoforma() {
-		return codigoforma;
-	}
-	public void setCodigoforma(Long codigoforma) {
-		this.codigoforma = codigoforma;
-	}
+	
 	public String getCodcliente() {
 		return codcliente;
 	}
@@ -167,42 +159,14 @@ public class Factura implements Serializable {
 	public void setTarifa(String tarifa) {
 		this.tarifa = tarifa;
 	}
-	public String getDestino() {
-		return destino;
-	}
-	public void setDestino(String destino) {
-		this.destino = destino;
-	}
-	public String getMn() {
-		return mn;
-	}
-	public void setMn(String mn) {
-		this.mn = mn;
-	}
-	public String getViaje() {
-		return viaje;
-	}
-	public void setViaje(String viaje) {
-		this.viaje = viaje;
-	}
+	
 	public Date getFecha() {
 		return fecha;
 	}
 	public void setFecha(Date fecha) {
 		this.fecha = fecha;
 	}
-	public String getShipper() {
-		return shipper;
-	}
-	public void setShipper(String shipper) {
-		this.shipper = shipper;
-	}
-	public String getConsignee() {
-		return consignee;
-	}
-	public void setConsignee(String consignee) {
-		this.consignee = consignee;
-	}
+
 	public String getStatus() {
 		return status;
 	}
@@ -329,12 +293,7 @@ public class Factura implements Serializable {
 	public void setStatus_impresion(String status_impresion) {
 		this.status_impresion = status_impresion;
 	}
-	public String getCodigoruta() {
-		return codigoruta;
-	}
-	public void setCodigoruta(String codigoruta) {
-		this.codigoruta = codigoruta;
-	}
+	
 	
 
 

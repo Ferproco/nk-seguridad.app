@@ -67,10 +67,6 @@ public class Marca implements Serializable{
 	
 	
 	
-    public Marca() {
-		
-	}
-
-	
+  	
 
 }

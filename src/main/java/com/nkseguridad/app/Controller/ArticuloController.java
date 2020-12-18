@@ -66,7 +66,7 @@ import com.nkseguridad.app.Service.IArticuloService;
 	public ResponseEntity<?> GuardarArticulos(@RequestBody Articulo articulo) {
 		Articulo articuloOut;
 		try {
-			Articulo articuloUpdate = articuloServicio.findByCodigo(articulo.getId());
+			Articulo articuloUpdate = articuloServicio.findByCodigo(articulo.getCodigo());
 			
 			if (articuloUpdate != null) {
 				
@@ -77,8 +77,6 @@ import com.nkseguridad.app.Service.IArticuloService;
 				articuloUpdate.setCodmarca(articulo.getCodmarca());
 				articuloUpdate.setCodnegocio(articulo.getCodnegocio());
 				articuloUpdate.setCodigo(articulo.getCodigo());
-				articuloUpdate.setAlto(articulo.getAlto());
-				articuloUpdate.setAncho(articulo.getAncho());
 				articuloUpdate.setCodigobarraprincipal(articulo.getCodigobarraprincipal());
 				articuloUpdate.setCodtipoproducto(articulo.getCodtipoproducto());
 				articuloUpdate.setCodunidadmedida(articulo.getCodunidadmedida());
@@ -86,7 +84,15 @@ import com.nkseguridad.app.Service.IArticuloService;
 				articuloUpdate.setDescripcionlarga(articulo.getDescripcionlarga());
 				articuloUpdate.setReferencia(articulo.getReferencia());
 				articuloUpdate.setSerial(articulo.getSerial());
+				articuloUpdate.setCantidadreorden(articulo.getCantidadreorden());
+				articuloUpdate.setPeso(articulo.getPeso());
+				articuloUpdate.setStatus(articulo.getStatus());
+				articuloUpdate.setStockminimo(articulo.getStockminimo());
+				articuloUpdate.setStockmaximo(articulo.getStockmaximo());
+				articuloUpdate.setTalla(articulo.getTalla());
+		
 				articuloOut=articuloServicio.save(articuloUpdate);
+				
 				
 				
 				
@@ -108,21 +114,22 @@ import com.nkseguridad.app.Service.IArticuloService;
 	}
 	
 	@GetMapping("articulo/{id}")
-	public ResponseEntity<?> BuscarPorCodigo(@PathVariable(name = "id") Long id) {
+	public ResponseEntity<?> BuscarPorId(@PathVariable(name = "id") Long id) {
 
-		Articulo articulo = articuloServicio.findByCodigo(id);
+		Articulo articulo = articuloServicio.findById(id);
 		if (articulo != null) {
 			return new ResponseEntity<>(articulo, HttpStatus.OK);
 		} else {
 			return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
 		}
+		
 	}
 
 	@DeleteMapping("articulo/{id}")
-	public ResponseEntity<Void> BorrarArticuloo(@PathVariable(name = "id") Long id){
+	public ResponseEntity<Void> BorrarArticulo(@PathVariable(name = "id") Long id){
 
 		try {
-			Articulo articuloUpdate = articuloServicio.findByCodigo(id);
+			Articulo articuloUpdate = articuloServicio.findById(id);
 			if (articuloUpdate!=null) {
 				articuloServicio.eliminar(articuloUpdate);
 				return new ResponseEntity<Void>(HttpStatus.OK);
@@ -135,5 +142,6 @@ import com.nkseguridad.app.Service.IArticuloService;
 		catch(Exception m) {
 			return new ResponseEntity<Void>(HttpStatus.CONFLICT);
 		}
+		
 	}
 }

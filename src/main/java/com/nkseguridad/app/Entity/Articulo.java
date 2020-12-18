@@ -56,20 +56,21 @@ public class Articulo implements Serializable {
 	private Double stockminimo;
 	private Double stockmaximo;
 	private Double cantidadreorden;
-	private String clasificacioniva;
-	private String esimpoconsumo;
-	private Double valorimpoconsumo;
-	private Double porcentajeimpoconsumo;
+	
 	private Double peso;
 	private Double talla;
 	private String color;
+	/*private String clasificacioniva;
+	private String esimpoconsumo;
+	private Double valorimpoconsumo;
+	private Double porcentajeimpoconsumo;
 	private Double ancho;
 	private Double alto;
 	private Double profundidad;
 	private Long facturarsinexistencia;
 	private Long ivaincluido;
 	private Long aplicaimpuestoconsumo;
-	private Date fechacreacion;
+	private Date fechacreacion;*/
        
 	@ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "codfamilia",  insertable = false, updatable = false)
@@ -91,7 +92,7 @@ public class Articulo implements Serializable {
 	@JoinColumn(name = "codnegocio", insertable = false, updatable = false)
 	private Negocio negocio;
     
-    @OneToMany(cascade = CascadeType.ALL)
+    /*@OneToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name = "codarticulo", referencedColumnName = "id")
 	private List<Kardex> LstKardex = new ArrayList<>();
     
@@ -110,7 +111,7 @@ public class Articulo implements Serializable {
 	}
 	public void setLstKardex(List<Kardex> lstKardex) {
 		LstKardex = lstKardex;
-	}
+	}*/
 	public String getDescripcionlarga() {
 		return descripcionlarga;
 	}
@@ -135,7 +136,7 @@ public class Articulo implements Serializable {
 	public void setCantidadreorden(Double cantidadreorden) {
 		this.cantidadreorden = cantidadreorden;
 	}
-	public String getClasificacioniva() {
+	/*public String getClasificacioniva() {
 		return clasificacioniva;
 	}
 	public void setClasificacioniva(String clasificacioniva) {
@@ -158,7 +159,7 @@ public class Articulo implements Serializable {
 	}
 	public void setPorcentajeimpoconsumo(Double porcentajeimpoconsumo) {
 		this.porcentajeimpoconsumo = porcentajeimpoconsumo;
-	}
+	}*/
 	public Double getPeso() {
 		return peso;
 	}
@@ -177,7 +178,7 @@ public class Articulo implements Serializable {
 	public void setColor(String color) {
 		this.color = color;
 	}
-	public Double getAncho() {
+	/*public Double getAncho() {
 		return ancho;
 	}
 	public void setAncho(Double ancho) {
@@ -218,7 +219,7 @@ public class Articulo implements Serializable {
 	}
 	public void setFechacreacion(Date fechacreacion) {
 		this.fechacreacion = fechacreacion;
-	}
+	}*/
 
     
     public Long getCodunidadmedida() {
