@@ -62,8 +62,43 @@ public class DocumentoVenta implements Serializable {
     private String numeroz;
     private String status_impresion;
     private String codruta;
+    
+    @ManyToOne()
+    @JoinColumn(name = "codformapago",  insertable = false, updatable = false)
+    private FormaPago  formapago;
+    
+    @ManyToOne()
+	@JoinColumn(name = "codnegocio", insertable = false, updatable = false)
+	private Negocio negocio;
+    
+    @ManyToOne()
+	@JoinColumn(name = "codvendedor", insertable = false, updatable = false)
+	private Vendedor vendedor;
+    
+    
+    @ManyToOne()
+	@JoinColumn(name = "codcliente", insertable = false, updatable = false)
+	private Contacto contacto;
    
-    public Long getCodformapago() {
+    public FormaPago getFromapago() {
+		return formapago;
+	}
+	public void setFromapago(FormaPago formapago) {
+		this.formapago = formapago;
+	}
+	public Vendedor getVendedor() {
+		return vendedor;
+	}
+	public void setVendedor(Vendedor vendedor) {
+		this.vendedor = vendedor;
+	}
+	public Contacto getContacto() {
+		return contacto;
+	}
+	public void setContacto(Contacto contacto) {
+		this.contacto = contacto;
+	}
+	public Long getCodformapago() {
 		return codformapago;
 	}
 	public void setCodformapago(Long codformapago) {
@@ -93,14 +128,7 @@ public class DocumentoVenta implements Serializable {
 	public void setFormapago(FormaPago formapago) {
 		this.formapago = formapago;
 	}
-	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "codnegocio", insertable = false, updatable = false)
-	private Negocio negocio;
-    
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "codigoforma", insertable = false, updatable = false)
-    private FormaPago formapago;
-    
+	
     
 	public String getNumerodocumento() {
 		return numerodocumento;
