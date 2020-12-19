@@ -13,25 +13,21 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.nkseguridad.app.Entity.Cliente;
-import com.nkseguridad.app.Entity.Contacto;
-import com.nkseguridad.app.Entity.DocumentoVenta;
-import com.nkseguridad.app.Service.IClienteService;
-import com.nkseguridad.app.Service.IDocumentoVentaService;
-import com.nkseguridad.app.Service.Implementation.DocumentoVentaService;
+import com.nkseguridad.app.Entity.DocumentoCompra;
+import com.nkseguridad.app.Service.IDocumentoCompraService;
 
 @RestController
 @CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE})
 @RequestMapping("api")
-public class DocumentoVentaController {
+public class DocumentoCompraController {
 
-	@Autowired
-	private IDocumentoVentaService documentoventaService;
 	
-	@GetMapping("documentoventa")
+	@Autowired
+	private IDocumentoCompraService documentocompraService;
+	
+	@GetMapping("documentocompra")
 	public ResponseEntity<?> ListarFacturas(){
-		List<DocumentoVenta> lstFacturas = documentoventaService.findAll();
+		List<DocumentoCompra> lstFacturas = documentocompraService.findAll();
 		if (lstFacturas!=null) {
 			if (lstFacturas.size()!=0) {
 				return new ResponseEntity<>(lstFacturas,HttpStatus.OK);
@@ -46,10 +42,10 @@ public class DocumentoVentaController {
 		
 	}
 	
-	@GetMapping("documentoventa/{id}")
+	@GetMapping("documentocompra/{id}")
 	public ResponseEntity<?> BuscarPorCodigo(@PathVariable(name = "id") Long id) {
 
-		DocumentoVenta documento = documentoventaService.findById(id);
+		DocumentoCompra documento = documentocompraService.findById(id);
 		if (documento != null) {
 			return new ResponseEntity<>(documento, HttpStatus.OK);
 		} else {
@@ -57,9 +53,9 @@ public class DocumentoVentaController {
 		}
 	}
 	
-	@GetMapping("documentoventa/tipo/{tipodocumento}")
+	@GetMapping("documentocompra/tipo/{tipodocumento}")
 	public ResponseEntity<?> ListarDocumentosPorTipo(@PathVariable(name = "tipodocumento") String tipodocumento){
-		List<DocumentoVenta> LstDocumentos = documentoventaService.findByTipodocumento(tipodocumento);
+		List<DocumentoCompra> LstDocumentos = documentocompraService.findByTipodocumento(tipodocumento);
 		if (LstDocumentos!=null) {
 			if (LstDocumentos.size()!=0) 
 				return new ResponseEntity<>(LstDocumentos,HttpStatus.OK);			
@@ -70,11 +66,11 @@ public class DocumentoVentaController {
 			return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);	
 	}
 	
-	@PostMapping("documentoventa")
-	public ResponseEntity<?> GuardarDocumentoVenta(@RequestBody DocumentoVenta documento){
-		DocumentoVenta documentoOut;
+	@PostMapping("documentocompra")
+	public ResponseEntity<?> GuardarDocumentoCompra(@RequestBody DocumentoCompra documento){
+		DocumentoCompra documentoOut;
 		try {
-			DocumentoVenta documentoUpdate =  documentoventaService.findByNumerodocumento(documento.getNumerodocumento());
+			DocumentoCompra documentoUpdate =  documentocompraService.findByNumerodocumento(documento.getNumerodocumento());
 			if (documentoUpdate != null) {
 				documentoUpdate.setBaseimp(documento.getBaseimp());
 			    documentoUpdate.setCodcontacto(documento.getCodcontacto());
@@ -102,10 +98,10 @@ public class DocumentoVentaController {
 				documentoUpdate.setTipodocumento(documento.getTipodocumento());
 				
 				
-				documentoOut = documentoventaService.save(documentoUpdate);
+				documentoOut = documentocompraService.save(documentoUpdate);
 			}
 			else {
-				documentoOut = documentoventaService.save(documento);
+				documentoOut = documentocompraService.save(documento);
 			}
 			if (documentoOut!=null) {
 				return new ResponseEntity<>(documentoOut, HttpStatus.OK);

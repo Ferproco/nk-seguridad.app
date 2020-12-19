@@ -32,7 +32,7 @@ public class DocumentoVenta implements Serializable {
 	
 	private Long codnegocio;
 	private Long codformapago;
-	private String codcliente;
+	private String codcontacto;
     private Long codvendedor;
     private Date fechaemision;
     private Date fechavencimiento;
@@ -50,6 +50,30 @@ public class DocumentoVenta implements Serializable {
     private Double subtotal;
     private Double total;
     private Double montoretenido;
+	private String status_cobro;
+    private String tipodocumento;
+    private String contable;
+    private String numeroz;
+    private String status_impresion;
+    private String codruta;
+    
+    @ManyToOne()
+    @JoinColumn(name = "codformapago",  insertable = false, updatable = false)
+    private FormaPago  formapago;
+    
+    @ManyToOne()
+	@JoinColumn(name = "codnegocio", insertable = false, updatable = false)
+	private Negocio negocio;
+    
+    @ManyToOne()
+	@JoinColumn(name = "codvendedor", insertable = false, updatable = false)
+	private Vendedor vendedor;
+    
+    
+    @ManyToOne()
+	@JoinColumn(name = "codcontacto", insertable = false, updatable = false)
+	private Contacto contacto;
+   
     public Double getDescuento() {
 		return descuento;
 	}
@@ -74,30 +98,7 @@ public class DocumentoVenta implements Serializable {
 	public void setMontoretenido(Double montoretenido) {
 		this.montoretenido = montoretenido;
 	}
-	private String status_cobro;
-    private String tipodocumento;
-    private String contable;
-    private String numeroz;
-    private String status_impresion;
-    private String codruta;
-    
-    @ManyToOne()
-    @JoinColumn(name = "codformapago",  insertable = false, updatable = false)
-    private FormaPago  formapago;
-    
-    @ManyToOne()
-	@JoinColumn(name = "codnegocio", insertable = false, updatable = false)
-	private Negocio negocio;
-    
-    @ManyToOne()
-	@JoinColumn(name = "codvendedor", insertable = false, updatable = false)
-	private Vendedor vendedor;
-    
-    
-    @ManyToOne()
-	@JoinColumn(name = "codcliente", insertable = false, updatable = false)
-	private Contacto contacto;
-   
+
     public FormaPago getFromapago() {
 		return formapago;
 	}
@@ -181,11 +182,11 @@ public class DocumentoVenta implements Serializable {
 	}
 	
 	
-	public String getCodcliente() {
-		return codcliente;
+	public String getCodcontacto() {
+		return codcontacto;
 	}
-	public void setCodcliente(String codcliente) {
-		this.codcliente = codcliente;
+	public void setCodcontacto(String codcontacto) {
+		this.codcontacto = codcontacto;
 	}
 	public String getReferencia() {
 		return referencia;
