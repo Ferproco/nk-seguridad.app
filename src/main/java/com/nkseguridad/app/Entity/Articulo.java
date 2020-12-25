@@ -112,6 +112,16 @@ public class Articulo implements Serializable {
 	public void setLstKardex(List<Kardex> lstKardex) {
 		LstKardex = lstKardex;
 	}*/
+    
+    @OneToMany(mappedBy = "articulo")
+    private List<DetallesDocumentoVenta> lstdetallesdocumentoventas;
+
+	public List<DetallesDocumentoVenta> getLstdetallesdocumentoventas() {
+		return lstdetallesdocumentoventas;
+	}
+	public void setLstdetallesdocumentoventas(List<DetallesDocumentoVenta> lstdetallesdocumentoventas) {
+		this.lstdetallesdocumentoventas = lstdetallesdocumentoventas;
+	}
 	public String getDescripcionlarga() {
 		return descripcionlarga;
 	}
