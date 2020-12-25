@@ -34,7 +34,7 @@ public class DetallesDocumentoVenta implements Serializable {
         private Double preciounitariosiniva;
         private Double montototalconiva;
         private Double baseimponible;
-        private Double porcentajedesuento;
+        private Double porcentajedescuento;
         private Double montodescuento;
         private Double porcentajeimpuesto;
         private Double montoimpuesto;
@@ -159,12 +159,12 @@ public class DetallesDocumentoVenta implements Serializable {
 			this.baseimponible = baseimponible;
 		}
 
-		public Double getPorcentajedesuento() {
-			return porcentajedesuento;
+		public Double getPorcentajedescuento() {
+			return porcentajedescuento;
 		}
 
-		public void setPorcentajedesuento(Double porcentajedesuento) {
-			this.porcentajedesuento = porcentajedesuento;
+		public void setPorcentajedesuento(Double porcentajedescuento) {
+			this.porcentajedescuento = porcentajedescuento;
 		}
 
 		public Double getMontodescuento() {
