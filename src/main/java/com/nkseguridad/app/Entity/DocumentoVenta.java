@@ -32,7 +32,7 @@ public class DocumentoVenta implements Serializable {
 	
 	private Long codnegocio;
 	private Long codformapago;
-	private String codcontacto;
+	private Long codcontacto;
     private Long codvendedor;
     private Date fechaemision;
     private Date fechavencimiento;
@@ -182,10 +182,10 @@ public class DocumentoVenta implements Serializable {
 	}
 	
 	
-	public String getCodcontacto() {
+	public Long getCodcontacto() {
 		return codcontacto;
 	}
-	public void setCodcontacto(String codcontacto) {
+	public void setCodcontacto(Long codcontacto) {
 		this.codcontacto = codcontacto;
 	}
 	public String getReferencia() {
