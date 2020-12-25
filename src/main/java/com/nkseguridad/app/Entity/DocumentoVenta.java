@@ -179,8 +179,7 @@ public class DocumentoVenta implements Serializable {
 	}
 	public void setFechavencimiento(Date fechavencimiento) {
 		this.fechavencimiento = fechavencimiento;
-	}
-	
+	}	
 	
 	public Long getCodcontacto() {
 		return codcontacto;
@@ -195,9 +194,6 @@ public class DocumentoVenta implements Serializable {
 		this.referencia = referencia;
 	}
 
-	
-	
-	
 	public Date getFecha() {
 		return fecha;
 	}
