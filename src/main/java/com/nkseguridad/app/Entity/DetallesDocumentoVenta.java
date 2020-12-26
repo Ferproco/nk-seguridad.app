@@ -26,6 +26,8 @@ public class DetallesDocumentoVenta implements Serializable {
 		private Long id;
 	    private Long codnegocio;
 	    private Long coddocumentoventa;
+	    
+	   
 	    private Long codarticulo;
 	    private Long codimpuesto;
 	    private Long codunidadmedida;
@@ -53,8 +55,8 @@ public class DetallesDocumentoVenta implements Serializable {
     	
     	@ManyToOne
     	@JoinColumn(name = "coddocumentoventa", insertable = false, updatable = false)
-    	private DocumentoVenta documentoventa;    
-        
+    	private DocumentoVenta documentoventa;            
+    	
     	@ManyToOne
     	@JoinColumn(name = "codarticulo", insertable = false, updatable = false)
     	private Articulo articulo; 
