@@ -3,11 +3,14 @@ package com.nkseguridad.app.Entity;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -55,8 +58,7 @@ public class Articulo implements Serializable {
 	private String descripcionlarga;
 	private Double stockminimo;
 	private Double stockmaximo;
-	private Double cantidadreorden;
-	
+	private Double cantidadreorden;	
 	private Double peso;
 	private Double talla;
 	private String color;
@@ -113,18 +115,28 @@ public class Articulo implements Serializable {
 		LstKardex = lstKardex;
 	}*/
     
-    @OneToMany(mappedBy = "articulo")
-    private List<DetallesDocumentoVenta> lstdetallesdocumentoventas;
+    @OneToMany(mappedBy = "articulo", fetch = FetchType.LAZY)
+     private List<DetallesDocumentoVenta> lstdetallesdocumentoventas;
+     //Set<DetallesDocumentoVenta> lstdetallesdocumentoventas = new HashSet<DetallesDocumentoVenta>(0);
 
-	public List<DetallesDocumentoVenta> getLstdetallesdocumentoventas() {
+   /* public List<DetallesDocumentoVenta> getLstdetallesdocumentoventas() {
 		return lstdetallesdocumentoventas;
 	}
 	public void setLstdetallesdocumentoventas(List<DetallesDocumentoVenta> lstdetallesdocumentoventas) {
 		this.lstdetallesdocumentoventas = lstdetallesdocumentoventas;
+	}*/
+
+	/*public Set<DetallesDocumentoVenta> getLstdetallesdocumentoventas() {
+		return lstdetallesdocumentoventas;
 	}
+	public void setLstdetallesdocumentoventas(Set<DetallesDocumentoVenta> lstdetallesdocumentoventas) {
+		this.lstdetallesdocumentoventas = lstdetallesdocumentoventas;
+	}*/
+	
 	public String getDescripcionlarga() {
 		return descripcionlarga;
 	}
+	
 	public void setDescripcionlarga(String descripcionlarga) {
 		this.descripcionlarga = descripcionlarga;
 	}
