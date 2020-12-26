@@ -2,7 +2,6 @@ package com.nkseguridad.app.Entity;
 
 import java.io.Serializable;
 import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -56,7 +55,7 @@ public class DocumentoCompra implements Serializable {
     
     @ManyToOne()
     @JoinColumn(name = "codformapago",  insertable = false, updatable = false)
-    private FormaPago  formapago;
+    private FormaPago formapago;
     
     @ManyToOne()
 	@JoinColumn(name = "codnegocio", insertable = false, updatable = false)
@@ -71,6 +70,11 @@ public class DocumentoCompra implements Serializable {
 	@JoinColumn(name = "codcontacto", insertable = false, updatable = false)
 	private Contacto contacto;
 
+    
+    
+    //  @OneToMany(mappedBy = "documentoventa")
+    
+     //private List<DetallesDocumentoVenta> lstdetallesdocumentoventas;
 
 	public Long getId() {
 		return id;
@@ -390,5 +394,5 @@ public class DocumentoCompra implements Serializable {
 	public void setContacto(Contacto contacto) {
 		this.contacto = contacto;
 	}
-
+  
 }
