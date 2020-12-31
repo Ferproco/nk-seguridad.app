@@ -62,23 +62,24 @@ public class Articulo implements Serializable {
 	private Double peso;
 	private Double talla;
 	private String color;
-	/*private String clasificacioniva;
+	private String clasificacioniva;
 	private String esimpoconsumo;
 	private Double valorimpoconsumo;
 	private Double porcentajeimpoconsumo;
-	private Double ancho;
-	private Double alto;
-	private Double profundidad;
-	private Long facturarsinexistencia;
-	private Long ivaincluido;
-	private Long aplicaimpuestoconsumo;
-	private Date fechacreacion;*/
+	//private Double ancho;
+	//private Double alto;
+	//private Double profundidad;
+	//private Long facturarsinexistencia;
+	private String ivaincluido;
+	
+	//private Date fechacreacion;
        
 	@ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "codfamilia",  insertable = false, updatable = false)
     private Familia familia;
     
-    @ManyToOne()
+   
+	@ManyToOne()
     @JoinColumn(name = "codmarca",  insertable = false, updatable = false, nullable = true)
     private Marca marca;
     
@@ -115,6 +116,45 @@ public class Articulo implements Serializable {
 		LstKardex = lstKardex;
 	}*/
     
+    public String getClasificacioniva() {
+		return clasificacioniva;
+	}
+
+	public void setClasificacioniva(String clasificacioniva) {
+		this.clasificacioniva = clasificacioniva;
+	}
+
+	public String getEsimpoconsumo() {
+		return esimpoconsumo;
+	}
+
+	public void setEsimpoconsumo(String esimpoconsumo) {
+		this.esimpoconsumo = esimpoconsumo;
+	}
+
+	public Double getValorimpoconsumo() {
+		return valorimpoconsumo;
+	}
+
+	public void setValorimpoconsumo(Double valorimpoconsumo) {
+		this.valorimpoconsumo = valorimpoconsumo;
+	}
+
+	public Double getPorcentajeimpoconsumo() {
+		return porcentajeimpoconsumo;
+	}
+
+	public void setPorcentajeimpoconsumo(Double porcentajeimpoconsumo) {
+		this.porcentajeimpoconsumo = porcentajeimpoconsumo;
+	}
+
+	public String getIvaincluido() {
+		return ivaincluido;
+	}
+
+	public void setIvaincluido(String ivaincluido) {
+		this.ivaincluido = ivaincluido;
+	}
     @OneToMany(mappedBy = "articulo", fetch = FetchType.LAZY)
      private List<DetallesDocumentoVenta> lstdetallesdocumentoventas;
      //Set<DetallesDocumentoVenta> lstdetallesdocumentoventas = new HashSet<DetallesDocumentoVenta>(0);

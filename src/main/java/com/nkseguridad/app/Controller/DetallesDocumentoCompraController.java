@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.nkseguridad.app.Entity.DetallesDocumentoCompra;
-import com.nkseguridad.app.Entity.DetallesDocumentoVenta;
 import com.nkseguridad.app.Service.IDetallesDocumentoCompraService;
 
 @RestController
@@ -39,7 +38,7 @@ public class DetallesDocumentoCompraController {
 	@GetMapping("detallesdocumentocompra/{id}")
 	public ResponseEntity<?> BuscarDetallesPorCodigoDocumentoCompra(@PathVariable(name = "id") Long id) {
 
-		List<DetallesDocumentoCompra> LstDetallesDocumentoCompras = detallesdocumentocompraServicio.findByCoddocumentoventa(id);
+		List<DetallesDocumentoCompra> LstDetallesDocumentoCompras = detallesdocumentocompraServicio.findByCoddocumentocompra(id);
 		if (LstDetallesDocumentoCompras!=null) {
 			if (LstDetallesDocumentoCompras.size()!=0) 
 				return new ResponseEntity<>(LstDetallesDocumentoCompras,HttpStatus.OK);			
