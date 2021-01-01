@@ -24,10 +24,8 @@ public class DetallesDocumentoVenta implements Serializable {
 	    @GeneratedValue(strategy = GenerationType.IDENTITY)
 	    @Column(name = "id")
 		private Long id;
-	    private Long codnegocio;
-	    private Long coddocumentoventa;
-	    
-	   
+	 	private Long codnegocio;
+	    private Long coddocumentoventa;   
 	    private Long codarticulo;
 	    private Long codimpuesto;
 	    private Long codunidadmedida;
@@ -41,7 +39,7 @@ public class DetallesDocumentoVenta implements Serializable {
         private Double porcentajeimpuesto;
         private Double montoimpuesto;
         private Double islr;
-        private double porcentajeislr;
+        private Double porcentajeislr;
         private String status;
         private String tipoarticulo;      
         private Date fecha;
@@ -49,17 +47,11 @@ public class DetallesDocumentoVenta implements Serializable {
         private String garantia;
         private String tipodocumento;
         
-    	@ManyToOne
+    @ManyToOne
     	@JoinColumn(name = "codnegocio", insertable = false, updatable = false)
-    	private Negocio negocio;   
+    	private Negocio negocio;          
     	
-    	@ManyToOne
-    	@JoinColumn(name = "coddocumentoventa", insertable = false, updatable = false)
-    	private DocumentoVenta documentoventa;            
-    	
-    	@ManyToOne
-    	@JoinColumn(name = "codarticulo", insertable = false, updatable = false)
-    	private Articulo articulo; 
+    	 
         
     	@ManyToOne
     	@JoinColumn(name = "codimpuesto", insertable = false, updatable = false)
@@ -72,6 +64,14 @@ public class DetallesDocumentoVenta implements Serializable {
     	@ManyToOne
     	@JoinColumn(name = "codalmacen", insertable = false, updatable = false)
     	private Almacen almacen;
+        
+        @ManyToOne
+    	@JoinColumn(name = "coddocumentoventa", insertable = false, updatable = false)
+    	private DocumentoVenta documentoventa;
+        
+        @ManyToOne
+    	@JoinColumn(name = "codarticulo", insertable = false, updatable = false)
+    	private Articulo articulo;
 
 		public Long getId() {
 			return id;
@@ -165,7 +165,7 @@ public class DetallesDocumentoVenta implements Serializable {
 			return porcentajedescuento;
 		}
 
-		public void setPorcentajedesuento(Double porcentajedescuento) {
+		public void setPorcentajedescuento(Double porcentajedescuento) {
 			this.porcentajedescuento = porcentajedescuento;
 		}
 
@@ -201,11 +201,11 @@ public class DetallesDocumentoVenta implements Serializable {
 			this.islr = islr;
 		}
 
-		public double getPorcentajeislr() {
+		public Double getPorcentajeislr() {
 			return porcentajeislr;
 		}
 
-		public void setPorcentajeislr(double porcentajeislr) {
+		public void setPorcentajeislr(Double porcentajeislr) {
 			this.porcentajeislr = porcentajeislr;
 		}
 
@@ -305,5 +305,5 @@ public class DetallesDocumentoVenta implements Serializable {
 			this.almacen = almacen;
 		}
 
-
+		
 }
