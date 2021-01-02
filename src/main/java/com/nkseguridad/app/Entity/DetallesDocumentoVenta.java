@@ -4,18 +4,22 @@ import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Column;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.MapsId;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="detallesdocumentoventa",schema="public")
 public class DetallesDocumentoVenta implements Serializable {
 
+	@Embedded
+	private DetallesDocumentoVentaPK detalleDocumentoPk;
 	/**
 	 * 
 	 */
@@ -47,7 +51,7 @@ public class DetallesDocumentoVenta implements Serializable {
         private String garantia;
         private String tipodocumento;
         
-    @ManyToOne
+        @ManyToOne
     	@JoinColumn(name = "codnegocio", insertable = false, updatable = false)
     	private Negocio negocio;          
     	
@@ -66,6 +70,7 @@ public class DetallesDocumentoVenta implements Serializable {
     	private Almacen almacen;
         
         @ManyToOne
+        //@MapsId("id")
     	@JoinColumn(name = "coddocumentoventa", insertable = false, updatable = false)
     	private DocumentoVenta documentoventa;
         
