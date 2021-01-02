@@ -18,11 +18,7 @@ import javax.persistence.Table;
 @Table(name="detallesdocumentoventa",schema="public")
 public class DetallesDocumentoVenta implements Serializable {
 
-	//@Embedded
-	//private DetallesDocumentoVentaPK detalleDocumentoPk;
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 	 	@Id
 	    @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -56,11 +52,7 @@ public class DetallesDocumentoVenta implements Serializable {
         
         public DetallesDocumentoVenta() {
         	
-        }
-        
-       /* public DetallesDocumentoVenta(Long documentoid, Long detalledocumentoid) {
-        	detalleDocumentoPk = new DetallesDocumentoVentaPK(documentoid, detalledocumentoid);
-        }*/
+        }  
         
         @ManyToOne
     	@JoinColumn(name = "codnegocio", insertable = false, updatable = false)
@@ -77,13 +69,7 @@ public class DetallesDocumentoVenta implements Serializable {
     	@ManyToOne
     	@JoinColumn(name = "codalmacen", insertable = false, updatable = false)
     	private Almacen almacen;
-        
-        
-        //@MapsId("documentoid")
-        //@ManyToOne
-    	//@JoinColumn(name = "documentoid", insertable = false, updatable = false)
-    	//private DocumentoVenta documentoventa;
-        
+                
         @ManyToOne
     	@JoinColumn(name = "codarticulo", insertable = false, updatable = false)
     	private Articulo articulo;
@@ -366,10 +352,5 @@ public class DetallesDocumentoVenta implements Serializable {
 		public void setArticulo(Articulo articulo) {
 			this.articulo = articulo;
 		}
-
-        
-
 	
-
-		
 }
