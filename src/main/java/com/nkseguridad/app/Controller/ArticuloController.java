@@ -90,6 +90,11 @@ import com.nkseguridad.app.Service.IArticuloService;
 				articuloUpdate.setStockminimo(articulo.getStockminimo());
 				articuloUpdate.setStockmaximo(articulo.getStockmaximo());
 				articuloUpdate.setTalla(articulo.getTalla());
+				articuloUpdate.setEsimpoconsumo(articulo.getEsimpoconsumo());
+				articuloUpdate.setPorcentajeimpoconsumo(articulo.getPorcentajeimpoconsumo());
+				articuloUpdate.setValorimpoconsumo(articulo.getValorimpoconsumo());  
+				articuloUpdate.setTipoiva(articulo.getTipoiva());
+				articuloUpdate.setIvaincluido(articulo.getIvaincluido());
 		
 				articuloOut=articuloServicio.save(articuloUpdate);
 				
