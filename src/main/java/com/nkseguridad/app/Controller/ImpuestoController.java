@@ -6,14 +6,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-
+import com.nkseguridad.app.Entity.FormaPago;
 import com.nkseguridad.app.Entity.Impuesto;
 import com.nkseguridad.app.Service.IImpuestoService;
 
@@ -51,6 +53,24 @@ public class ImpuestoController {
 			return new ResponseEntity<Void>(HttpStatus.CONFLICT);
 		}
 
+	}
+	
+	@DeleteMapping("impuesto/{id}")
+	public ResponseEntity<Void> BorrarImpuesto(@PathVariable(name = "id") Long id){
+
+		try {
+			Impuesto ImpuestoObj = impuestoServicio.findByCodigo(id);
+			if (ImpuestoObj!=null) {
+				impuestoServicio.eliminar(ImpuestoObj);
+				return new ResponseEntity<Void>(HttpStatus.OK);
+			}
+			else {
+				return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
+			}			
+		}
+		catch(Exception m) {
+			return new ResponseEntity<Void>(HttpStatus.CONFLICT);
+		}
 	}
 
 }

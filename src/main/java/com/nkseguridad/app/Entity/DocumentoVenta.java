@@ -29,8 +29,7 @@ public class DocumentoVenta implements Serializable {
 	@Column(name = "id")
 	private Long id;
 	@Column(name = "numerodocumento",length=10)
-	private String numerodocumento; 
-	
+	private String numerodocumento; 	
 	private Long codnegocio;
 	private Long codformapago;
 	private String codcontacto;
