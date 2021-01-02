@@ -86,7 +86,6 @@ public class DocumentoVenta implements Serializable {
     private List<DetallesDocumentoVenta> lstdetallesdocumentoventas;
 
 
-
 	public Long getDocumentoid() {
 		return documentoid;
 	}
