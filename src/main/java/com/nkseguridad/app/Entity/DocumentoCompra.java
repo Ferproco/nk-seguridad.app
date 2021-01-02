@@ -22,13 +22,13 @@ public class DocumentoCompra implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
-	private Long id;
+	private Long documentoid;
 	@Column(name = "numerodocumento",length=10)
 	private String numerodocumento; 
 	
 	private Long codnegocio;
 	private Long codformapago;
-	private String codcontacto;
+	private Long codcontacto;
     private Long codvendedor;
     private Date fechaemision;
     private Date fechavencimiento;
@@ -76,18 +76,31 @@ public class DocumentoCompra implements Serializable {
     
      //private List<DetallesDocumentoVenta> lstdetallesdocumentoventas;
 
-	public Long getId() {
-		return id;
-	}
 
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-
+    
+    
 	public String getNumerodocumento() {
 		return numerodocumento;
+	}
+
+
+	public Long getDocumentoid() {
+		return documentoid;
+	}
+
+
+	public void setDocumentoid(Long documentoid) {
+		this.documentoid = documentoid;
+	}
+
+
+	public Long getCodcontacto() {
+		return codcontacto;
+	}
+
+
+	public void setCodcontacto(Long codcontacto) {
+		this.codcontacto = codcontacto;
 	}
 
 
@@ -113,16 +126,6 @@ public class DocumentoCompra implements Serializable {
 
 	public void setCodformapago(Long codformapago) {
 		this.codformapago = codformapago;
-	}
-
-
-	public String getCodcontacto() {
-		return codcontacto;
-	}
-
-
-	public void setCodcontacto(String codcontacto) {
-		this.codcontacto = codcontacto;
 	}
 
 

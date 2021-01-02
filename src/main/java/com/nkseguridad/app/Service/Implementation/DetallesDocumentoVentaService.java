@@ -20,10 +20,10 @@ public class DetallesDocumentoVentaService implements IDetallesDocumentoVentaSer
 		return (List<DetallesDocumentoVenta>)detallesdocumentoventaRepository.findAll();
 	}
 
-	@Override
-	public  List<DetallesDocumentoVenta> findByCoddocumentoventa(Long coddocumentoventa) {
+	/*@Override
+	public  List<DetallesDocumentoVenta> findByCoddocumentoventa(Long documentoid) {
 		// TODO Auto-generated method stub
-		return (List<DetallesDocumentoVenta>)detallesdocumentoventaRepository.findByCoddocumentoventa(coddocumentoventa);
-	}
+		return (List<DetallesDocumentoVenta>)detallesdocumentoventaRepository.findByDocumentoId(documentoid);
+	}*/
 
 }

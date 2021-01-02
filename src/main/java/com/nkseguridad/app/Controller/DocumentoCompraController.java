@@ -82,7 +82,7 @@ public class DocumentoCompraController {
 				documentoUpdate.setFecha(documento.getFecha());
 				documentoUpdate.setFechaemision(documento.getFechaemision());
 				documentoUpdate.setFechavencimiento(documento.getFechavencimiento());
-				documentoUpdate.setId(documento.getId());
+				documentoUpdate.setDocumentoid(documento.getDocumentoid());
 				documentoUpdate.setIsrl(documento.getIsrl());
 				documentoUpdate.setNumcontrol(documento.getNumcontrol());
 				documentoUpdate.setNumerodocumento(documento.getNumerodocumento());
