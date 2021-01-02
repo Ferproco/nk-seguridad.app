@@ -16,6 +16,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 @Entity
 @Table(name = "documentoventa", schema = "public")
 public class DocumentoVenta implements Serializable {
@@ -34,6 +36,9 @@ public class DocumentoVenta implements Serializable {
 	private Long codformapago;
 	private String codcontacto;
     private Long codvendedor;
+    
+    @Column(name = "fechaemision")
+    @JsonFormat(pattern = "YYYY-MM-dd")
     private Date fechaemision;
     private Date fechavencimiento;
     private Date fecha;    

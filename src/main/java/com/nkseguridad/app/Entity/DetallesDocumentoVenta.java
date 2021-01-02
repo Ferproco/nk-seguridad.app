@@ -41,17 +41,16 @@ public class DetallesDocumentoVenta implements Serializable {
         private Double islr;
         private Double porcentajeislr;
         private String status;
-        private String tipoarticulo;      
+        private String tipoarticulo;
+        
         private Date fecha;
         private String serial;
         private String garantia;
         private String tipodocumento;
         
-    @ManyToOne
+        @ManyToOne
     	@JoinColumn(name = "codnegocio", insertable = false, updatable = false)
-    	private Negocio negocio;          
-    	
-    	 
+    	private Negocio negocio;   	 
         
     	@ManyToOne
     	@JoinColumn(name = "codimpuesto", insertable = false, updatable = false)
