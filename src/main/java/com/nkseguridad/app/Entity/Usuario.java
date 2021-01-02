@@ -17,7 +17,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-@Table(name = "usuario", schema = "seguridad")
+@Table(name = "usuario", schema = "public")
 public class Usuario implements Serializable {
 
 	/**
