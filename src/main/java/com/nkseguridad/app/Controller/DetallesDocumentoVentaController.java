@@ -35,7 +35,7 @@ public class DetallesDocumentoVentaController {
 			return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);	
 	}
 	
-	@GetMapping("detallesdocumentoventa/{id}")
+	/*@GetMapping("detallesdocumentoventa/{id}")
 	public ResponseEntity<?> BuscarDetallesPorCodigoDocumentoVenta(@PathVariable(name = "id") Long id) {
 
 		List<DetallesDocumentoVenta> LstDetallesDocumentoVentas = detallesdocumentoventaServicio.findByCoddocumentoventa(id);
@@ -47,6 +47,6 @@ public class DetallesDocumentoVentaController {
 		}
 		else 
 			return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);	
-	}
+	}*/
 
 }

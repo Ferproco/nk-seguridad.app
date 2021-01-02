@@ -2,6 +2,8 @@ package com.nkseguridad.app.Service.Implementation;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -41,6 +43,7 @@ public class DocumentoVentaService implements IDocumentoVentaService {
 	}
 
 	@Override
+	@Transactional
 	public DocumentoVenta save(DocumentoVenta documentoventa) {
 		// TODO Auto-generated method stub
 		return documentoRepository.save(documentoventa);

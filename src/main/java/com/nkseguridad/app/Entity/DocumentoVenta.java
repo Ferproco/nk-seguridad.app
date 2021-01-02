@@ -18,7 +18,6 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
 @Table(name = "documentoventa", schema = "public")
@@ -32,11 +31,12 @@ public class DocumentoVenta implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "documentoid")
 	private Long documentoid;
+	
 	@Column(name = "numerodocumento",length=10)
 	private String numerodocumento; 	
 	private Long codnegocio;
 	private Long codformapago;
-	private String codcontacto;
+	private Long codcontacto;
     private Long codvendedor;
     
     @Column(name = "fechaemision")
@@ -82,7 +82,8 @@ public class DocumentoVenta implements Serializable {
 	@JoinColumn(name = "codcontacto", insertable = false, updatable = false)
 	private Contacto contacto;
     
-    @OneToMany(mappedBy = "documentoventa")
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "documento_id", referencedColumnName = "documentoid")
     private List<DetallesDocumentoVenta> lstdetallesdocumentoventas;
 
 
@@ -118,11 +119,11 @@ public class DocumentoVenta implements Serializable {
 		this.codformapago = codformapago;
 	}
 
-	public String getCodcontacto() {
+	public Long getCodcontacto() {
 		return codcontacto;
 	}
 
-	public void setCodcontacto(String codcontacto) {
+	public void setCodcontacto(Long codcontacto) {
 		this.codcontacto = codcontacto;
 	}
 
@@ -348,6 +349,31 @@ public class DocumentoVenta implements Serializable {
 
 	public void setLstdetallesdocumentoventas(List<DetallesDocumentoVenta> lstdetallesdocumentoventas) {
 		this.lstdetallesdocumentoventas = lstdetallesdocumentoventas;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((documentoid == null) ? 0 : documentoid.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		DocumentoVenta other = (DocumentoVenta) obj;
+		if (documentoid == null) {
+			if (other.documentoid != null)
+				return false;
+		} else if (!documentoid.equals(other.documentoid))
+			return false;
+		return true;
 	}        
    
 
