@@ -41,8 +41,7 @@ public class DetallesDocumentoVenta implements Serializable {
         private Double islr;
         private Double porcentajeislr;
         private String status;
-        private String tipoarticulo;
-        
+        private String tipoarticulo;        
         private Date fecha;
         private String serial;
         private String garantia;

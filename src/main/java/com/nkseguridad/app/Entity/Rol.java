@@ -17,7 +17,7 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import javax.persistence.GenerationType;
 
 @Entity
-@Table(name="rol", schema = "seguridad")
+@Table(name="rol", schema = "public")
 public class Rol implements Serializable {
 
 	/**

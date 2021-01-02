@@ -15,6 +15,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
@@ -28,8 +30,8 @@ public class DocumentoVenta implements Serializable {
 	private static final long serialVersionUID = 1L;	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id")
-	private Long id;
+	@Column(name = "documentoid")
+	private Long documentoid;
 	@Column(name = "numerodocumento",length=10)
 	private String numerodocumento; 	
 	private Long codnegocio;
@@ -38,8 +40,9 @@ public class DocumentoVenta implements Serializable {
     private Long codvendedor;
     
     @Column(name = "fechaemision")
-    @JsonFormat(pattern = "YYYY-MM-dd")
+    @Temporal(TemporalType.DATE)
     private Date fechaemision;
+    
     private Date fechavencimiento;
     private Date fecha;    
     private String referencia;   
@@ -82,12 +85,14 @@ public class DocumentoVenta implements Serializable {
     @OneToMany(mappedBy = "documentoventa")
     private List<DetallesDocumentoVenta> lstdetallesdocumentoventas;
 
-	public Long getId() {
-		return id;
+
+
+	public Long getDocumentoid() {
+		return documentoid;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public void setDocumentoid(Long documentoid) {
+		this.documentoid = documentoid;
 	}
 
 	public String getNumerodocumento() {
