@@ -62,7 +62,7 @@ public class Articulo implements Serializable {
 	private Double peso;
 	private Double talla;
 	private String color;
-	private String clasificacioniva;
+	private String tipoiva;
 	private String esimpoconsumo;
 	private Double valorimpoconsumo;
 	private Double porcentajeimpoconsumo;
@@ -116,12 +116,12 @@ public class Articulo implements Serializable {
 		LstKardex = lstKardex;
 	}*/
     
-    public String getClasificacioniva() {
-		return clasificacioniva;
+    public String getTipoiva() {
+		return tipoiva;
 	}
 
-	public void setClasificacioniva(String clasificacioniva) {
-		this.clasificacioniva = clasificacioniva;
+	public void setTipoiva(String tipoiva) {
+		this.tipoiva = tipoiva;
 	}
 
 	public String getEsimpoconsumo() {
