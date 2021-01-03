@@ -24,11 +24,9 @@ public class DetallesDocumentoVenta implements Serializable {
 	    @GeneratedValue(strategy = GenerationType.IDENTITY)
 	    @Column(name = "id")
 		private Long id;
-	 	private Long codnegocio;
-	 	
+	 	private Long codnegocio;	 	
 	 	@Column(name = "documento_id")
-	    private Long documento_id;
-	 	
+	    private Long documento_id;	 	
 	    private Long codarticulo;	    
 	    private Long codimpuesto;	    
 	    private Long codunidadmedida;
