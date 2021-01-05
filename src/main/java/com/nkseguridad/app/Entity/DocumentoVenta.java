@@ -85,6 +85,10 @@ public class DocumentoVenta implements Serializable {
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "documento_id", referencedColumnName = "documentoid") // El numero de documento de esta entity documentoid
     private List<DetallesDocumentoVenta> lstdetallesdocumentoventas;
+    
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "documento_id", referencedColumnName = "documentoid") // El numero de documento de esta entity documentoid
+    private List<Kardex> lstmovimientoskardex;
 
 
 	public Long getDocumentoid() {
@@ -349,6 +353,14 @@ public class DocumentoVenta implements Serializable {
 
 	public void setLstdetallesdocumentoventas(List<DetallesDocumentoVenta> lstdetallesdocumentoventas) {
 		this.lstdetallesdocumentoventas = lstdetallesdocumentoventas;
+	}	
+
+	public List<Kardex> getLstmovimientoskardex() {
+		return lstmovimientoskardex;
+	}
+
+	public void setLstmovimientoskardex(List<Kardex> lstmovimientoskardex) {
+		this.lstmovimientoskardex = lstmovimientoskardex;
 	}
 
 	@Override
