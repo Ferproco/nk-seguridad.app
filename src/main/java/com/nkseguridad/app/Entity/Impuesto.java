@@ -41,11 +41,11 @@ public class Impuesto implements Serializable {
     
     private Long idtipoimpuesto;
     
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "idtipoimpuesto",  insertable = false, updatable = false)
     private TipoImpuesto tipoimpuestos;     
 	
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne
 	@JoinColumn(name = "codnegocio", insertable = false, updatable = false)
 	private Negocio negocio;
 
