@@ -58,5 +58,11 @@ public class NumeracionDocumentoService implements INumeracionDocumentoService {
 		return numeraciondocumentoRepository.findById(id).orElse(null);
 	}
 
+	@Override
+	public NumeracionDocumento findByCodtipodocumentoandPrincipalSQL(Long codigo,Boolean principal) {
+		// TODO Auto-generated method stub
+		return numeraciondocumentoRepository.findByCodtipodocumentoandPrincipalSQL(codigo,principal);
+	}
+
 	
 }

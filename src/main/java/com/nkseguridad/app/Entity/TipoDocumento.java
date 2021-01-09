@@ -31,8 +31,10 @@ public class TipoDocumento implements Serializable{
 	private Long codnegocio;
     @Column(name="status",length=10)
     private String status;
+    private String nombrelogicodocumento;
     
-    @ManyToOne(cascade = CascadeType.ALL)
+   
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "codnegocio", insertable = false, updatable = false)
 	private Negocio negocio;
 
@@ -75,5 +77,12 @@ public class TipoDocumento implements Serializable{
 	public void setNegocio(Negocio negocio) {
 		this.negocio = negocio;
 	}	
+	 public String getNombrelogicodocumento() {
+			return nombrelogicodocumento;
+		}
+
+		public void setNombrelogicodocumento(String nombrelogicodocumento) {
+			this.nombrelogicodocumento = nombrelogicodocumento;
+		}
 
 }

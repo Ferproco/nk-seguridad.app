@@ -45,8 +45,12 @@ public class NumeracionDocumento implements Serializable {
 	    private Long proximonumerodocumento;
 	    private Long desdenumero;
 	    private Long hastanumero;
+	    private Boolean principal;
+		
 	    
-	    @ManyToOne
+	  
+
+		@ManyToOne
 		@JoinColumn(name = "codnegocio", insertable = false, updatable = false)
 		private Negocio negocio;
 	    
@@ -150,7 +154,14 @@ public class NumeracionDocumento implements Serializable {
 			this.tipodocumento = tipodocumento;
 		}
 
+		  public Boolean getPrincipal() {
+				return principal;
+			}
 
-	    
+			public void setPrincipal(Boolean principal) {
+				this.principal = principal;
+			}
+
+		
 
 }

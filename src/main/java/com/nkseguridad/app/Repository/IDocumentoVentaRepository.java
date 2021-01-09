@@ -1,4 +1,4 @@
-package com.nkseguridad.app.Repository;
+ package com.nkseguridad.app.Repository;
 
 import java.util.List;
 

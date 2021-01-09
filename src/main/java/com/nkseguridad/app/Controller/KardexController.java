@@ -15,8 +15,7 @@ import com.nkseguridad.app.Entity.Kardex;
 import com.nkseguridad.app.Service.IKardexService;
 
 @RestController
-@CrossOrigin(origins = "*", methods = { RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT,
-		RequestMethod.DELETE })
+@CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE})
 @RequestMapping("api")
 
 public class KardexController {
@@ -24,7 +23,7 @@ public class KardexController {
 	@Autowired
 	private IKardexService IKardexService;
 
-	@GetMapping(name = "kardex")
+	@GetMapping("kardex")
 	public ResponseEntity<?> ListarMovimientos() {
 		List<Kardex> LstKardex = IKardexService.findAll();
 		if (LstKardex != null) {

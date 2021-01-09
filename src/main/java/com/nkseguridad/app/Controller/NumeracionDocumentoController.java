@@ -111,4 +111,17 @@ public class NumeracionDocumentoController {
 		}
 	}
 
+	@GetMapping("numeraciondocumento/{codtipodocumento,principal}")
+	public ResponseEntity<?> BuscarNumeracionXTipoDocumentoPrincipal(@PathVariable(name = "codtipodocumento, principal") Long codtipodocumento, boolean principal){
+		NumeracionDocumento NumeracionDocumentosObj = numeraciondocumentoServicio.findByCodtipodocumentoandPrincipalSQL(codtipodocumento,principal);
+		if (NumeracionDocumentosObj!=null) {
+				return new ResponseEntity<>(NumeracionDocumentosObj,HttpStatus.OK);
+			
+		}
+		else {
+				return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
+			}
+			
+	}
+	
 }

@@ -76,7 +76,11 @@ public class Kardex implements Serializable  {
 	  @Column(name="numerocontrol",length=10)
 	  private String numerocontrol;
 	  
-	  @ManyToOne()
+	  @Column(name="status",length=10)
+	  private String status;
+	  
+	 
+	@ManyToOne()
 	  @JoinColumn(name = "codunidadmedida",  insertable = false, updatable = false)
 	  private Unidadmedida unidadmedida;
 	    		    
@@ -280,5 +284,12 @@ public class Kardex implements Serializable  {
 		this.unidadmedidaalterna = unidadmedidaalterna;
 	}*/
 	  
-	  
+	 public String getStatus() {
+			return status;
+		}
+
+		public void setStatus(String status) {
+			this.status = status;
+		}
+
 }
