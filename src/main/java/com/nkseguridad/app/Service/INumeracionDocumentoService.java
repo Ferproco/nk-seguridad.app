@@ -14,4 +14,5 @@ public interface INumeracionDocumentoService {
 	public List<NumeracionDocumento> findAllTipodocumento(Long tipodocumento);
 	public NumeracionDocumento findByIdnumeraciondocumento(Long id);
 	public NumeracionDocumento findByCodtipodocumentoandPrincipalSQL(Long codigo,Boolean principal);
+	public List<NumeracionDocumento> findByTipodedocumento(String tipodedocumento);
 }

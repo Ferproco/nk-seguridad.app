@@ -83,7 +83,7 @@ public class DocumentoVenta implements Serializable {
 	private Contacto contacto;
     
     @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "documento_id", referencedColumnName = "documentoid") // El numero de documento de esta entity documentoid
+    @JoinColumn(name = "detallev_id", referencedColumnName = "documentoid") // El numero de documento de esta entity documentoid
     private List<DetallesDocumentoVenta> lstdetallesdocumentoventas;
     
     @OneToMany(cascade = CascadeType.ALL)

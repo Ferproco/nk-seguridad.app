@@ -64,5 +64,11 @@ public class NumeracionDocumentoService implements INumeracionDocumentoService {
 		return numeraciondocumentoRepository.findByCodtipodocumentoandPrincipalSQL(codigo,principal);
 	}
 
+	@Override
+	public List<NumeracionDocumento> findByTipodedocumento(String tipodedocumento) {
+		// TODO Auto-generated method stub
+		return numeraciondocumentoRepository.findByTipodedocumento(tipodedocumento);
+	}
+
 	
 }

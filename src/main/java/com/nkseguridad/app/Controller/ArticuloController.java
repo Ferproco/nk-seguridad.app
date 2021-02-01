@@ -68,8 +68,7 @@ import com.nkseguridad.app.Service.IArticuloService;
 		try {
 			Articulo articuloUpdate = articuloServicio.findByCodigo(articulo.getCodigo());
 			
-			if (articuloUpdate != null) {
-				
+			if (articuloUpdate != null) {				
 				articuloUpdate.setNomarticulo(articulo.getNomarticulo());
 				articuloUpdate.setPreciosugerido(articulo.getPreciosugerido());
 				articuloUpdate.setCodfamilia(articulo.getCodfamilia());
@@ -97,10 +96,6 @@ import com.nkseguridad.app.Service.IArticuloService;
 				articuloUpdate.setIvaincluido(articulo.getIvaincluido());
 		
 				articuloOut=articuloServicio.save(articuloUpdate);
-				
-				
-				
-				
 			}
 			else {
 				articuloOut = articuloServicio.save(articulo);

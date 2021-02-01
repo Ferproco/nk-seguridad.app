@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.nkseguridad.app.Entity.Articulo;
 import com.nkseguridad.app.Entity.FormaPago;
 import com.nkseguridad.app.Entity.Impuesto;
 import com.nkseguridad.app.Service.IImpuestoService;
@@ -45,16 +46,50 @@ public class ImpuestoController {
 	}
 	@PostMapping("impuesto")
 	public ResponseEntity<?> GuardarImpuestos(@RequestBody Impuesto impuesto) {
-		if (!impuestoServicio.findByExisteCodigo(impuesto.getIdimpuesto())) {
-			Impuesto ImpuestoObj = impuestoServicio.save(impuesto);
-			return new ResponseEntity<>(ImpuestoObj, HttpStatus.CREATED);
-		} 
-		else {
+		Impuesto impuestoOut;
+		try {
+			Impuesto impuestoUpdate = impuestoServicio.findByCodigo(impuesto.getIdimpuesto());
+			
+			if (impuestoUpdate != null) {				
+				impuestoUpdate.setCodnegocio(impuesto.getCodnegocio());
+				impuestoUpdate.setFechafin(impuesto.getFechafin());
+				impuestoUpdate.setFechaini(impuesto.getFechaini());
+				impuestoUpdate.setIdtipoimpuesto(impuesto.getIdtipoimpuesto());
+				impuestoUpdate.setNombreimpuesto(impuesto.getNombreimpuesto());
+				impuestoUpdate.setNormal(impuesto.getNormal());
+				impuestoUpdate.setRecargo(impuesto.getRecargo());
+				impuestoUpdate.setStatus(impuesto.getStatus());
+				
+		
+				impuestoOut=impuestoServicio.save(impuestoUpdate);
+			}
+			else {
+				impuestoOut = impuestoServicio.save(impuesto);
+			}
+			if (impuestoOut!=null) {
+				return new ResponseEntity<>(impuestoOut, HttpStatus.OK);
+			}
+			else {
+				return new ResponseEntity<Void>(HttpStatus.CONFLICT);
+			}
+			
+		}catch (Exception e) {
 			return new ResponseEntity<Void>(HttpStatus.CONFLICT);
 		}
+		
 
 	}
-	
+	@GetMapping("impuesto/{id}")
+	public ResponseEntity<?> BuscarPorId(@PathVariable(name = "id") Long id) {
+
+		Impuesto impuesto = impuestoServicio.findByCodigo(id);
+		if (impuesto != null) {
+			return new ResponseEntity<>(impuesto, HttpStatus.OK);
+		} else {
+			return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
+		}
+		
+	}
 	@DeleteMapping("impuesto/{id}")
 	public ResponseEntity<Void> BorrarImpuesto(@PathVariable(name = "id") Long id){
 
