@@ -11,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 @Table(name="kardex",schema="public")
@@ -28,13 +30,14 @@ public class Kardex implements Serializable  {
 	  @Column(name = "documento_id")
 	  private Long documento_id;
 	  
-	  @Column(name = "codarticulo")
-	  private Long codarticulo;
+	  @Column(name = "articulo_id")
+	  private Long articulo_id;
 	  
 	  @Column(name="tipo",length=10)
 	  private String tipo;
 	  
 	  @Column(name="fecha")
+	  @Temporal(TemporalType.DATE)
 	  private Date fecha;
 	  
 	  @Column(name="documentoasociado",length=15)
@@ -92,13 +95,23 @@ public class Kardex implements Serializable  {
 	  @JoinColumn(name = "codalmacen",  insertable = false, updatable = false)
 	  private Almacen almacen;
 	  
-	  @ManyToOne()
+	  /*@ManyToOne()
+	  @JoinColumn(name = "articulo_id",  insertable = false, updatable = false)
+	  private Articulo articulo;*/
+	  
+	  /*@ManyToOne()
 	  @JoinColumn(name = "codarticulo",  insertable = false, updatable = false)
-	  private Articulo articulo;
+	  private Articulo articulo;*/
 	  
 	  /*@ManyToOne()
 	  @JoinColumn(name = "codunidadalterna",  insertable = false, updatable = false)
 	  private UnidadMedidaAlterna unidadmedidaalterna;*/
+
+	
+
+	
+
+	
 
 	public Long getId() {
 		return id;
@@ -106,6 +119,16 @@ public class Kardex implements Serializable  {
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	
+	
+	public Long getArticulo_id() {
+		return articulo_id;
+	}
+
+	public void setArticulo_id(Long articulo_id) {
+		this.articulo_id = articulo_id;
 	}
 
 	public Long getDocumento_id() {
@@ -116,13 +139,7 @@ public class Kardex implements Serializable  {
 		this.documento_id = documento_id;
 	}
 
-	public Long getCodarticulo() {
-		return codarticulo;
-	}
 
-	public void setCodarticulo(Long codarticulo) {
-		this.codarticulo = codarticulo;
-	}
 
 	public String getTipo() {
 		return tipo;
@@ -268,13 +285,13 @@ public class Kardex implements Serializable  {
 		this.almacen = almacen;
 	}
 
-	public Articulo getArticulo() {
+	/*public Articulo getArticulo() {
 		return articulo;
 	}
 
 	public void setArticulo(Articulo articulo) {
 		this.articulo = articulo;
-	}
+	}*/
 
 	/*public UnidadMedidaAlterna getUnidadmedidaalterna() {
 		return unidadmedidaalterna;

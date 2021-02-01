@@ -2,6 +2,7 @@ package com.nkseguridad.app.Service;
 
 import java.util.List;
 
+import com.nkseguridad.app.Entity.Almacen;
 import com.nkseguridad.app.Entity.Familia;
 
 public interface IFamiliaService {
@@ -10,5 +11,6 @@ public interface IFamiliaService {
 	public Familia save(Familia familia);
 	public Familia updateFamilia(Familia familia);
 	public boolean findByExisteCodigo(Long codigo);
+	public void eliminar(Familia familia);
  
 }

@@ -44,4 +44,11 @@ public class FamiliaService implements IFamiliaService {
 		return false;
 	}
 
+	@Override
+	public void eliminar(Familia familia) {
+		// TODO Auto-generated method stub
+		FamiliaRepository.delete(familia);
+		
+	}
+
 }

@@ -47,9 +47,8 @@ public class NumeracionDocumento implements Serializable {
 	    private Long hastanumero;
 	    private Boolean principal;
 		
-	    
-	  
-
+	    private String tipodedocumento;
+	   
 		@ManyToOne
 		@JoinColumn(name = "codnegocio", insertable = false, updatable = false)
 		private Negocio negocio;
@@ -161,7 +160,13 @@ public class NumeracionDocumento implements Serializable {
 			public void setPrincipal(Boolean principal) {
 				this.principal = principal;
 			}
+			public String getTipodedocumento() {
+				return tipodedocumento;
+			}
 
+			public void setTipodedocumento(String tipodedocumento) {
+				this.tipodedocumento = tipodedocumento;
+			}
 		
 
 }

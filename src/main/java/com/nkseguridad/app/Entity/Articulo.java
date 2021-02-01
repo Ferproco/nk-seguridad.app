@@ -74,7 +74,7 @@ public class Articulo implements Serializable {
 	
 	//private Date fechacreacion;
        
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne()
     @JoinColumn(name = "codfamilia",  insertable = false, updatable = false)
     private Familia familia;
     
@@ -95,6 +95,11 @@ public class Articulo implements Serializable {
 	@JoinColumn(name = "codnegocio", insertable = false, updatable = false)
 	private Negocio negocio;
     
+    
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "articulo_id", referencedColumnName = "id") // El numero de documento de esta entity documentoid
+    private List<Kardex> lstmovimientoskardex;
+
     /*@OneToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name = "codarticulo", referencedColumnName = "id")
 	private List<Kardex> LstKardex = new ArrayList<>();
@@ -155,8 +160,11 @@ public class Articulo implements Serializable {
 	public void setIvaincluido(String ivaincluido) {
 		this.ivaincluido = ivaincluido;
 	}
-    @OneToMany(mappedBy = "articulo", fetch = FetchType.LAZY)
-     private List<DetallesDocumentoVenta> lstdetallesdocumentoventas;
+   /* @OneToMany(mappedBy = "articulo", fetch = FetchType.LAZY)
+     private List<DetallesDocumentoVenta> lstdetallesdocumentoventas;*/
+    
+   /* @OneToMany(mappedBy = "articulo", fetch = FetchType.LAZY)
+    private List<Kardex> lstdetallesdocumentoventas;*/ 
      //Set<DetallesDocumentoVenta> lstdetallesdocumentoventas = new HashSet<DetallesDocumentoVenta>(0);
 
    /* public List<DetallesDocumentoVenta> getLstdetallesdocumentoventas() {
@@ -173,6 +181,14 @@ public class Articulo implements Serializable {
 		this.lstdetallesdocumentoventas = lstdetallesdocumentoventas;
 	}*/
 	
+	public List<Kardex> getLstmovimientoskardex() {
+		return lstmovimientoskardex;
+	}
+
+	public void setLstmovimientoskardex(List<Kardex> lstmovimientoskardex) {
+		this.lstmovimientoskardex = lstmovimientoskardex;
+	}
+
 	public String getDescripcionlarga() {
 		return descripcionlarga;
 	}
@@ -407,6 +423,31 @@ public class Articulo implements Serializable {
 	}
 	public void setCodtipoproducto(long codtipoproducto) {
 		this.codtipoproducto = codtipoproducto;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Articulo other = (Articulo) obj;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
+		return true;
 	}
 	
 	

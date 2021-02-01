@@ -45,7 +45,7 @@ public class Almacen implements Serializable {
 	@Column(name="status",length=10)
 	private String status; 	 
 	
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne
 	@JoinColumn(name = "codnegocio", insertable = false, updatable = false)
 	private Negocio negocio;
 	

@@ -39,7 +39,7 @@ public class Familia implements Serializable{
 	@Column(name = "status")
 	private String status;
 	
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne
 	@JoinColumn(name = "codnegocio", insertable = false, updatable = false)
 	private Negocio negocio;
 	

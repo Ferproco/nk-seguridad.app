@@ -12,4 +12,5 @@ public interface IAlmacenService {
 	public boolean findByExisteCodigo(Long id);	
 	public Almacen findByCodigo(Long id);
 	public void eliminar(Almacen almacen);
+	public void desactivarprincipal();
 }

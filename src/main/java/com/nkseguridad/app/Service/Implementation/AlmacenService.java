@@ -3,6 +3,7 @@ package com.nkseguridad.app.Service.Implementation;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.nkseguridad.app.Entity.Almacen;
@@ -20,8 +21,14 @@ public class AlmacenService implements IAlmacenService {
 	@Override
 	public List<Almacen> findAll() {
 		// TODO Auto-generated method stub
-		return (List<Almacen>)almacenRepository.findAll();
+		Sort defaultSort = createStaticSort();
+		return (List<Almacen>)almacenRepository.findAllOrderBy(defaultSort);
 	}
+	
+	public Sort createStaticSort() {
+        String[] arrayOrdre = {"nombre"};
+        return  Sort.by(arrayOrdre);
+        }
 
 	@Override
 	public Almacen save(Almacen almacen) {
@@ -45,6 +52,12 @@ public class AlmacenService implements IAlmacenService {
 	public void eliminar(Almacen almacen) {
 		// TODO Auto-generated method stub
 		almacenRepository.delete(almacen);
+	}
+
+	@Override
+	public void desactivarprincipal() {
+		// TODO Auto-generated method stub
+		almacenRepository.desactivarprincipal();
 	}
 
 

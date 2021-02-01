@@ -25,8 +25,8 @@ public class DetallesDocumentoVenta implements Serializable {
 	    @Column(name = "id")
 		private Long id;
 	 	private Long codnegocio;	 	
-	 	@Column(name = "documento_id")
-	    private Long documento_id;	 	
+	 	@Column(name = "detallev_id")
+	    private Long detallev_id;	 	
 	    private Long codarticulo;	    
 	    private Long codimpuesto;	    
 	    private Long codunidadmedida;
@@ -92,13 +92,16 @@ public class DetallesDocumentoVenta implements Serializable {
 		}
 
 
-		public Long getDocumento_id() {
-			return documento_id;
+		
+
+
+		public Long getDetallev_id() {
+			return detallev_id;
 		}
 
 
-		public void setDocumento_id(Long documento_id) {
-			this.documento_id = documento_id;
+		public void setDetallev_id(Long detallev_id) {
+			this.detallev_id = detallev_id;
 		}
 
 

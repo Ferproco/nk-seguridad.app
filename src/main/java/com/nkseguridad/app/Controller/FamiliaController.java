@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.nkseguridad.app.Entity.Almacen;
 import com.nkseguridad.app.Entity.Familia;
 import com.nkseguridad.app.Service.IFamiliaService;
 
@@ -41,9 +43,9 @@ public class FamiliaController {
 		}
 	}
 	
-	@GetMapping("familia/{codfamilia}")
-	public ResponseEntity<?> BuscarPorCodigo(@PathVariable(name = "codfamilia") Long codfamilia) {
-		Familia Familia = FamiliaService.findByCodigo(codfamilia);
+	@GetMapping("familia/{id}")
+	public ResponseEntity<?> BuscarPorCodigo(@PathVariable(name = "id") Long id) {
+		Familia Familia = FamiliaService.findByCodigo(id);
 		if (Familia != null) {
 			return new ResponseEntity<>(Familia, HttpStatus.OK);
 		} else {
@@ -53,12 +55,38 @@ public class FamiliaController {
 
 	@PostMapping("familia")
 	public ResponseEntity<?> GuardarFamilia(@RequestBody Familia familia) {
-		if (!FamiliaService.findByExisteCodigo(familia.getCodfamilia())) {
-			Familia FamiliaObj = FamiliaService.save(familia);
-			return new ResponseEntity<>(FamiliaObj, HttpStatus.CREATED);
-		} else {
+		Familia familiaOut;
+		try {
+			if (familia != null) {
+				
+				Familia familiaupdate = FamiliaService.findByCodigo(familia.getCodfamilia());
+				if (familiaupdate != null) {
+					familiaupdate.setCodnegocio(familia.getCodnegocio());
+					familiaupdate.setNomfamilia(familia.getNomfamilia());
+					familiaupdate.setStatus(familia.getStatus());
+					
+					familiaOut = FamiliaService.save(familiaupdate);
+					
+				} 
+				else {
+					familiaOut = FamiliaService.save(familia);
+				}	
+				
+				if (familiaOut!=null) {
+					return new ResponseEntity<>(familiaOut, HttpStatus.OK);
+				}
+				else {
+					return new ResponseEntity<Void>(HttpStatus.CONFLICT);
+				}
+			}
+			else {
+				return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
+			}
+			
+		}catch (Exception e) {
 			return new ResponseEntity<Void>(HttpStatus.CONFLICT);
 		}
+
 
 	}
 
@@ -80,5 +108,22 @@ public class FamiliaController {
 		}
 	}
 
+	@DeleteMapping("familia/{id}")
+	public ResponseEntity<Void> BorrarFamilia(@PathVariable(name = "id") Long id){
 
+		try {
+			Familia familiaUpdate = FamiliaService.findByCodigo(id);
+			if (familiaUpdate!=null) {
+				FamiliaService.eliminar(familiaUpdate);
+				return new ResponseEntity<Void>(HttpStatus.OK);
+			}
+			else {
+				return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
+			}
+			
+		}
+		catch(Exception m) {
+			return new ResponseEntity<Void>(HttpStatus.CONFLICT);
+		}
+	}
 }

@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.nkseguridad.app.Entity.DocumentoVenta;
 import com.nkseguridad.app.Entity.NumeracionDocumento;
 import com.nkseguridad.app.Service.INumeracionDocumentoService;
 
@@ -44,7 +45,7 @@ public class NumeracionDocumentoController {
 	}
 	@GetMapping("numeraciondocumento/{id}")
 	public ResponseEntity<?> BuscarNumeracionporID(@PathVariable(name = "id") Long id){
-		NumeracionDocumento LstNumeracionDocumentos = numeraciondocumentoServicio.findByIdnumeraciondocumento(id);
+		NumeracionDocumento LstNumeracionDocumentos = numeraciondocumentoServicio.findByCodigo(id);
 		if (LstNumeracionDocumentos!=null) {
 				return new ResponseEntity<>(LstNumeracionDocumentos,HttpStatus.OK);
 			
@@ -73,6 +74,7 @@ public class NumeracionDocumentoController {
 				numeraciondocumentoUpdate.setProximonumerodocumento(numeraciondocumento.getProximonumerodocumento());
 				numeraciondocumentoUpdate.setResolucion(numeraciondocumento.getResolucion());
 				numeraciondocumentoUpdate.setStatus(numeraciondocumento.getStatus());
+				numeraciondocumentoUpdate.setTipodedocumento(numeraciondocumento.getTipodedocumento());
 				
 				numeraciondocumentoOut = numeraciondocumentoServicio.save(numeraciondocumentoUpdate);
 								
@@ -111,7 +113,7 @@ public class NumeracionDocumentoController {
 		}
 	}
 
-	@GetMapping("numeraciondocumento/{codtipodocumento,principal}")
+	/*@GetMapping("numeraciondocumento/{codtipodocumento,principal}")
 	public ResponseEntity<?> BuscarNumeracionXTipoDocumentoPrincipal(@PathVariable(name = "codtipodocumento, principal") Long codtipodocumento, boolean principal){
 		NumeracionDocumento NumeracionDocumentosObj = numeraciondocumentoServicio.findByCodtipodocumentoandPrincipalSQL(codtipodocumento,principal);
 		if (NumeracionDocumentosObj!=null) {
@@ -122,6 +124,19 @@ public class NumeracionDocumentoController {
 				return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
 			}
 			
+	}*/
+	
+	@GetMapping("numeraciondocumento/tipo/{tipodedocumento}")
+	public ResponseEntity<?> ListarNumeracionDocumentosPorTipo(@PathVariable(name = "tipodedocumento") String tipodedocumento){
+		List<NumeracionDocumento> LstNumeracionDocumentos = numeraciondocumentoServicio.findByTipodedocumento(tipodedocumento);
+		if (LstNumeracionDocumentos!=null) {
+			if (LstNumeracionDocumentos.size()!=0) 
+				return new ResponseEntity<>(LstNumeracionDocumentos,HttpStatus.OK);			
+			else 
+				return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);		
+		}
+		else 
+			return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);	
 	}
 	
 }

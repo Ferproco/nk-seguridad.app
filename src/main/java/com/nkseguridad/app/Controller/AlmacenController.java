@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.nkseguridad.app.Entity.Almacen;
+import com.nkseguridad.app.Entity.Articulo;
 import com.nkseguridad.app.Entity.FormaPago;
 import com.nkseguridad.app.Entity.Impuesto;
 import com.nkseguridad.app.Service.IAlmacenService;
@@ -46,10 +47,40 @@ public class AlmacenController {
 	}
 	@PostMapping("almacen")
 	public ResponseEntity<?> GuardarAlmacen(@RequestBody Almacen almacen) {
-		if (!almacenServicio.findByExisteCodigo(almacen.getIdalmacen())) {
-			Almacen AlmacenObj = almacenServicio.save(almacen);
-			return new ResponseEntity<>(AlmacenObj, HttpStatus.CREATED);
-		} else {
+		Almacen almacenOut;
+		try {
+			if (almacen != null) {
+				if (almacen.getPrincipal()) {
+					almacenServicio.desactivarprincipal();
+				}
+				Almacen almacenupdate = almacenServicio.findByCodigo(almacen.getIdalmacen());
+				if (almacenupdate != null) {
+					almacenupdate.setCodalmacen(almacen.getCodalmacen());
+					almacenupdate.setCodnegocio(almacen.getCodnegocio());
+					almacenupdate.setDireccion(almacen.getDireccion());
+					almacenupdate.setNombre(almacen.getNombre());
+					almacenupdate.setPrincipal(almacen.getPrincipal());
+					almacenupdate.setStatus(almacen.getStatus());
+					almacenupdate.setTipoalmacen(almacen.getTipoalmacen());
+					almacenOut = almacenServicio.save(almacenupdate);
+					
+				} 
+				else {
+					almacenOut = almacenServicio.save(almacen);
+				}	
+				
+				if (almacenOut!=null) {
+					return new ResponseEntity<>(almacenOut, HttpStatus.OK);
+				}
+				else {
+					return new ResponseEntity<Void>(HttpStatus.CONFLICT);
+				}
+			}
+			else {
+				return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
+			}
+			
+		}catch (Exception e) {
 			return new ResponseEntity<Void>(HttpStatus.CONFLICT);
 		}
 
@@ -67,7 +98,7 @@ public class AlmacenController {
 	}
 
 	@DeleteMapping("almacen/{id}")
-	public ResponseEntity<Void> BorrarFormPago(@PathVariable(name = "id") Long id){
+	public ResponseEntity<Void> BorrarAlmacen(@PathVariable(name = "id") Long id){
 
 		try {
 			Almacen almacenUpdate = almacenServicio.findByCodigo(id);

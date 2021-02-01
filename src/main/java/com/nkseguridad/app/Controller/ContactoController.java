@@ -122,34 +122,6 @@ public class ContactoController {
 		}	
 	}
 	
-	/*
-	 * 
-	 * public ResponseEntity<?> GuardarFormaPago(@RequestBody FormaPago formaPago) {
-		FormaPago formaPagoOut;
-		try {
-			FormaPago formaPagoUpdate = FormaPagoService.findByCodigo(formaPago.getId());
-			if (formaPagoUpdate!=null) {
-				formaPagoUpdate.setCodnegocio(formaPago.getCodnegocio());
-				formaPagoUpdate.setNombre(formaPago.getNombre());				
-				formaPagoUpdate.setDias(formaPago.getDias());				
-				formaPagoUpdate.setStatus(formaPago.getStatus());	
-				formaPagoOut= FormaPagoService.save(formaPagoUpdate);
-			} 
-			else {
-				formaPagoOut= FormaPagoService.save(formaPago);				
-			}
-			if (formaPagoOut!=null) {
-				return new ResponseEntity<>(formaPagoOut, HttpStatus.OK);
-			}
-			else {
-				return new ResponseEntity<Void>(HttpStatus.CONFLICT);
-			}
-		} 
-		catch (Exception m) {
-			System.out.print("Error guardando "+m);
-			
-			return new ResponseEntity<Void>(HttpStatus.CONFLICT);
-		}*/
 	
 	@DeleteMapping("contacto/{id}")
 	public ResponseEntity<Void> BorrarContacto(@PathVariable(name = "id") Long id){
