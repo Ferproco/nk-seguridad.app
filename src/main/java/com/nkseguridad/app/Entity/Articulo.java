@@ -99,6 +99,20 @@ public class Articulo implements Serializable {
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "articulo_id", referencedColumnName = "id") // El numero de documento de esta entity documentoid
     private List<Kardex> lstmovimientoskardex;
+    
+  
+
+	@OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "articulo_id", referencedColumnName = "id") // El numero de documento de esta entity documentoid
+    private List<UnidadMedidaAlterna> lstunidadesalternas;
+	  
+	public List<UnidadMedidaAlterna> getLstunidadesalternas() {
+			return lstunidadesalternas;
+		}
+
+		public void setLstunidadesalternas(List<UnidadMedidaAlterna> lstunidadesalternas) {
+			this.lstunidadesalternas = lstunidadesalternas;
+		}
 
     /*@OneToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name = "codarticulo", referencedColumnName = "id")

@@ -94,6 +94,8 @@ import com.nkseguridad.app.Service.IArticuloService;
 				articuloUpdate.setValorimpoconsumo(articulo.getValorimpoconsumo());  
 				articuloUpdate.setTipoiva(articulo.getTipoiva());
 				articuloUpdate.setIvaincluido(articulo.getIvaincluido());
+				articuloUpdate.setLstmovimientoskardex(articulo.getLstmovimientoskardex());
+				articuloUpdate.setLstunidadesalternas(articulo.getLstunidadesalternas());
 		
 				articuloOut=articuloServicio.save(articuloUpdate);
 			}

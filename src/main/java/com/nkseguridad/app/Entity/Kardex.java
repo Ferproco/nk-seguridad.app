@@ -32,8 +32,9 @@ public class Kardex implements Serializable  {
 	  
 	  @Column(name = "articulo_id")
 	  private Long articulo_id;
+	 
 	  
-	  @Column(name="tipo",length=10)
+	 @Column(name="tipo",length=10)
 	  private String tipo;
 	  
 	  @Column(name="fecha")
@@ -82,36 +83,47 @@ public class Kardex implements Serializable  {
 	  @Column(name="status",length=10)
 	  private String status;
 	  
+	  public Kardex() {			
+			
+		}
+	  
 	 
 	@ManyToOne()
 	  @JoinColumn(name = "codunidadmedida",  insertable = false, updatable = false)
 	  private Unidadmedida unidadmedida;
 	    		    
-	  @ManyToOne()
+	  /*@ManyToOne()
       @JoinColumn(name = "codnegocio", insertable = false, updatable = false)
 	  private Negocio negocio;
-	 
+	 */
 	  @ManyToOne()
 	  @JoinColumn(name = "codalmacen",  insertable = false, updatable = false)
 	  private Almacen almacen;
 	  
-	  /*@ManyToOne()
-	  @JoinColumn(name = "articulo_id",  insertable = false, updatable = false)
-	  private Articulo articulo;*/
-	  
-	  /*@ManyToOne()
-	  @JoinColumn(name = "codarticulo",  insertable = false, updatable = false)
-	  private Articulo articulo;*/
-	  
+	 /* @ManyToOne()
+      @JoinColumn(name = "articulo_id", insertable = false, updatable = false)*/
+	  private Articulo articulo;
+	
 	  /*@ManyToOne()
 	  @JoinColumn(name = "codunidadalterna",  insertable = false, updatable = false)
 	  private UnidadMedidaAlterna unidadmedidaalterna;*/
-
 	
 
-	
+	  public Long getArticulo_id() {
+			return articulo_id;
+		}
 
-	
+		public void setArticulo_id(Long articulo_id) {
+			this.articulo_id = articulo_id;
+		}
+
+	public Articulo getArticulo() {
+		return articulo;
+	}
+
+	public void setArticulo(Articulo articulo) {
+		this.articulo = articulo;
+	}
 
 	public Long getId() {
 		return id;
@@ -123,13 +135,13 @@ public class Kardex implements Serializable  {
 
 	
 	
-	public Long getArticulo_id() {
+	/*public Long getArticulo_id() {
 		return articulo_id;
 	}
 
 	public void setArticulo_id(Long articulo_id) {
 		this.articulo_id = articulo_id;
-	}
+	}*/
 
 	public Long getDocumento_id() {
 		return documento_id;
@@ -269,13 +281,13 @@ public class Kardex implements Serializable  {
 		this.unidadmedida = unidadmedida;
 	}
 
-	public Negocio getNegocio() {
+	/*public Negocio getNegocio() {
 		return negocio;
 	}
 
 	public void setNegocio(Negocio negocio) {
 		this.negocio = negocio;
-	}
+	}*/
 
 	public Almacen getAlmacen() {
 		return almacen;
@@ -293,7 +305,7 @@ public class Kardex implements Serializable  {
 		this.articulo = articulo;
 	}*/
 
-	/*public UnidadMedidaAlterna getUnidadmedidaalterna() {
+/*	public UnidadMedidaAlterna getUnidadmedidaalterna() {
 		return unidadmedidaalterna;
 	}
 
@@ -302,11 +314,12 @@ public class Kardex implements Serializable  {
 	}*/
 	  
 	 public String getStatus() {
-			return status;
+		 return status;
 		}
 
 		public void setStatus(String status) {
 			this.status = status;
 		}
 
+		
 }

@@ -23,21 +23,41 @@ public class UnidadMedidaAlterna implements Serializable {
 	 @GeneratedValue(strategy = GenerationType.IDENTITY)
 	 @Column(name = "id")
      private Long id;
-	 private Long codunidadmedida;
-	 private Long codarticulo;
-	 private Double valorcoversion;
+	 private Long codunidadmedidaalterna;
+	 private Long articulo_id;
+	 private Double valorconversion;
 	 private Long codnegocio;
 	 private Long codunidadminima;
 	 
 	    @ManyToOne()
-	    @JoinColumn(name = "codunidadmedida",  insertable = false, updatable = false)
+	    @JoinColumn(name = "codunidadmedidaalterna",  insertable = false, updatable = false)
 	    private Unidadmedida unidadmedida;
 	    
-	    @ManyToOne()
-	    @JoinColumn(name = "codarticulo",  insertable = false, updatable = false)
-	    private Articulo articulo;
 	    
-	    public Long getId() {
+	    @ManyToOne()
+	    @JoinColumn(name = "codnegocio", insertable = false, updatable = false)
+	    private Negocio negocio;
+	   /* @ManyToOne()
+	    @JoinColumn(name = "articulo_id",  insertable = false, updatable = false)
+	    private Articulo articulo;*/
+	    
+	    public Long getCodunidadmedidaalterna() {
+			return codunidadmedidaalterna;
+		}
+
+		public void setCodunidadmedidaalterna(Long codunidadmedidaalterna) {
+			this.codunidadmedidaalterna = codunidadmedidaalterna;
+		}
+
+		public Long getArticulo_id() {
+			return articulo_id;
+		}
+
+		public void setArticulo_id(Long articulo_id) {
+			this.articulo_id = articulo_id;
+		}
+
+		public Long getId() {
 			return id;
 		}
 
@@ -45,28 +65,14 @@ public class UnidadMedidaAlterna implements Serializable {
 			this.id = id;
 		}
 
-		public Long getCodunidadmedida() {
-			return codunidadmedida;
+		
+
+		public Double getValorconversion() {
+			return valorconversion;
 		}
 
-		public void setCodunidadmedida(Long codunidadmedida) {
-			this.codunidadmedida = codunidadmedida;
-		}
-
-		public Long getCodarticulo() {
-			return codarticulo;
-		}
-
-		public void setCodarticulo(Long codarticulo) {
-			this.codarticulo = codarticulo;
-		}
-
-		public Double getValorcoversion() {
-			return valorcoversion;
-		}
-
-		public void setValorcoversion(Double valorcoversion) {
-			this.valorcoversion = valorcoversion;
+		public void setValorconversion(Double valorconversion) {
+			this.valorconversion = valorconversion;
 		}
 
 		public Long getCodnegocio() {
@@ -93,14 +99,7 @@ public class UnidadMedidaAlterna implements Serializable {
 			this.unidadmedida = unidadmedida;
 		}
 
-		public Articulo getArticulo() {
-			return articulo;
-		}
-
-		public void setArticulo(Articulo articulo) {
-			this.articulo = articulo;
-		}
-
+		
 		public Negocio getNegocio() {
 			return negocio;
 		}
@@ -109,7 +108,5 @@ public class UnidadMedidaAlterna implements Serializable {
 			this.negocio = negocio;
 		}
 
-		@ManyToOne()
-		@JoinColumn(name = "codnegocio", insertable = false, updatable = false)
-		private Negocio negocio;
+	
 }
