@@ -29,16 +29,15 @@ public class KardexController {
 	private IKardexService IKardexService;
 	
 	@Autowired
-	private IArticuloService IArticuloService;
-
+	private IArticuloService IarticuloService;
+	
 	@GetMapping("kardex")
 	public ResponseEntity<?> ListarMovimientos() {
 		List<Kardex> LstKardex = IKardexService.findAll();
-		List<Kardex> lstKardexOut= new ArrayList<>();
 		if (LstKardex != null) {
 			if (LstKardex.size() != 0) {
 				List<MKardex> LstMapperKardex = new ArrayList<>();
-				LstMapperKardex = Mapper.convertirKardex(LstKardex);
+				LstMapperKardex = Mapper.convertirKardex(LstKardex, IarticuloService);
 				return new ResponseEntity<>(LstMapperKardex, HttpStatus.OK);
 			} 
 			else

@@ -17,11 +17,8 @@ import com.nkseguridad.app.Entity.Kardex;
 import com.nkseguridad.app.Entity.Unidadmedida;
 import com.nkseguridad.app.Service.IArticuloService;
 
-public class MKardex {
-
+public class MKardex implements Serializable {
 	
-	@Autowired
-	private IArticuloService IArticuloService;
 	
 	private Long id;
 	private Long documento_id;
@@ -105,7 +102,8 @@ public class MKardex {
 		this.status = kardexIn.getStatus();
 		this.unidadmedida = kardexIn.getUnidadmedida();
 		this.almacen = kardexIn.getAlmacen();
-		this.articulo = IArticuloService.findById(kardexIn.getArticulo_id());
+		this.articulo = kardexIn.getArticulo();
+		
 	}
 
 
