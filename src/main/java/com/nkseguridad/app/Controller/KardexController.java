@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.nkseguridad.app.Entity.Articulo;
 import com.nkseguridad.app.Entity.Kardex;
+import com.nkseguridad.app.Mapper.Mapper;
+import com.nkseguridad.app.Model.MKardex;
 import com.nkseguridad.app.Service.IArticuloService;
 import com.nkseguridad.app.Service.IKardexService;
 
@@ -35,12 +37,9 @@ public class KardexController {
 		List<Kardex> lstKardexOut= new ArrayList<>();
 		if (LstKardex != null) {
 			if (LstKardex.size() != 0) {
-				for (Kardex kardex : LstKardex) {
-					Articulo articulo = this.IArticuloService.findById(kardex.getArticulo_id());
-					//kardex.setArticulo(articulo);
-					//lstKardexOut.add(kardex);
-				}
-				return new ResponseEntity<>(LstKardex, HttpStatus.OK);
+				List<MKardex> LstMapperKardex = new ArrayList<>();
+				LstMapperKardex = Mapper.convertirKardex(LstKardex);
+				return new ResponseEntity<>(LstMapperKardex, HttpStatus.OK);
 			} 
 			else
 				return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);

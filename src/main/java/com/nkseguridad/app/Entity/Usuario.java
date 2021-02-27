@@ -22,6 +22,7 @@ public class Usuario implements Serializable {
 
 	/**
 	 * 
+	 * 
 	 */
 	private static final long serialVersionUID = -5536417225533826957L;
 	@Id
