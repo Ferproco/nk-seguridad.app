@@ -37,7 +37,11 @@ public class KardexController {
 		if (LstKardex != null) {
 			if (LstKardex.size() != 0) {
 				List<MKardex> LstMapperKardex = new ArrayList<>();
-				LstMapperKardex = Mapper.convertirKardex(LstKardex, IarticuloService);
+				for (Kardex kardex: LstKardex) {
+					MKardex kardexmapper = Mapper.convertirKardex(kardex);
+					kardexmapper.setArticulo(IarticuloService.findById(kardex.getArticulo_id()));
+					LstMapperKardex.add(kardexmapper);
+				}				
 				return new ResponseEntity<>(LstMapperKardex, HttpStatus.OK);
 			} 
 			else

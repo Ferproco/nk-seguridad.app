@@ -102,7 +102,7 @@ public class Kardex implements Serializable  {
 	  
 	 /* @ManyToOne()
       @JoinColumn(name = "articulo_id", insertable = false, updatable = false)*/
-	  private Articulo articulo;
+	  //private Articulo articulo;
 	
 	  /*@ManyToOne()
 	  @JoinColumn(name = "codunidadalterna",  insertable = false, updatable = false)
@@ -117,13 +117,13 @@ public class Kardex implements Serializable  {
 			this.articulo_id = articulo_id;
 		}
 
-	public Articulo getArticulo() {
+	/*public Articulo getArticulo() {
 		return articulo;
 	}
 
 	public void setArticulo(Articulo articulo) {
 		this.articulo = articulo;
-	}
+	}*/
 
 	public Long getId() {
 		return id;

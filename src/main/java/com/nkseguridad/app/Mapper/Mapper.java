@@ -14,21 +14,8 @@ import com.nkseguridad.app.Service.IArticuloService;
 public class Mapper {
 	
 	
-	
-	public static List<MKardex> convertirKardex(List<Kardex> kadexList, IArticuloService IarticuloService){
-		
-		List<MKardex> lstKardexMapper = new ArrayList<>();
-		for (Kardex kardex: kadexList) {
-			try {
-				kardex.setArticulo(IarticuloService.findById(kardex.getArticulo_id()));
-			}
-			catch(Exception e){
-				System.out.print(e);
-			}
-			lstKardexMapper.add(new MKardex(kardex));
-		}
-		return lstKardexMapper;
-		
+	public static MKardex convertirKardex(Kardex kardex){		
+		return new MKardex(kardex);		
 	}
 
 }

@@ -2,22 +2,12 @@ package com.nkseguridad.app.Model;
 
 import java.util.Date;
 
-import javax.persistence.Column;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-
 import com.nkseguridad.app.Entity.Almacen;
 import com.nkseguridad.app.Entity.Articulo;
 import com.nkseguridad.app.Entity.Kardex;
 import com.nkseguridad.app.Entity.Unidadmedida;
-import com.nkseguridad.app.Service.IArticuloService;
 
-public class MKardex implements Serializable {
+public class MKardex {
 	
 	
 	private Long id;
@@ -102,7 +92,7 @@ public class MKardex implements Serializable {
 		this.status = kardexIn.getStatus();
 		this.unidadmedida = kardexIn.getUnidadmedida();
 		this.almacen = kardexIn.getAlmacen();
-		this.articulo = kardexIn.getArticulo();
+		//this.articulo = kardexIn.getArticulo();
 		
 	}
 
