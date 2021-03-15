@@ -20,6 +20,7 @@ import com.nkseguridad.app.Entity.Articulo;
 import com.nkseguridad.app.Entity.Cliente;
 import com.nkseguridad.app.Entity.Contacto;
 import com.nkseguridad.app.Entity.Impuesto;
+import com.nkseguridad.app.Model.ArticuloFilterKardex;
 import com.nkseguridad.app.Service.IArticuloService;
 
  @RestController
@@ -142,6 +143,18 @@ import com.nkseguridad.app.Service.IArticuloService;
 			
 		}
 		catch(Exception m) {
+			return new ResponseEntity<Void>(HttpStatus.CONFLICT);
+		}		
+	}
+	
+	@PostMapping("transacciones/articulos")
+	public ResponseEntity<?> ListarArticulosTransacciones(@RequestBody ArticuloFilterKardex filterarticulo) {
+		Articulo articuloOut;
+		try {
+				
+			return new ResponseEntity<>(filterarticulo,HttpStatus.OK);
+			
+		}catch (Exception e) {
 			return new ResponseEntity<Void>(HttpStatus.CONFLICT);
 		}
 		
