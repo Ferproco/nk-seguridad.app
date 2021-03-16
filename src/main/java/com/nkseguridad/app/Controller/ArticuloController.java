@@ -16,14 +16,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.nkseguridad.app.Entity.Almacen;
 import com.nkseguridad.app.Entity.Articulo;
-import com.nkseguridad.app.Entity.Cliente;
-import com.nkseguridad.app.Entity.Contacto;
-import com.nkseguridad.app.Entity.Impuesto;
-import com.nkseguridad.app.Entity.Kardex;
 import com.nkseguridad.app.Mapper.Mapper;
-import com.nkseguridad.app.Mapper.MapperArticuloKardex;
 import com.nkseguridad.app.Model.ArticuloFilterKardex;
 import com.nkseguridad.app.Model.MArticuloKardex;
 import com.nkseguridad.app.Model.MKardex;
@@ -162,7 +156,7 @@ import com.nkseguridad.app.Service.IArticuloService;
 				if (LstArticulos.size()!=0) {
 					List<MArticuloKardex> LstMapperArticuloKardex = new ArrayList<>();
 					for (Articulo articulo: LstArticulos) {
-						MArticuloKardex articulokardexmapper = MapperArticuloKardex.convertirArticuloKardex(articulo);
+						MArticuloKardex articulokardexmapper = Mapper.convertirArticuloKardex(articulo);
 						LstMapperArticuloKardex.add(articulokardexmapper);
 					}	
 					return new ResponseEntity<>(LstMapperArticuloKardex,HttpStatus.OK);	

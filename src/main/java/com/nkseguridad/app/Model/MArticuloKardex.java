@@ -34,6 +34,17 @@ public class MArticuloKardex {
 		this.costo = 0.0;
 		this.costototal = 0.0;
 		this.lstmovimientoskardex = articuloIn.getLstmovimientoskardex();
+		
+		Double acumentrada = 0.0;
+		for (Kardex kardex: this.lstmovimientoskardex) {
+			if (kardex.getCantidad() >= 0) {
+				this.entrada += kardex.getCantidad(); 
+			}
+			else {
+				this.salida += kardex.getCantidad() * (-1); 
+			}
+		}
+		this.saldo = this.entrada - this.salida;
 	}
 
 	public Long getId() {

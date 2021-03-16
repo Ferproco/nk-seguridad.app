@@ -18,7 +18,7 @@ public interface IArticuloRepository extends CrudRepository<Articulo,Long> {
 	
 	//SELECT DISTINCT p FROM Department d JOIN d.employees e JOIN e.projects p
 	//@Query("select ar from Articulo a JOIN a.lstmovimientoskardex ar")
-	@Query("Select a from Articulo a inner join Kardex k on a.id=k.articulo_id")
+	@Query("Select DISTINCT a from Articulo a inner join Kardex k on a.id=k.articulo_id")
 	public List<Articulo> findAllFilterProducto();
 	
 }
