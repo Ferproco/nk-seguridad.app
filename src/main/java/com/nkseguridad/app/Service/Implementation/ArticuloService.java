@@ -9,6 +9,8 @@ import org.springframework.stereotype.Service;
 import com.nkseguridad.app.Entity.Articulo;
 import com.nkseguridad.app.Entity.Cliente;
 import com.nkseguridad.app.Entity.Contacto;
+import com.nkseguridad.app.Entity.Kardex;
+import com.nkseguridad.app.Model.ArticuloFilterKardex;
 import com.nkseguridad.app.Repository.IArticuloRepository;
 import com.nkseguridad.app.Service.IArticuloService;
 
@@ -62,6 +64,13 @@ public class ArticuloService implements IArticuloService {
 	public Articulo findById(Long id) {
 		// TODO Auto-generated method stub
 		return articuloRepository.findById(id).orElse(null);
+	}
+
+	@Override
+	public List<Articulo> findAllFilterProducto(ArticuloFilterKardex ObjFilter) {
+		// TODO Auto-generated method stub
+		List<Articulo> list = articuloRepository.findAllFilterProducto();
+		return list;
 	}
 
 		

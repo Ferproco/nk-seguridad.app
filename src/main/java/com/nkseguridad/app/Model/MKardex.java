@@ -1,7 +1,6 @@
 package com.nkseguridad.app.Model;
 
 import java.util.Date;
-
 import com.nkseguridad.app.Entity.Almacen;
 import com.nkseguridad.app.Entity.Articulo;
 import com.nkseguridad.app.Entity.Kardex;

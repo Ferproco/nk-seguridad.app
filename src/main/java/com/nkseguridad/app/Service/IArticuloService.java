@@ -8,6 +8,7 @@ import com.nkseguridad.app.Entity.Almacen;
 import com.nkseguridad.app.Entity.Articulo;
 import com.nkseguridad.app.Entity.Contacto;
 import com.nkseguridad.app.Entity.Impuesto;
+import com.nkseguridad.app.Model.ArticuloFilterKardex;
 
 public interface IArticuloService {
  
@@ -18,4 +19,6 @@ public interface IArticuloService {
 	public Articulo findByCodigo(String codigo);
 	public void eliminar(Articulo articulo);
 	public Articulo findById(Long id);
+	
+	public List<Articulo> findAllFilterProducto(ArticuloFilterKardex ObjFilter);
 }
