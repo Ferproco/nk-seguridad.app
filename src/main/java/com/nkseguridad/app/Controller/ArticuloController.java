@@ -66,6 +66,7 @@ import com.nkseguridad.app.Service.IArticuloService;
 	@PostMapping("articulo")
 	public ResponseEntity<?> GuardarArticulos(@RequestBody Articulo articulo) {
 		Articulo articuloOut;
+		System.out.print("Articulo enviado" + articulo.toString());
 		try {
 			Articulo articuloUpdate = articuloServicio.findByCodigo(articulo.getCodigo());
 			
@@ -95,6 +96,8 @@ import com.nkseguridad.app.Service.IArticuloService;
 				articuloUpdate.setValorimpoconsumo(articulo.getValorimpoconsumo());  
 				articuloUpdate.setTipoiva(articulo.getTipoiva());
 				articuloUpdate.setIvaincluido(articulo.getIvaincluido());
+				
+				articuloUpdate.setLstmovimientoskardex(null);
 				articuloUpdate.setLstmovimientoskardex(articulo.getLstmovimientoskardex());
 				articuloUpdate.setLstunidadesalternas(articulo.getLstunidadesalternas());
 		

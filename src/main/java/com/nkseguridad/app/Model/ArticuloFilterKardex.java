@@ -1,26 +1,33 @@
 package com.nkseguridad.app.Model;
+import java.time.LocalDateTime;
+import org.springframework.format.annotation.DateTimeFormat;
 
 public class ArticuloFilterKardex {
 
 	private Long tipo;
-	private String fechadesde;
-	private String fechahasta;
+	
+	@DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME, pattern = "yyyy-MM-dd")
+	private LocalDateTime fechadesde;	
+	 
+	@DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME, pattern = "yyyy-MM-dd")
+	private LocalDateTime fechahasta;
+	
 	public Long getTipo() {
 		return tipo;
 	}
 	public void setTipo(Long tipo) {
 		this.tipo = tipo;
 	}
-	public String getFechadesde() {
+	public LocalDateTime getFechadesde() {
 		return fechadesde;
 	}
-	public void setFechadesde(String fechadesde) {
+	public void setFechadesde(LocalDateTime fechadesde) {
 		this.fechadesde = fechadesde;
 	}
-	public String getFechahasta() {
+	public LocalDateTime getFechahasta() {
 		return fechahasta;
 	}
-	public void setFechahasta(String fechahasta) {
+	public void setFechahasta(LocalDateTime fechahasta) {
 		this.fechahasta = fechahasta;
 	}
 	

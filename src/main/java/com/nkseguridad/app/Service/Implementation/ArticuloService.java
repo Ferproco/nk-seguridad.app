@@ -1,15 +1,12 @@
 package com.nkseguridad.app.Service.Implementation;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.nkseguridad.app.Entity.Articulo;
-import com.nkseguridad.app.Entity.Cliente;
-import com.nkseguridad.app.Entity.Contacto;
-import com.nkseguridad.app.Entity.Kardex;
 import com.nkseguridad.app.Model.ArticuloFilterKardex;
 import com.nkseguridad.app.Repository.IArticuloRepository;
 import com.nkseguridad.app.Service.IArticuloService;
@@ -69,7 +66,25 @@ public class ArticuloService implements IArticuloService {
 	@Override
 	public List<Articulo> findAllFilterProducto(ArticuloFilterKardex ObjFilter) {
 		// TODO Auto-generated method stub
-		List<Articulo> list = articuloRepository.findAllFilterProducto();
+		SimpleDateFormat formater = new SimpleDateFormat("dd-MM-yyyy");
+		Date desdee= null;
+		Date hastaa = null;
+		try {
+			//System.out.println("La fecha como entro " + ObjFilter.getFechadesde());
+			//desdee = formater.parse(ObjFilter.getFechadesde());
+			//System.out.println("que es esto " + formater.parse(ObjFilter.getFechadesde()).getTime());
+			//hastaa = formater.parse(ObjFilter.getFechahasta());
+			
+			System.out.println("La nueva conversion "+ formater.format(desdee));
+			
+		
+			
+		}
+		catch(Exception g) {
+			
+		}
+		System.out.print("La fecha como salio " + ObjFilter.getFechadesde() + " hasta " + ObjFilter.getFechahasta());
+		List<Articulo> list = articuloRepository.findAllFilterProducto(ObjFilter.getFechadesde(), ObjFilter.getFechahasta());
 		return list;
 	}
 

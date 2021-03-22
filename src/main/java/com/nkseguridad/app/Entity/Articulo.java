@@ -53,7 +53,10 @@ public class Articulo implements Serializable {
     @Column(name="status",length=10)
     private String status;
 	private Double preciosugerido;
+	
+	@Column(name="codnegocio")
 	private Long codnegocio;
+	
 	@Column(name="descripcionlarga",length=200)
 	private String descripcionlarga;
 	private Double stockminimo;
@@ -61,6 +64,8 @@ public class Articulo implements Serializable {
 	private Double cantidadreorden;	
 	private Double peso;
 	private Double talla;
+	
+	@Column(name="color")
 	private String color;
 	private String tipoiva;
 	private String esimpoconsumo;
@@ -462,6 +467,22 @@ public class Articulo implements Serializable {
 		} else if (!id.equals(other.id))
 			return false;
 		return true;
+	}
+
+	@Override
+	public String toString() {
+		return "Articulo [id=" + id + ", codigo=" + codigo + ", nomarticulo=" + nomarticulo + ", codmarca=" + codmarca
+				+ ", codfamilia=" + codfamilia + ", codunidadmedida=" + codunidadmedida + ", codimpuesto=" + codimpuesto
+				+ ", codtipoproducto=" + codtipoproducto + ", codigobarraprincipal=" + codigobarraprincipal
+				+ ", serial=" + serial + ", referencia=" + referencia + ", status=" + status + ", preciosugerido="
+				+ preciosugerido + ", codnegocio=" + codnegocio + ", descripcionlarga=" + descripcionlarga
+				+ ", stockminimo=" + stockminimo + ", stockmaximo=" + stockmaximo + ", cantidadreorden="
+				+ cantidadreorden + ", peso=" + peso + ", talla=" + talla + ", color=" + color + ", tipoiva=" + tipoiva
+				+ ", esimpoconsumo=" + esimpoconsumo + ", valorimpoconsumo=" + valorimpoconsumo
+				+ ", porcentajeimpoconsumo=" + porcentajeimpoconsumo + ", ivaincluido=" + ivaincluido + ", familia="
+				+ familia + ", marca=" + marca + ", unidadmedida=" + unidadmedida + ", impuesto=" + impuesto
+				+ ", negocio=" + negocio + ", lstmovimientoskardex=" + lstmovimientoskardex + ", lstunidadesalternas="
+				+ lstunidadesalternas + "]";
 	}
 	
 	
