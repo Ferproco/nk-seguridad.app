@@ -69,22 +69,21 @@ public class ArticuloService implements IArticuloService {
 		SimpleDateFormat formater = new SimpleDateFormat("dd-MM-yyyy");
 		Date desdee= null;
 		Date hastaa = null;
-		try {
-			//System.out.println("La fecha como entro " + ObjFilter.getFechadesde());
-			//desdee = formater.parse(ObjFilter.getFechadesde());
-			//System.out.println("que es esto " + formater.parse(ObjFilter.getFechadesde()).getTime());
-			//hastaa = formater.parse(ObjFilter.getFechahasta());
-			
+		List<Articulo> list = null;
+		try {			
 			System.out.println("La nueva conversion "+ formater.format(desdee));
-			
-		
-			
 		}
 		catch(Exception g) {
 			
 		}
 		System.out.print("La fecha como salio " + ObjFilter.getFechadesde() + " hasta " + ObjFilter.getFechahasta());
-		List<Articulo> list = articuloRepository.findAllFilterProducto(ObjFilter.getFechadesde(), ObjFilter.getFechahasta());
+		if (ObjFilter.getCodalmacen() <= 0) {
+			list = articuloRepository.findAllFilterProducto(ObjFilter.getFechadesde(), ObjFilter.getFechahasta());
+		}
+		else {
+			list = articuloRepository.findAllFilterProductoPorAlmacen(ObjFilter.getFechadesde(), ObjFilter.getFechahasta(), ObjFilter.getCodalmacen());
+		}
+		
 		return list;
 	}
 

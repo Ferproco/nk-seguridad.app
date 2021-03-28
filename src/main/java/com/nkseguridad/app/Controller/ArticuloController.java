@@ -17,11 +17,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.nkseguridad.app.Entity.Articulo;
+import com.nkseguridad.app.Entity.Kardex;
 import com.nkseguridad.app.Mapper.Mapper;
 import com.nkseguridad.app.Model.ArticuloFilterKardex;
 import com.nkseguridad.app.Model.MArticuloKardex;
 import com.nkseguridad.app.Model.MKardex;
+import com.nkseguridad.app.Service.IAlmacenService;
 import com.nkseguridad.app.Service.IArticuloService;
+import com.nkseguridad.app.Service.IKardexService;
 
  @RestController
  @CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE})
@@ -31,6 +34,12 @@ import com.nkseguridad.app.Service.IArticuloService;
 
 	@Autowired
 	private IArticuloService articuloServicio;
+	
+	@Autowired
+	private IKardexService kardexServicio;
+	
+	@Autowired
+	private IAlmacenService almacenServicio;
 	
 	@GetMapping("articulo")
 	public ResponseEntity<?> ListarArticulos(){
@@ -152,16 +161,24 @@ import com.nkseguridad.app.Service.IArticuloService;
 	
 	@PostMapping("transacciones/articulos")
 	public ResponseEntity<?> ListarArticulosTransacciones(@RequestBody ArticuloFilterKardex filterarticulo) {
-		Articulo articuloOut;
 		try {
+			System.out.println("el filtro trae " + filterarticulo.toString());
 			List<Articulo> LstArticulos = articuloServicio.findAllFilterProducto(filterarticulo);
 			if (LstArticulos!=null) {
 				if (LstArticulos.size()!=0) {
 					List<MArticuloKardex> LstMapperArticuloKardex = new ArrayList<>();
 					for (Articulo articulo: LstArticulos) {
 						MArticuloKardex articulokardexmapper = Mapper.convertirArticuloKardex(articulo);
+						System.out.print(articulokardexmapper);
+						filterarticulo.setArticulo_id(articulokardexmapper.getId());
+						List<Kardex> LstKardexArticulos = kardexServicio.findAllMovimientosInventario(filterarticulo);
+						for (Kardex kardex: LstKardexArticulos) {
+							kardex.setAlmacen(almacenServicio.findByCodigo(kardex.getCodalmacen()));
+						}
+						articulokardexmapper.setLstmovimientoskardex(LstKardexArticulos);
 						LstMapperArticuloKardex.add(articulokardexmapper);
-					}	
+					}
+					
 					return new ResponseEntity<>(LstMapperArticuloKardex,HttpStatus.OK);	
 				}							
 				else 
