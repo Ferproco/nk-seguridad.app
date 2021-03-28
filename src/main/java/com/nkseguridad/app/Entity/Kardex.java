@@ -289,14 +289,7 @@ public class Kardex implements Serializable  {
 		this.negocio = negocio;
 	}*/
 
-	public Almacen getAlmacen() {
-		return almacen;
-	}
-
-	public void setAlmacen(Almacen almacen) {
-		this.almacen = almacen;
-	}
-
+	
 	/*public Articulo getArticulo() {
 		return articulo;
 	}
@@ -319,6 +312,14 @@ public class Kardex implements Serializable  {
 
 		public void setStatus(String status) {
 			this.status = status;
+		}
+
+		public Almacen getAlmacen() {
+			return almacen;
+		}
+
+		public void setAlmacen(Almacen almacen) {
+			this.almacen = almacen;
 		}
 
 		
