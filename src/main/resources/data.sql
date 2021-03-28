@@ -17,9 +17,11 @@ insert into tipodocumento(nombre,codnegocio,status,nombrelogicodocumento)values(
 insert into tipodocumento(nombre,codnegocio,status,nombrelogicodocumento)values('Recibo de Caja', 1,'ACTIVO','recibocaja');
 insert into tipodocumento(nombre,codnegocio,status,nombrelogicodocumento)values('Comprabante de Caja', 1,'ACTIVO','comprobantecaja');
 insert into tipodocumento(nombre,codnegocio,status,nombrelogicodocumento)values('Cotizacion', 1,'ACTIVO','cotizacion');
+insert into tipodocumento(nombre,codnegocio,status,nombrelogicodocumento)values('Factura de Compra', 1,'ACTIVO','facturacompra');
 insert into tipodocumento(nombre,codnegocio,status,nombrelogicodocumento)values('Orden de Compra', 1,'ACTIVO','ordencompra');
 insert into tipodocumento(nombre,codnegocio,status,nombrelogicodocumento)values('Remision',1,'ACTIVO','remision');
 insert into numeraciondocumento(codnegocio,codtipodocumento,desdenumero,hastanumero,nombre,prefijo,proximonumerodocumento,resolucion,status) values(1,1,0,0,'Factura de Venta','',1,'','ACTIVO');
+insert into numeraciondocumento(codnegocio,codtipodocumento,desdenumero,hastanumero,nombre,prefijo,proximonumerodocumento,resolucion,status) values(1,7,0,0,'Factura de Compra','',1,'','ACTIVO');
 insert into numeraciondocumento(codnegocio,codtipodocumento,desdenumero,hastanumero,nombre,prefijo,proximonumerodocumento,resolucion,status) values(1,2,0,0,'Nota de Credito','',1,'','ACTIVO');
 insert into tipoidentificacion(codigo,nombre) values('11','RC - Registro Civil de Nacimiento');
 insert into tipoidentificacion(codigo,nombre) values('12','TI - Tarjeta de Identidad');

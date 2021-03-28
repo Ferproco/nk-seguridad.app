@@ -31,8 +31,7 @@ public class Kardex implements Serializable  {
 	  private Long documento_id;
 	  
 	  @Column(name = "articulo_id")
-	  private Long articulo_id;
-	 
+	  private Long articulo_id;	 
 	  
 	 @Column(name="tipo",length=10)
 	  private String tipo;
@@ -150,8 +149,6 @@ public class Kardex implements Serializable  {
 	public void setDocumento_id(Long documento_id) {
 		this.documento_id = documento_id;
 	}
-
-
 
 	public String getTipo() {
 		return tipo;
