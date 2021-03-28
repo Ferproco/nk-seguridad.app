@@ -8,5 +8,5 @@ import com.nkseguridad.app.Entity.DetallesDocumentoCompra;
 
 public interface IDetallesDocumentoCompraRepository extends CrudRepository<DetallesDocumentoCompra, Long>{
 
-	List<DetallesDocumentoCompra> findByCoddocumentocompra(Long coddocumentocompra);
+	//List<DetallesDocumentoCompra> findByCoddocumentocompra(Long coddocumentocompra);
 }
