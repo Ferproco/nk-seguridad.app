@@ -72,7 +72,8 @@ public class DocumentoCompraController {
 		try {
 			DocumentoCompra documentoUpdate =  documentocompraService.findByNumerodocumento(documento.getNumerodocumento());
 			if (documentoUpdate != null) {
-				documentoUpdate.setBaseimp(documento.getBaseimp());
+				return new ResponseEntity<Void>(HttpStatus.FOUND);	
+				/*documentoUpdate.setBaseimp(documento.getBaseimp());
 			    documentoUpdate.setCodcontacto(documento.getCodcontacto());
 				documentoUpdate.setCodformapago(documento.getCodformapago());
 				documentoUpdate.setCodnegocio(documento.getCodnegocio());
@@ -98,7 +99,7 @@ public class DocumentoCompraController {
 				documentoUpdate.setTipodocumento(documento.getTipodocumento());
 				
 				
-				documentoOut = documentocompraService.save(documentoUpdate);
+				documentoOut = documentocompraService.save(documentoUpdate);*/
 			}
 			else {
 				documentoOut = documentocompraService.save(documento);

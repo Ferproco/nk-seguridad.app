@@ -23,10 +23,10 @@ public class DetallesDocumentoCompraService implements IDetallesDocumentoCompraS
 		return (List<DetallesDocumentoCompra>)detallesdocumentocompraRepository.findAll();
 	}
 
-	@Override
+	/*@Override
 	public List<DetallesDocumentoCompra> findByCoddocumentocompra(Long coddocumentocompra) {
 		// TODO Auto-generated method stub
 		return (List<DetallesDocumentoCompra>)detallesdocumentocompraRepository.findByCoddocumentocompra(coddocumentocompra);
-	}
+	}*/
 
 }
