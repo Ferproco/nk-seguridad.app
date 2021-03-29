@@ -30,7 +30,12 @@ public class Kardex implements Serializable  {
 	  @Column(name = "documento_id")
 	  private Long documento_id;
 	  
-	  @Column(name = "articulo_id")
+	  @Column(name = "documentoc_id")
+	  private Long documentoc_id;
+	  
+	 
+
+	@Column(name = "articulo_id")
 	  private Long articulo_id;	 
 	  
 	 @Column(name="tipo",length=10)
@@ -116,13 +121,7 @@ public class Kardex implements Serializable  {
 			this.articulo_id = articulo_id;
 		}
 
-	/*public Articulo getArticulo() {
-		return articulo;
-	}
-
-	public void setArticulo(Articulo articulo) {
-		this.articulo = articulo;
-	}*/
+	
 
 	public Long getId() {
 		return id;
@@ -134,13 +133,14 @@ public class Kardex implements Serializable  {
 
 	
 	
-	/*public Long getArticulo_id() {
-		return articulo_id;
-	}
+	 public Long getDocumentoc_id() {
+			return documentoc_id;
+		}
 
-	public void setArticulo_id(Long articulo_id) {
-		this.articulo_id = articulo_id;
-	}*/
+		public void setDocumentoc_id(Long documentoc_id) {
+			this.documentoc_id = documentoc_id;
+		}
+
 
 	public Long getDocumento_id() {
 		return documento_id;
