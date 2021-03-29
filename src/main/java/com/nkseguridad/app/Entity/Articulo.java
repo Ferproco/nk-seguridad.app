@@ -35,13 +35,13 @@ public class Articulo implements Serializable {
 	private String codigo;
 	@Column(name="nomarticulo",length=120)
 	private String nomarticulo;
-    @Column(name="codmarca")
+    @Column(name="codmarca", nullable = true)
 	private Long codmarca;
     @Column(name="codfamilia")
 	private Long codfamilia;
     @Column(name="codunidadmedida")
     private Long codunidadmedida;
-    @Column(name="codimpuesto")
+    @Column(name="codimpuesto", nullable = true)
     private Long codimpuesto;
     private long codtipoproducto;
     @Column(name="codigobarraprincipal",length=50)

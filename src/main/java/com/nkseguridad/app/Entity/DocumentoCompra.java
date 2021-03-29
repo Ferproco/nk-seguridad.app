@@ -73,8 +73,7 @@ public class DocumentoCompra implements Serializable {
     
     @ManyToOne()
 	@JoinColumn(name = "codvendedor", insertable = false, updatable = false)
-	private Vendedor vendedor;
-    
+	private Vendedor vendedor;    
     
     @ManyToOne()
 	@JoinColumn(name = "codcontacto", insertable = false, updatable = false)
