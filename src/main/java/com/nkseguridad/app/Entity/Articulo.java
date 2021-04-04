@@ -35,6 +35,7 @@ public class Articulo implements Serializable {
 	private String codigo;
 	@Column(name="nomarticulo",length=120)
 	private String nomarticulo;
+	
     @Column(name="codmarca", nullable = true)
 	private Long codmarca;
     @Column(name="codfamilia")
