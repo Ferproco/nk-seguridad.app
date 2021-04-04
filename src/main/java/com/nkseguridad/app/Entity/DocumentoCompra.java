@@ -84,7 +84,7 @@ public class DocumentoCompra implements Serializable {
     private List<DetallesDocumentoCompra> lstdetallesdocumentocompras;
     
     @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "documento_id", referencedColumnName = "documentoid") // El numero de documento de esta entity documentoid
+    @JoinColumn(name = "documentoc_id", referencedColumnName = "documentoid") // El numero de documento de esta entity documentoid
     private List<Kardex> lstmovimientoskardex;
 
 

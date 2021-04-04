@@ -30,9 +30,18 @@ public class Kardex implements Serializable  {
 	  @Column(name = "documento_id")
 	  private Long documento_id;
 	  
-	  @Column(name = "articulo_id")
-	  private Long articulo_id;	 
+	  @Column(name = "documentoc_id", nullable = true)
+	  private Long documentoc_id;
 	  
+	  @Column(name = "codcontacto")
+	  private Long codcontacto;	 
+		  
+
+	@Column(name = "articulo_id")
+	 private Long articulo_id;	 
+	  
+	
+	
 	 @Column(name="tipo",length=10)
 	  private String tipo;
 	  
@@ -86,7 +95,9 @@ public class Kardex implements Serializable  {
 			
 		}
 	  
-	 
+	
+
+
 	@ManyToOne()
 	  @JoinColumn(name = "codunidadmedida",  insertable = false, updatable = false)
 	  private Unidadmedida unidadmedida;
@@ -99,6 +110,10 @@ public class Kardex implements Serializable  {
 	  @JoinColumn(name = "codalmacen",  insertable = false, updatable = false)
 	  private Almacen almacen;
 	  
+	 
+	  @ManyToOne()
+	  @JoinColumn(name = "codcontacto",  insertable = false, updatable = false)
+	  private Contacto contacto;
 	 /* @ManyToOne()
       @JoinColumn(name = "articulo_id", insertable = false, updatable = false)*/
 	  //private Articulo articulo;
@@ -108,7 +123,23 @@ public class Kardex implements Serializable  {
 	  private UnidadMedidaAlterna unidadmedidaalterna;*/
 	
 
-	  public Long getArticulo_id() {
+	  public Long getCodcontacto() {
+		return codcontacto;
+	}
+
+	public void setCodcontacto(Long codcontacto) {
+		this.codcontacto = codcontacto;
+	}
+
+	public Contacto getContacto() {
+		return contacto;
+	}
+
+	public void setContacto(Contacto contacto) {
+		this.contacto = contacto;
+	}
+
+	public Long getArticulo_id() {
 			return articulo_id;
 		}
 
@@ -116,13 +147,7 @@ public class Kardex implements Serializable  {
 			this.articulo_id = articulo_id;
 		}
 
-	/*public Articulo getArticulo() {
-		return articulo;
-	}
-
-	public void setArticulo(Articulo articulo) {
-		this.articulo = articulo;
-	}*/
+	
 
 	public Long getId() {
 		return id;
@@ -134,13 +159,14 @@ public class Kardex implements Serializable  {
 
 	
 	
-	/*public Long getArticulo_id() {
-		return articulo_id;
-	}
+	 public Long getDocumentoc_id() {
+			return documentoc_id;
+		}
 
-	public void setArticulo_id(Long articulo_id) {
-		this.articulo_id = articulo_id;
-	}*/
+		public void setDocumentoc_id(Long documentoc_id) {
+			this.documentoc_id = documentoc_id;
+		}
+
 
 	public Long getDocumento_id() {
 		return documento_id;
