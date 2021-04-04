@@ -30,14 +30,18 @@ public class Kardex implements Serializable  {
 	  @Column(name = "documento_id")
 	  private Long documento_id;
 	  
-	  @Column(name = "documentoc_id")
+	  @Column(name = "documentoc_id", nullable = true)
 	  private Long documentoc_id;
 	  
-	 
+	  @Column(name = "codcontacto")
+	  private Long codcontacto;	 
+		  
 
 	@Column(name = "articulo_id")
-	  private Long articulo_id;	 
+	 private Long articulo_id;	 
 	  
+	
+	
 	 @Column(name="tipo",length=10)
 	  private String tipo;
 	  
@@ -91,7 +95,9 @@ public class Kardex implements Serializable  {
 			
 		}
 	  
-	 
+	
+
+
 	@ManyToOne()
 	  @JoinColumn(name = "codunidadmedida",  insertable = false, updatable = false)
 	  private Unidadmedida unidadmedida;
@@ -104,6 +110,10 @@ public class Kardex implements Serializable  {
 	  @JoinColumn(name = "codalmacen",  insertable = false, updatable = false)
 	  private Almacen almacen;
 	  
+	 
+	  @ManyToOne()
+	  @JoinColumn(name = "codcontacto",  insertable = false, updatable = false)
+	  private Contacto contacto;
 	 /* @ManyToOne()
       @JoinColumn(name = "articulo_id", insertable = false, updatable = false)*/
 	  //private Articulo articulo;
@@ -113,7 +123,23 @@ public class Kardex implements Serializable  {
 	  private UnidadMedidaAlterna unidadmedidaalterna;*/
 	
 
-	  public Long getArticulo_id() {
+	  public Long getCodcontacto() {
+		return codcontacto;
+	}
+
+	public void setCodcontacto(Long codcontacto) {
+		this.codcontacto = codcontacto;
+	}
+
+	public Contacto getContacto() {
+		return contacto;
+	}
+
+	public void setContacto(Contacto contacto) {
+		this.contacto = contacto;
+	}
+
+	public Long getArticulo_id() {
 			return articulo_id;
 		}
 
