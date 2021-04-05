@@ -25,7 +25,7 @@ insert into numeraciondocumento(codnegocio,codtipodocumento,desdenumero,hastanum
 insert into numeraciondocumento(codnegocio,codtipodocumento,desdenumero,hastanumero,nombre,prefijo,proximonumerodocumento,resolucion,status) values(1,2,0,0,'Nota de Credito','',1,'','ACTIVO');
 insert into tipoidentificacion(codigo,nombre) values('11','RC - Registro Civil de Nacimiento');
 insert into tipoidentificacion(codigo,nombre) values('12','TI - Tarjeta de Identidad');
-insert into tipoidentificacion(codigo,nombre) values('13','CE - Cedula de Ciudadania'); 
+insert into tipoidentificacion(codigo,nombre) values('13','CC - Cedula de Ciudadania'); 
 insert into tipoidentificacion(codigo,nombre) values('21',' TE - Tarjeta de Extranjeria');
 insert into tipoidentificacion(codigo,nombre) values('22','CE - Cedula de Extranjeria');
 insert into tipoidentificacion(codigo,nombre) values('31','NIT - Numero de Identificacion');
