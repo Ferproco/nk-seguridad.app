@@ -16,9 +16,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.nkseguridad.app.Entity.Almacen;
-import com.nkseguridad.app.Entity.Articulo;
-import com.nkseguridad.app.Entity.FormaPago;
-import com.nkseguridad.app.Entity.Impuesto;
 import com.nkseguridad.app.Service.IAlmacenService;
 
 

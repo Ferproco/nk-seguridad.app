@@ -7,6 +7,7 @@ public interface INegocioService {
 
 	public List<Negocio> findAll();
 	public Negocio findByCodigo(String codnegocio);
+	public Negocio findById(Long id);
 	public Negocio save(Negocio negocio);
 	public boolean findByExisteCodigo(Negocio negocio);
 	public Negocio updaNegocio(Negocio negocio);

@@ -35,13 +35,13 @@ public class Negocio implements Serializable{
 	@Column(name = "email", nullable = true, length = 120)
 	private String email;
 	
-	@Column(name = "telefono2" ,nullable = true, length = 20)
+	@Column(name = "telefonomovil" ,nullable = true, length = 20)
 	private String telefonomovil;
 	
 	@Column(name = "web", nullable = true, length = 120)
 	private String web;
 	
-	private Byte[] imagen;
+	private String imagen;
 	
 	@Column(name = "mascaracontable", nullable = true, length = 25)
 	private String mascaracontable;
@@ -49,10 +49,18 @@ public class Negocio implements Serializable{
 	@Column(name = "contribuyente", nullable = false, length = 2)
 	private String contribuyente;
 	
-	@Column(name = "status", nullable = false, length = 10)
-	private String status;
-
+	private boolean habilitado;
 	
+	private Long cantidadusuario;
+	
+	private Long tiempocierresesion;
+
+	private String dominio;
+	
+	private String ip;
+	
+	private Long puerto;
+
 	public Long getIdnegocio() {
 		return idnegocio;
 	}
@@ -117,11 +125,11 @@ public class Negocio implements Serializable{
 		this.web = web;
 	}
 
-	public Byte[] getImagen() {
+	public String getImagen() {
 		return imagen;
 	}
 
-	public void setImagen(Byte[] imagen) {
+	public void setImagen(String imagen) {
 		this.imagen = imagen;
 	}
 
@@ -141,12 +149,54 @@ public class Negocio implements Serializable{
 		this.contribuyente = contribuyente;
 	}
 
-	public String getStatus() {
-		return status;
+	public boolean isHabilitado() {
+		return habilitado;
 	}
 
-	public void setStatus(String status) {
-		this.status = status;
+	public void setHabilitado(boolean habilitado) {
+		this.habilitado = habilitado;
 	}
 
+	public Long getCantidadusuario() {
+		return cantidadusuario;
+	}
+
+	public void setCantidadusuario(Long cantidadusuario) {
+		this.cantidadusuario = cantidadusuario;
+	}
+
+	public Long getTiempocierresesion() {
+		return tiempocierresesion;
+	}
+
+	public void setTiempocierresesion(Long tiempocierresesion) {
+		this.tiempocierresesion = tiempocierresesion;
+	}
+
+	public String getDominio() {
+		return dominio;
+	}
+
+	public void setDominio(String dominio) {
+		this.dominio = dominio;
+	}
+
+	public String getIp() {
+		return ip;
+	}
+
+	public void setIp(String ip) {
+		this.ip = ip;
+	}
+
+	public Long getPuerto() {
+		return puerto;
+	}
+
+	public void setPuerto(Long puerto) {
+		this.puerto = puerto;
+	}
+	
+	
+	
 }

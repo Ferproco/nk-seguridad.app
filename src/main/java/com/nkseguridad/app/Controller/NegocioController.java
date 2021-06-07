@@ -53,6 +53,18 @@ public class NegocioController {
 		}
 	}
 	
+	@GetMapping("negocio/buscarid/{id}")
+	public ResponseEntity<?> ObtenerNegocioById(@PathVariable(name = "id") Long id){
+		
+		Negocio ObjNegocio = NegocioService.findById(id);
+		if (ObjNegocio!=null) {
+			return new ResponseEntity<>(ObjNegocio, HttpStatus.OK);
+		}
+		else {
+			return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
+		}
+	}
+	
 	@PostMapping("negocio")
 	public ResponseEntity<?> GuardarNegocio(@RequestBody Negocio negocio){
 		if (!NegocioService.findByExisteCodigo(negocio)) {

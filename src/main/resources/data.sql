@@ -1,4 +1,4 @@
-INSERT INTO public.negocio(codnegocio, contribuyente, direccion, email, imagen, mascaracontable, nombre, status, telefono, telefono2, web) VALUES ('406080195', 'Si', 'Carrera 58B # 58 P-22', '', '', '', 'Nk-System Consultores', 'ACTIVO', '', '', '');
+INSERT INTO public.negocio(codnegocio, contribuyente, direccion, email, imagen, mascaracontable, nombre, habilitado, telefono, telefonomovil, web, cantidadusuario, tiempocierresesion, dominio, ip, puerto) VALUES ('406080195', 'Si', 'Carrera 58B # 58 P-22', '', '', '', 'Nk-System Consultores', true, '', '', '', 3, 15, '', '', 0);
 insert into tipoimpuesto(nombretipoimpuesto,codnegocio,status) values('IVA',1,'ACTIVO');
 insert into tipoimpuesto(nombretipoimpuesto,codnegocio,status) values('RTICA',1,'ACTIVO');
 insert into tipocontacto(nombre) values('Cliente');

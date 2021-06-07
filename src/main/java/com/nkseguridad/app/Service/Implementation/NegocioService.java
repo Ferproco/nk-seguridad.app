@@ -39,5 +39,11 @@ public class NegocioService implements INegocioService {
 		// TODO Auto-generated method stub
 		return NegocioRepository.save(negocio);
 	}
+	@Override
+	public Negocio findById(Long id) {
+		// TODO Auto-generated method stub
+		return NegocioRepository.findNegocioById(id);
+	}
+	
 
 }
