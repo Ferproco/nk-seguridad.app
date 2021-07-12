@@ -18,8 +18,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.nkseguridad.app.Entity.Rol;
 import com.nkseguridad.app.Service.IRolService;
 
-
-
 @RestController
 @CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE})
 @RequestMapping("/api")

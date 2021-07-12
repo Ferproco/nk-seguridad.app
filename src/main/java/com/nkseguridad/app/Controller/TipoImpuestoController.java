@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.nkseguridad.app.Entity.FormaPago;
+import com.nkseguridad.app.Entity.Impuesto;
 import com.nkseguridad.app.Entity.Ruta;
 import com.nkseguridad.app.Entity.TipoImpuesto;
 import com.nkseguridad.app.Service.ITipoImpuestoService;
@@ -47,20 +48,24 @@ public class TipoImpuestoController {
 	}
 	@PostMapping("tipoimpuesto")
 	public ResponseEntity<?> GuardarTipoImpuesto(@RequestBody TipoImpuesto tipoimpuesto) {
+		TipoImpuesto TipoimpuestoOut;
 		try {
 			TipoImpuesto TipoImpuestoUpdate = tipoimpuestoServicio.findByIdTipoImppuesto(tipoimpuesto.getId());
 			if (TipoImpuestoUpdate!=null) {
-				return new ResponseEntity<Void>(HttpStatus.FOUND);
+				TipoImpuestoUpdate.setNombretipoimpuesto(tipoimpuesto.getNombretipoimpuesto());
+				TipoImpuestoUpdate.setStatus(tipoimpuesto.getStatus());
+				TipoImpuestoUpdate.setCodnegocio(tipoimpuesto.getCodnegocio());
+				
+				TipoimpuestoOut = tipoimpuestoServicio.save(TipoImpuestoUpdate);
 			} 
 			else {				
-				TipoImpuesto TipoImpuestoOut= tipoimpuestoServicio.save(tipoimpuesto);
-				if (TipoImpuestoOut!=null) {
-					return new ResponseEntity<>(TipoImpuestoOut, HttpStatus.OK);
-				}
-				else {
-					return new ResponseEntity<Void>(HttpStatus.CONFLICT);
-				}
-				
+				TipoimpuestoOut = tipoimpuestoServicio.save(tipoimpuesto);			
+			}
+			if (TipoimpuestoOut!=null) {
+				return new ResponseEntity<>(TipoimpuestoOut, HttpStatus.OK);
+			}
+			else {
+				return new ResponseEntity<Void>(HttpStatus.CONFLICT);
 			}
 		} 
 		catch (Exception m) {
@@ -78,6 +83,7 @@ public class TipoImpuestoController {
 			return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
 		}
 	}
+
 
 	@DeleteMapping("tipoimpuesto/{id}")
 	public ResponseEntity<Void> BorrarTipoImpuesto(@PathVariable(name = "id") Long id){

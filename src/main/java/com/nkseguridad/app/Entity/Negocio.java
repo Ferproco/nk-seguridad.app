@@ -1,6 +1,7 @@
 package com.nkseguridad.app.Entity;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,6 +9,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 @Table(name = "negocio", schema = "public")
@@ -60,6 +63,14 @@ public class Negocio implements Serializable{
 	private String ip;
 	
 	private Long puerto;
+	
+	@Column(name = "creadoel")
+	@Temporal(TemporalType.DATE)
+	private Date creadoel;
+
+	@Column(name = "actualizadoel", nullable = true)
+	@Temporal(TemporalType.DATE)
+	private Date actualizadoel;
 
 	public Long getIdnegocio() {
 		return idnegocio;
@@ -195,6 +206,22 @@ public class Negocio implements Serializable{
 
 	public void setPuerto(Long puerto) {
 		this.puerto = puerto;
+	}
+
+	public Date getCreadoel() {
+		return creadoel;
+	}
+
+	public void setCreadoel(Date creadoel) {
+		this.creadoel = creadoel;
+	}
+
+	public Date getActualizadoel() {
+		return actualizadoel;
+	}
+
+	public void setActualizadoel(Date actualizadoel) {
+		this.actualizadoel = actualizadoel;
 	}
 	
 	

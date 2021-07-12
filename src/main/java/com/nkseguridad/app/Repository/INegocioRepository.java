@@ -11,4 +11,7 @@ public interface INegocioRepository extends CrudRepository<Negocio, String> {
 
 	@Query(value = "Select * from public.negocio e WHERE e.idnegocio = :empresaid", nativeQuery = true)
 	public Negocio findNegocioById(@Param("empresaid") Long id);
+	
+	@Query(value = "Select * from public.negocio e WHERE e.codnegocio = :codnegocio", nativeQuery = true)
+	public Negocio findNegocioByCodNegocio(@Param("codnegocio") String codnegocio);
 }

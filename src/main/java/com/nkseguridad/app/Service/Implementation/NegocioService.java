@@ -30,9 +30,9 @@ public class NegocioService implements INegocioService {
 		return NegocioRepository.save(negocio);
 	}
 	@Override
-	public boolean findByExisteCodigo(Negocio negocio) {
+	public Negocio findByExisteCodigo(Negocio negocio) {
 		// TODO Auto-generated method stub
-		return NegocioRepository.existsById(negocio.getCodnegocio());
+		return NegocioRepository.findNegocioByCodNegocio(negocio.getCodnegocio());
 	}
 	@Override
 	public Negocio updaNegocio(Negocio negocio) {
@@ -43,6 +43,12 @@ public class NegocioService implements INegocioService {
 	public Negocio findById(Long id) {
 		// TODO Auto-generated method stub
 		return NegocioRepository.findNegocioById(id);
+	}
+	@Override
+	public void eliminar(Negocio negocio) {
+		// TODO Auto-generated method stub
+		NegocioRepository.delete(negocio);
+		
 	}
 	
 
