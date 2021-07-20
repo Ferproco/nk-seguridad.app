@@ -25,8 +25,6 @@ public class Contacto  implements Serializable {
 	@Column(name="id")
 	private Long id;	
 	
-    //private Long codgrupo;
-    
     @Column(name="codvendedor")
     private Long codvendedor;
     
